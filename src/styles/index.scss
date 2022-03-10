@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "Inter";
+    font-weight: 400;
+    src: url("../fonts/Inter-Regular.ttf") format("opentype");
+}
+@font-face {
+    font-family: "Inter";
+    font-weight: 700;
+    src: url("../fonts/Inter-Bold.ttf") format("opentype");
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100%;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    // background-color: var(--teal-light);
+}
+input, button {
+    font-family: inherit;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit
+}
+html {
+    height: 100%;
+}
+#___gatsby {
+    height: 100%;
+}
+#gatsby-focus-wrapper {
+    height: 100%;
+}

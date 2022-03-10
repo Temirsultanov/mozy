@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-      title: `new`,
+    title: `Mozy`,
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: ["gatsby-plugin-sass"]

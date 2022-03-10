@@ -1,0 +1,40 @@
+@import "/src/components/common/_variables.scss";
+
+.social-link {
+    position: relative;
+
+    width: 120px;
+    height: 120px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    border: 1px solid $orange;
+
+    &:hover {
+        border-color: $teal;
+    }
+    &:hover path {
+        fill: $teal;
+    }
+    &::before {
+        position: absolute;
+        top: -15px;
+        left: -15px;
+        z-index: -1;
+    
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: $orange;
+        transform: scale(0);
+    
+        content: "";
+        transition: transform .3s $timing-function;   
+    }
+    &:hover::before {
+        transform: scale(1);
+    }
+}
