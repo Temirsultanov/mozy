@@ -1,4 +1,5 @@
-import * as React from "react"
+import * as React from "react";
+
 import Contacts from "../components/Contacts/index.js";
 import HeroPage from "../components/HeroPage/index.js";
 import "/src/styles/index.scss";
