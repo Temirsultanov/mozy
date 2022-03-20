@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import {contacts, contacts__wrapper, socialMedia, content, title, subtitle, form, input as inputStyle, inputWrapper, inputMessageWrapper, submitButtonWrapper, title__outer, title__inner, subtitle__inner, socialMediaLink as socialMediaLinkStyle, closeButton as closeButtonStyle} from "./style.module.scss"; // похоже на плохой код
+import {contacts, contactsHidden, contacts__wrapper, socialMedia, content, title, subtitle, form, input as inputStyle, inputWrapper, inputMessageWrapper, submitButtonWrapper, title__outer, title__inner, subtitle__inner, socialMediaLink as socialMediaLinkStyle, closeButton as closeButtonStyle} from "./style.module.scss"; // похоже на плохой код
 
 import SocialMediaLink from "./SocialMediaLink/index.js";
 import Input from "./Input/index.js";
@@ -26,11 +26,17 @@ const links = [
     },
 ]
 
-const Contacts = ({style}) => {
+const Contacts = ({isContactsHidden, setContactsHiddenState}) => {
+    let contactsClassName;
+    if (isContactsHidden) {
+        contactsClassName = `${contacts} ${contactsHidden}`
+    } else {
+        contactsClassName = `${contacts}`;
+    }
     return (
-        <section style={style} className={contacts} >
+        <section className={contactsClassName} >
             <div className={contacts__wrapper}>
-                <CloseButton className={closeButtonStyle}></CloseButton>
+                <CloseButton className={closeButtonStyle} setContactsHiddenState={setContactsHiddenState}></CloseButton>
                 <div className={content}>
                     <h2 className={`animation-text ${title}`}>
                         <span className={title__outer}>

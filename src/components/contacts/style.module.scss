@@ -50,6 +50,11 @@
         transform: none;
     }
 }
+.contactsHidden {
+    display: none;
+    visibility: hidden;
+    pointer-events: none;
+}
 .contacts__wrapper {
     position: absolute;
     top: 0;
@@ -155,7 +160,7 @@
     flex: 30%;
 }
 .input {
-    transform: translateY(102%); // возможно, стоит сделать 100% + 1px, или просто 100%, но проблема в том, что border выглядывает
+    transform: translateY(120%);
     animation: formElement $input-duration $input-delay $input-timing-function forwards;
 }
 @keyframes formElement {

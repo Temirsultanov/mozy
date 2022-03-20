@@ -7,14 +7,14 @@ import ContactButton from "./ContactButton/index.js";
 
 import {grid, grid__item, title, hint, contactButton, picture, picture__text, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
 
-const HeroPageInfo = ({className}) => {
+const HeroPageInfo = ({className, setContactsHiddenState}) => {
     return (
         <div className={`${className} ${grid}`}>
             <div className={grid__item}>
                 <Logo></Logo>
                 <h1 className={title}>Соединяем идеи и&nbsp;технологии</h1>
                 <Hint className={hint}></Hint>
-                <ContactButton className={contactButton}></ContactButton>
+                <ContactButton className={contactButton} setContactsHiddenState={setContactsHiddenState}></ContactButton>
             </div>
             <div className={grid__item}>
                 <StaticImage className={picture} src="../../../images/girl_on_bicycle.jpg" alt="Techno picture"/>
