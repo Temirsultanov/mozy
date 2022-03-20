@@ -1,0 +1,85 @@
+@import "/src/components/common/_variables.scss";
+
+.input-wrapper {
+    position: relative;
+}
+.input {
+    width: 100%;
+    height: 100%;
+    padding: 23px 15px;
+
+    border: 1px solid $orange;
+    outline: none;
+
+    background-color: transparent;
+    color: $white;
+
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: border 0.3s $timing-function;
+
+    &:hover {
+        border-color: $white;
+    }
+    &:focus {
+        border-color: $white;
+    }
+}
+.input:-webkit-autofill, .input:-webkit-autofill:hover, .input:-webkit-autofill:focus, .input:-webkit-autofill:active {
+    box-shadow: 0 0 0 50px $teal inset !important;
+    -webkit-text-fill-color: $white !important;
+}
+
+.label {
+    width: fit-content;
+    padding: 0 10px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    background-color: $teal;    
+    color: $orange;
+    
+    font-size: 18px;
+    
+    transform: translate(-50%, -50%);
+    transform-origin: 0 0;
+    pointer-events: none;
+
+    transition: 0.3s $timing-function;
+}
+.input:hover + .label {
+    color: $white;
+}
+.input:focus + .label, .input_filled + .label {
+    top: 0;
+    left: 0;
+
+    color: $white;
+    transform: translate(10px, -40%) scale(0.8);
+}
+
+textarea.input {
+    resize: none;   
+}
+
+@media (max-width: $tablet2) {
+    .input {
+        padding: 19px 12px;
+    }
+}
+@media (max-width: $tablet) {
+    .input {
+        padding: 16px 5px;
+    }      
+}
+@media (max-width: $mobile) {
+    .input {
+        font-size: 14px;
+    }  
+    .label {
+        font-size: 14px;
+    }
+}

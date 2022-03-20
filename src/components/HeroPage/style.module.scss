@@ -1,0 +1,37 @@
+@import "/src/components/common/_variables.scss";
+
+.heroPage {
+    display: flex;
+    min-height: 100%;
+}
+.circles {
+    position: fixed;
+    top: 1.3vw;
+    left: 50%;
+    z-index: 3;
+    transform: translateX(-50%);
+    width: 3.65vw;
+    height: 2.08vw;
+}
+.heroPageInfo {
+    width: 50%;
+}
+.heroPageSlider {
+    width: 50%;
+    background-color: $grey;
+}
+
+@media (max-width: $tablet) {
+    .heroPage {
+        flex-direction: column;
+    }
+    .circles {
+        display: none;
+    }
+    .heroPageInfo {
+        width: 100%;
+    }
+    .heroPageSlider {
+        width: 100%;
+    }
+}

@@ -12,16 +12,20 @@
 * {
     box-sizing: border-box;
 }
+::selection {
+    background-color: #FDAA5A;
+    color: #284952;
+}
 body {
     margin: 0;
     height: 100%;
     font-family: "Inter", Arial, Helvetica, sans-serif;
-    // background-color: var(--teal-light);
+    background-color: #3d6d79;
 }
 input, button {
     font-family: inherit;
 }
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,p {
     margin: 0;
 }
 ul {

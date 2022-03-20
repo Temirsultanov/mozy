@@ -1,7 +1,11 @@
 import * as React from "react";
-import {contacts, closeButton, socialMedia, content, title, subtitle, form, input as inputStyle, inputMessage, submitButton} from "./style.module.scss"
-import SocialMediaLink from "/src/components/socialMediaLink/index.js";
-import Input from "/src/components/input/index.js";
+
+import {contacts, contacts__wrapper, socialMedia, content, title, subtitle, form, input as inputStyle, inputWrapper, inputMessageWrapper, submitButtonWrapper, title__outer, title__inner, subtitle__inner, socialMediaLink as socialMediaLinkStyle, closeButton as closeButtonStyle} from "./style.module.scss"; // похоже на плохой код
+
+import SocialMediaLink from "./SocialMediaLink/index.js";
+import Input from "./Input/index.js";
+import SubmitButton from "./SubmitButton/index.js";
+import CloseButton from "./CloseButton/index.js"
 
 const links = [
     {
@@ -19,27 +23,46 @@ const links = [
     {
         href: "#",
         icon: <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.0033 0.83252C19.1226 0.832104 15.3099 1.85039 11.9462 3.78556C8.58252 5.72073 5.78579 8.50499 3.83561 11.86C1.88544 15.2149 0.850158 19.023 0.833279 22.9036C0.816399 26.7841 1.81851 30.6011 3.73942 33.9729L1.74432 40.9778C1.61644 41.4327 1.61201 41.9134 1.7315 42.3705C1.85098 42.8276 2.09007 43.2447 2.42417 43.5788C2.75827 43.9129 3.17533 44.152 3.63246 44.2715C4.0896 44.3909 4.5703 44.3865 5.02516 44.2586L12.0302 42.2635C14.98 43.9432 18.2762 44.9229 21.6645 45.1273C25.0528 45.3316 28.4429 44.7551 31.5732 43.4422C34.7035 42.1293 37.4905 40.1151 39.7192 37.5548C41.948 34.9946 43.559 31.9566 44.4281 28.6753C45.2971 25.394 45.401 21.957 44.7317 18.6292C44.0624 15.3013 42.6378 12.1717 40.5677 9.48149C38.4976 6.7913 35.8374 4.61243 32.7921 3.11288C29.7468 1.61333 26.3978 0.833158 23.0033 0.83252ZM23.0033 43.3941C19.3353 43.4026 15.7341 42.4142 12.5844 40.5345C12.4469 40.4645 12.2953 40.4266 12.141 40.4237H11.8972L4.53747 42.5296C4.38708 42.5699 4.22872 42.57 4.07832 42.5297C3.92791 42.4894 3.79076 42.4102 3.68066 42.3001C3.57056 42.19 3.49139 42.0529 3.45112 41.9025C3.41085 41.7521 3.41089 41.5937 3.45124 41.4434L5.55719 34.0837C5.61953 33.852 5.58766 33.6049 5.46852 33.3966C3.17457 29.5254 2.22535 25.0042 2.76872 20.5374C3.31209 16.0705 5.31754 11.9088 8.47267 8.70041C11.6278 5.49206 15.7555 3.41726 20.2127 2.79921C24.6699 2.18116 29.2063 3.05455 33.1154 5.28334C37.0245 7.51213 40.0867 10.9712 41.8251 15.1216C43.5634 19.2721 43.8802 23.881 42.7262 28.2303C41.5722 32.5795 39.0121 36.4251 35.4447 39.1678C31.8774 41.9105 27.5031 43.3964 23.0033 43.3941ZM34.198 27.101L29.6758 24.5296C29.2634 24.2934 28.7957 24.1709 28.3205 24.1748C27.8453 24.1787 27.3797 24.3088 26.9713 24.5517L23.9121 26.3916C22.0694 25.4359 20.5673 23.9338 19.6116 22.0911L21.4515 19.032C21.6944 18.6236 21.8245 18.158 21.8284 17.6828C21.8323 17.2076 21.7099 16.7399 21.4737 16.3276L18.9022 11.8054C18.6887 11.4356 18.3818 11.1283 18.0122 10.9144C17.6426 10.7004 17.2233 10.5872 16.7963 10.5862C14.9187 10.5862 13.1178 11.3305 11.7881 12.656C10.4584 13.9816 9.70844 15.7801 9.70257 17.6576C9.69966 20.1048 10.1792 22.5286 11.1136 24.7903C12.0481 27.052 13.4193 29.1073 15.1487 30.8388C16.8781 32.5702 18.9318 33.9438 21.1925 34.881C23.4531 35.8181 25.8763 36.3005 28.3235 36.3005H28.3457C30.2232 36.2946 32.0218 35.5447 33.3474 34.215C34.6729 32.8853 35.4172 31.0844 35.4172 29.2069C35.4162 28.7799 35.3031 28.3606 35.0891 27.991C34.8751 27.6214 34.5678 27.3145 34.198 27.101ZM28.3457 34.5271H28.3235C23.8533 34.5212 19.5681 32.7413 16.4092 29.5783C13.2503 26.4153 11.476 22.1279 11.476 17.6576C11.4819 16.2505 12.045 14.903 13.0421 13.91C14.0392 12.9171 15.3891 12.3596 16.7963 12.3596C16.9098 12.3612 17.0208 12.3928 17.1182 12.4512C17.2155 12.5096 17.2957 12.5927 17.3505 12.6921L19.9441 17.2143C20.0198 17.3538 20.0594 17.51 20.0594 17.6687C20.0594 17.8274 20.0198 17.9836 19.9441 18.1232L17.8603 21.5813C17.7836 21.7029 17.7392 21.842 17.7314 21.9856C17.7236 22.1292 17.7528 22.2724 17.816 22.4015C18.9705 24.9739 21.0294 27.0327 23.6018 28.1872C23.7309 28.2504 23.8741 28.2795 24.0177 28.2718C24.1612 28.264 24.3004 28.2196 24.422 28.1429L27.8802 26.0591C28.0197 25.9835 28.1759 25.9438 28.3346 25.9438C28.4933 25.9438 28.6495 25.9835 28.7891 26.0591L33.3113 28.6527C33.4107 28.7075 33.4939 28.7876 33.5523 28.885C33.6107 28.9823 33.6423 29.0934 33.6438 29.2069C33.6438 30.6141 33.0863 31.9639 32.0934 32.961C31.1004 33.9581 29.7529 34.5212 28.3457 34.5271Z" fill="#FDAA5A"/></svg>
-    }
+    },
 ]
 
-const Contacts = () => {
+const Contacts = ({style}) => {
     return (
-        <section className={contacts} >
-            <button className={closeButton} ><svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="1.10051" y1="20.1464" x2="20.1924" y2="1.05456" stroke="#2E5E6A"/><line x1="1.80761" y1="1.14645" x2="20.8995" y2="20.2383" stroke="#2E5E6A"/></svg></button>
-            <div className={content}>
-                <h2 className={title}>Мы готовы к вашим идеям</h2>
-                <p className={subtitle}>Свяжитесь с нами</p>
-                <form action="#" method="POST" className={form}>
-                    <Input className={inputStyle} name="firstname" type="text" placeholder="Ваше имя"/>
-                    <Input className={inputStyle} name="phone" type="tel" placeholder="Телефон"/>
-                    <Input className={inputStyle} name="email" type="email" placeholder="Email"/>
-                    <Input className={inputMessage} name="message" type="text" placeholder="Опишите ваш проект"/>
-                    <button className={submitButton} type="submit">Связаться с нами</button>
-                </form>
-            </div>
-            <ul className={socialMedia}>
-                {links.map((link, index) => <SocialMediaLink key={index } href={link.href}> {link.icon} </SocialMediaLink>)}
-            </ul>
+        <section style={style} className={contacts} >
+            <div className={contacts__wrapper}>
+                <CloseButton className={closeButtonStyle}></CloseButton>
+                <div className={content}>
+                    <h2 className={`animation-text ${title}`}>
+                        <span className={title__outer}>
+                            <span className={title__inner}>Мы готовы</span>
+                        </span>
+                        <span className={title__outer}>
+                            <span className={title__inner}>к вашим идеям</span>
+                        </span>
+                    </h2>
+                    <p className={subtitle}><span className={subtitle__inner}>Свяжитесь с нами</span></p>
+                    <form action="#" method="POST" className={form}>
+                        <div className={inputWrapper}>
+                            <Input className={inputStyle} name="firstname" type="text" placeholder="Ваше имя"/>
+                        </div>
+                        <div className={inputWrapper}>
+                            <Input className={inputStyle} name="phone" type="tel" placeholder="Телефон"/>
+                        </div>
+                        <div className={inputWrapper}>
+                            <Input className={inputStyle} name="email" type="email" placeholder="Email"/>                        
+                        </div>
+                        <div className={inputMessageWrapper}>
+                            <Input className={inputStyle} isTextArea={true} name="message" placeholder="Опишите ваш проект"/>                    
+                        </div>
+                        <div className={submitButtonWrapper}>
+                            <SubmitButton className={inputStyle}>Связаться с нами</SubmitButton>
+                        </div>
+                    </form>
+                </div>
+                <ul className={socialMedia}>
+                    {links.map((link, index) => <SocialMediaLink className={socialMediaLinkStyle} key={index } href={link.href}> {link.icon} </SocialMediaLink>)}
+                </ul>
+            </div>            
         </section>
     )
 }

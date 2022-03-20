@@ -1,17 +1,23 @@
 @import "/src/components/common/_variables.scss";
+@import "/src/components/common/_contactsAnimationParameters.scss";
 
+// Contacts
 .contacts {
-    position: relative; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    overflow: hidden;
 
-    width: 100%;
-    min-height: 100%;
-    padding-top: 30px;
-    padding-bottom: 40px;
-    
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    width: 100%;
+    min-height: 100%;
+    
     color: $white;
     text-transform: uppercase;
     text-align: center;
@@ -22,13 +28,13 @@
         top: 0;
         
         width: 50%;
-        height: 100%;
+        min-height: 100%;
 
         background-color: $teal;
         content: "";
 
         transform: scaleX(0);
-        animation: background .45s $animation-delay $timing-function forwards;
+        animation: background $background-duration $background-delay $background-timing-function forwards;
     }
     &::before {
         left: 0%;
@@ -44,49 +50,75 @@
         transform: none;
     }
 }
+.contacts__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: scroll;
 
-.close-button {
-    width: 72px;
-    height: 72px;
-    margin-bottom: 30px;
+    width: 100%;
+    padding-top: calc(30px * 2 + $closeButtonSize);
+    padding-bottom: 40px;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-
-    border-radius: 50%;
-    border: none;
-    background-color: $white;
-
-    transform: translateY(-200px);
-    animation: close-button 0.3s $animation-delay $timing-function forwards;
 }
-@keyframes close-button {
-    100% {
-        transform: translateY(0);
-    }
-}
+
+
+// Content
 .content {
     width: calc(100% - 200px);
+    min-width: 950px;
+    padding: 50px 0;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
-    padding: 50px 0;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    animation: content .3s $animation-delay $timing-function forwards;
+    animation: content $borders-duration $borders-delay $borders-timing-function forwards;
 }
 @keyframes content {
     100% {
         border-color: $orange;
     }
 }
+
+// Title
 .title {
     max-width: 700px;
+
+    display: flex;
+    flex-direction: column;
+
     font-size: 66px;
 }
+.title__outer {
+    overflow: hidden;
+    display: block;
+}
+.title__inner {
+    display: block;
+    transform: translateY(100%);
+    animation: title__inner $title-duration $title-timing-function forwards;
+}
+.title__outer:nth-child(1) .title__inner {
+    animation-delay: $title-first-delay;
+}
+.title__outer:nth-child(2) .title__inner {
+    animation-delay: $title-second-delay;
+}
+@keyframes title__inner {
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// Subtitle
 .subtitle {
     margin-top: 25px;
 
@@ -94,37 +126,189 @@
     font-weight: 400;   
     color: $orange;
 }
-.social-media {
-    display: flex;
-    gap: 90px;
-    margin-top: 45px;
+.subtitle__inner {
+    display: block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: subtitle__inner $subtitle-duration $subtitle-delay $subtitle-timing-function forwards;
 }
+@keyframes subtitle__inner {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Form
 .form {
-    margin-top: 40px;
     max-width: 900px;
+    margin-top: 30px;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
 }
+.inputWrapper {
+    overflow: hidden;
+    padding-top: 10px;
+    flex: 30%;
+}
 .input {
-    flex-grow: 1;
+    transform: translateY(102%); // возможно, стоит сделать 100% + 1px, или просто 100%, но проблема в том, что border выглядывает
+    animation: formElement $input-duration $input-delay $input-timing-function forwards;
 }
-.input-message {
-    flex: 1 100%;
+@keyframes formElement {
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.inputMessageWrapper {
+    overflow: hidden;
+
     height: 155px;
+    margin-top: -5px; // костыль?
+    padding-top: 10px;
+
+    flex: 1 100%;
+
+    & .input {
+        animation-delay: $message-delay;
+    }
+    & div { // похоже на костыль
+        height: 100%;
+    }
 }
-.submit-button {
-    width: 310px;
-    padding: 25px;
-    border: 1px solid $white;
+.submitButtonWrapper {
+    overflow: hidden;
+    margin-top: 20px;
 
-    background-color: transparent;
-    color: $white;
+    & .input {
+        animation-delay: $submit-button-delay;
+    }
+}
 
-    font-size: 18px;
-    text-transform: uppercase;
+// Social Media
+.social-media {
+    margin-top: 45px;
+    display: flex;
+    gap: 90px;
+}
+.socialMediaLink {
+    transform: scale(0);
+    animation: socialMediaLink $social-media-link-duration $social-media-link-delay $social-media-link-timing-function forwards;
+}
+@keyframes socialMediaLink {
+    100% {
+        transform: scale(1);
+    }
+}
 
-    cursor: pointer;
+// Close button
+.closeButton {
+    position: fixed;
+    top: 30px;
+    z-index: 1;
+
+    transform: translateY(-200px);
+    animation: closeButton $close-button-duration $close-button-delay $close-button-timing-function forwards;
+}
+@keyframes closeButton {
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// Media queries
+@media (max-width: $tablet2) {
+    // костыль, чтобы обновить переменную $closeButtonSize; 
+    // Можно решить, добавив новую переменную closeButtonSizeTablet, но тоже похоже на костыль; 
+    // В общем, это проблема scss компилятора, он не обновляет переменную везде, если я сменил её в медиа-запросе.
+    @import "/src/components/common/_variables.scss"; 
+
+    .contacts__wrapper {
+        padding-top: calc(30px * 2 + $closeButtonSize);
+        padding-bottom: 30px;
+    }
+    .content {
+        width: calc(100% - 80px);
+        min-width: auto; 
+    }
+    .title {
+        max-width: 700px;
+        font-size: 36px;
+    }
+    .form {
+        max-width: calc(100% - 60px);
+        margin-top: 20px;
+        gap: 20px;
+    }
+    .inputMessageWrapper {
+        height: 105px;
+    }
+    .submitButtonWrapper {
+        margin-top: 5px;
+    }
+    .social-media {
+        margin-top: 30px;
+        gap: 65px;
+    }
+}
+@media (max-width: $tablet) {
+    .content {
+        width: calc(100% - 20px);    
+        padding-bottom: 75px;
+    }
+    .form {
+        gap: 15px;
+    }  
+    .inputMessageWrapper {
+        height: 230px;
+    }
+}
+@media (max-width: $mobile) {
+    // такой же костыль, как выше
+    @import "/src/components/common/contactsAnimationParameters.scss"; 
+
+    .contacts {
+        padding-bottom: 50px;
+    }
+    .content {
+        padding-bottom: 50px;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+    .form {
+        gap: 20px;
+
+        & .inputWrapper:nth-child(2) .input {
+            animation-delay: $input-second-delay;
+        }
+        & .inputWrapper:nth-child(3) .input {
+            animation-delay: $input-third-delay;
+        }
+    }
+    .inputWrapper {
+        flex: 100%;
+    }
+    .inputMessageWrapper {
+        margin-top: -10px; // костыль?
+
+        & .input {
+            animation-delay: $message-delay;
+        }
+    }
+    .social-media {
+        width: 250px;
+        margin-top: 50px;
+
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+    }
 }

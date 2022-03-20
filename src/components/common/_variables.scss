@@ -1,6 +1,24 @@
+// Colors
 $white: #ffffff;
 $teal: #2E5E6A;
 $orange: #FDAA5A;
 $teal-light: #3D6D79;
-$animation-delay: 1s;
+$grey: #e0e2ee;
+
+$closeButtonSize: 60px;
 $timing-function: cubic-bezier(.4,0,0,1);
+// Media breakpoints
+
+//  -- mobile from 0 to 640; 
+//  -- tablet from 640 to 960;
+//  -- tablet2 from 960 to 1300;
+//  -- and desktop from 1300 to infinity
+
+//  <number> is endpoint of <device>
+$mobile: 640px;
+$tablet: 960px;
+$tablet2: 1300px;
+
+@media (max-width: $tablet2) {
+    $closeButtonSize: 48px;
+}

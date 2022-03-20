@@ -1,0 +1,96 @@
+@import "/src/components/common/variables";
+
+.contactButton {
+    position: relative;
+    overflow: hidden;
+
+    padding: 1.2vw 3.13vw;
+    border: 0.05vw solid $orange;
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+    cursor: pointer;
+
+    transition: border-color 0.3s 0s $timing-function;
+
+    & .contactButton__text {
+        display: block;
+        color: $orange;
+        font-size: 1.04vw;
+        text-transform: uppercase;
+
+        transition: transform 0.3s 0s $timing-function, color 0.3s 0s $timing-function;
+    }
+    & .contactButton__arrow {
+        position: absolute;
+        right: -1.56vw;
+        width: 1.67vw;
+        height: 1.67vw;
+        
+        transition: transform 0.3s 0s $timing-function;
+    }
+    & .contactButton__arrow path{
+        transition: stroke 0.3s 0s $timing-function;
+    }
+    &:hover .contactButton__text {
+        transform: translateX(-1.04vw);
+    }
+    &:hover .contactButton__arrow {
+        transform: translateX(-3.65vw);
+    }
+
+    &:active {
+        border-color: $white;
+    }
+    &:active .contactButton__text {
+        color: $white;
+    }
+    &:active .contactButton__arrow path{
+        stroke: $white;
+    }
+}
+
+@media (max-width: $tablet) {
+    .contactButton {
+        padding: 16px 38px;
+        
+        & .contactButton__text {
+            font-size: 18px;
+        }   
+        & .contactButton__arrow {
+            right: -23px;
+            width: 23px;
+            height: 23px;
+        }
+
+        &:hover .contactButton__text {
+            transform: translateX(-20px);
+        }
+        &:hover .contactButton__arrow {
+            transform: translateX(-40px);
+        }
+    }
+}
+@media (max-width: $mobile) {
+    .contactButton {
+        padding: 4.06vw 9.06vw;
+        
+        & .contactButton__text {
+            font-size: 4.38vw;
+        }   
+        & .contactButton__arrow {
+            right: -5.63vw;
+            width: 5.63vw;
+            height: 5.63vw;
+        }
+
+        &:hover .contactButton__text {
+            transform: translateX(-5vw);
+        }
+        &:hover .contactButton__arrow {
+            transform: translateX(-10vw);
+        }
+    }
+}

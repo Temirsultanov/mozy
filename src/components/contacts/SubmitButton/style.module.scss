@@ -1,0 +1,36 @@
+@import "/src/components/common/_variables.scss";
+
+.submit-button {
+    padding: 23px 63px;
+    border: 1px solid $white;
+
+    background-color: transparent;
+    color: $white;
+
+    font-size: 18px;
+    text-transform: uppercase;
+
+    transition: 0.2s $timing-function;
+    cursor: pointer;
+
+    &:hover {
+        border-color: $orange;
+        color: $orange;
+    }
+}
+
+@media (max-width: $tablet2) {
+    .submit-button {
+        padding: 19px 44px;
+    }   
+}
+@media (max-width: $tablet) {
+    .submit-button {
+        padding: 16px 24px;
+    }
+}
+@media (max-width: $mobile) {
+    .submit-button {
+        font-size: 14px;
+    }
+}

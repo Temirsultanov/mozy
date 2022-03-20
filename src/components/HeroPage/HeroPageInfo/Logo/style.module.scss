@@ -1,0 +1,17 @@
+@import "/src/components/common/_variables.scss";
+
+.logo {
+    width: 6.35vw;
+    height: 2.5vw;
+}
+@media (max-width: $tablet2) {
+    .logo {
+        width: 75px;
+        height: auto;
+    }
+}
+@media (max-width: $mobile) {
+    .logo {
+        width: 18.75vw;
+    }
+}
