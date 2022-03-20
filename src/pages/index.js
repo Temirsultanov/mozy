@@ -1,6 +1,6 @@
 import * as React from "react"
-import Contacts from "/src/components/Contacts/index.js";
-import HeroPage from "/src/components/HeroPage/index.js";
+import Contacts from "../components/Contacts/index.js";
+import HeroPage from "../components/HeroPage/index.js";
 import "/src/styles/index.scss";
 
 const mainStyle = {
