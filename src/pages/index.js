@@ -15,7 +15,7 @@ const IndexPage = () => {
     <main style={mainStyle}>
       <title>Mozy • Мобильные приложения</title>
       <HeroPage setContactsHiddenState={setContactsHiddenState}></HeroPage>
-      <ContactsPage isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></ContactsPa>
+      <ContactsPage isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></ContactsPage>
     </main>
   );
 }
