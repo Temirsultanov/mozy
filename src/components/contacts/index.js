@@ -2,10 +2,10 @@ import * as React from "react";
 
 import {contacts, contactsHidden, contacts__wrapper, socialMedia, content, title, subtitle, form, input as inputStyle, inputWrapper, inputMessageWrapper, submitButtonWrapper, title__outer, title__inner, subtitle__inner, socialMediaLink as socialMediaLinkStyle, closeButton as closeButtonStyle} from "./style.module.scss"; // похоже на плохой код
 
-import SocialMediaLink from "./SocialMediaLink/index.js";
-import Input from "./Input/index.js";
-import SubmitButton from "./SubmitButton/index.js";
-import CloseButton from "./CloseButton/index.js"
+import SocialMediaLink from "../SocialMediaLink/index.js";
+import Input from "../Input/index.js";
+import SubmitButton from "../SubmitButton/index.js";
+import CloseButton from "../CloseButton/index.js"
 
 const links = [
     {
