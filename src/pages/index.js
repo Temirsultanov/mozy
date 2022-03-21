@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import HeroPage from "../components/HeroPage/index.js";
-import Contacts from "../components/Contacts/index.js";
+import ContactsPage from "../components/ContactsPage/index.js";
 import "/src/styles/index.scss";
 
 const mainStyle = {
@@ -15,7 +15,7 @@ const IndexPage = () => {
     <main style={mainStyle}>
       <title>Mozy • Мобильные приложения</title>
       <HeroPage setContactsHiddenState={setContactsHiddenState}></HeroPage>
-      <Contacts isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></Contacts>
+      <ContactsPage isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></ContactsPa>
     </main>
   );
 }

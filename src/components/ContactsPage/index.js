@@ -26,7 +26,7 @@ const links = [
     },
 ]
 
-const Contacts = ({isContactsHidden, setContactsHiddenState}) => {
+const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
     let contactsClassName;
     if (isContactsHidden) {
         contactsClassName = `${contacts} ${contactsHidden}`
@@ -73,4 +73,4 @@ const Contacts = ({isContactsHidden, setContactsHiddenState}) => {
     )
 }
 
-export default Contacts;
+export default ContactsPage;
