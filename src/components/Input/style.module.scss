@@ -9,6 +9,7 @@
     padding: 23px 15px;
 
     border: 1px solid $orange;
+    border-radius: 0px;
     outline: none;
 
     background-color: transparent;
@@ -17,6 +18,8 @@
     font-size: 18px;
     text-align: center;
     text-transform: uppercase;
+
+    box-shadow: none;
     transition: border 0.3s $timing-function;
 
     &:hover {

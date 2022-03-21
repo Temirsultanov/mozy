@@ -1,4 +1,5 @@
 @import "/src/components/common/_variables.scss";
+@import "/src/components/common/_heroPageAnimationParameters.scss";
 
 .grid {
     display: grid;
@@ -33,6 +34,18 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.logo {
+    opacity: 0;
+    transform: translateY(100%);
+
+    animation: logo $logo-duration $logo-timing-function $logo-delay forwards;
+}
+@keyframes logo {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .title {
     margin-top: 6.77vw;
 
@@ -41,6 +54,29 @@
     text-transform: uppercase;
     color: $white;
 }
+.title__outer {
+    overflow: hidden;
+    display: block;
+}
+.title__inner {
+    display: block;
+    transform: translateY(100%);
+    animation: title $title-duration $title-timing-function forwards; 
+}
+.title__outer:nth-child(1) .title__inner {
+    animation-delay: $title-first-delay;
+}
+.title__outer:nth-child(2) .title__inner {
+    animation-delay: $title-second-delay;
+}
+@keyframes title {
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
 .hint {
     margin-top: 0.52vw;
 }
@@ -54,16 +90,38 @@
 }
 .picture__text {
     position: absolute;
-    bottom: 0;
+    bottom: 1.82vw;
     right: 0;
 
+    transform: rotate(-90deg) translateX(50%);
     transform-origin: 100% 100%;
-    transform: rotate(-90deg) translateX(calc(100% + 1.82vw));
 
     color: $white;
     font-size: 0.83vw;
     font-weight: 400;
     line-height: 1.4;
+
+    opacity: 0;
+    animation: pictureText $pictureText-duration $pictureText-timing-function $pictureText-delay forwards;
+}
+@keyframes pictureText {
+    100% {
+        opacity: 1;
+        transform: rotate(-90deg) translateX(100%);
+    }
+}
+
+.sliderInfo {
+    opacity: 0;
+    transform: translateY(100%);
+
+    animation: sliderInfo $sliderInfo-duration $sliderInfo-timing-function $sliderInfo-delay forwards;
+}
+@keyframes sliderInfo {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .sliderInfo__number {
     font-size: 0.625vw;
@@ -82,83 +140,15 @@
     align-self: flex-end;
     width: 8.33vw;
     height: 6.77vw;
+
+    opacity: 0;
+    animation: circles $circles-duration $circles-timing-function $circles-delay forwards;
 }
-.circles circle {
-    animation: circle 1s $timing-function 0s infinite;
-}
-@keyframes circle {
-    0% {
-        opacity: 0.3;
-    }
-    50% {
-        opacity: 1;
-    }
+@keyframes circles {
     100% {
-        opacity: 0.3;
-    }
+        opacity: 1;
+    }    
 }
-.circles circle:nth-child(1) {
-    animation-delay: 0.3s;   
-}
-.circles circle:nth-child(2) {
-    animation-delay: 0.2s;   
-}
-.circles circle:nth-child(3) {
-    animation-delay: 0.1s;   
-}
-.circles circle:nth-child(4) {
-    animation-delay: 0.4s;   
-}
-.circles circle:nth-child(5) {
-    animation-delay: 0.5s;   
-}
-.circles circle:nth-child(6) {
-    animation-delay: 0.2s;   
-}
-.circles circle:nth-child(7) {
-    animation-delay: 0.6s;   
-}
-.circles circle:nth-child(8) {
-    animation-delay: 0.25s;   
-}
-.circles circle:nth-child(9) {
-    animation-delay: 0.1s;   
-}
-.circles circle:nth-child(10) {
-    animation-delay: 0.4s;   
-}
-.circles circle:nth-child(11) {
-    animation-delay: 0.3s;   
-}
-.circles circle:nth-child(12) {
-    animation-delay: 0.15s;   
-}
-.circles circle:nth-child(13) {
-    animation-delay: 0.6s;   
-}
-.circles circle:nth-child(14) {
-    animation-delay: 0.3s;   
-}
-.circles circle:nth-child(15) {
-    animation-delay: 0.3s;   
-}
-.circles circle:nth-child(16) {
-    animation-delay: 0.2s;   
-}
-.circles circle:nth-child(17) {
-    animation-delay: 0.1s;   
-}
-.circles circle:nth-child(18) {
-    animation-delay: 0.5s;   
-}
-.circles circle:nth-child(19) {
-    animation-delay: 0.2s;   
-}
-.circles circle:nth-child(20) {
-    animation-delay: 0s;   
-}
-
-
 
 
 @media (max-width: $tablet) {
@@ -242,10 +232,10 @@
         height: 90.6vw
     }
     .picture__text {
+        bottom: 0;
         right: 3.13vw;
         display: block;
         font-size: 3.13vw;
-        transform: rotate(-90deg) translateX(100%);
     }
     .sliderInfo__number {
         font-size: 2.5vw;

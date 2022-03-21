@@ -38,7 +38,7 @@ const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
             <div className={contacts__wrapper}>
                 <CloseButton className={closeButtonStyle} setContactsHiddenState={setContactsHiddenState}></CloseButton>
                 <div className={content}>
-                    <h2 className={`animation-text ${title}`}>
+                    <h2 className={title}>
                         <span className={title__outer}>
                             <span className={title__inner}>Мы готовы</span>
                         </span>
@@ -68,8 +68,8 @@ const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
                 <ul className={socialMedia}>
                     {links.map((link, index) => {
                         return (
-                            <div className={socialMediaLinkStyle}>
-                                <SocialMediaLink key={index } href={link.href}>
+                            <div className={socialMediaLinkStyle} key={index}>
+                                <SocialMediaLink href={link.href}>
                                     {link.icon} 
                                 </SocialMediaLink>
                             </div>

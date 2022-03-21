@@ -48,9 +48,10 @@
 }
 
 .contactsHidden {
-    // display: none;
-    // visibility: hidden;
+    visibility: hidden;
     pointer-events: none;
+
+    transition: visibility 0s 1s;
 
     &::before, &::after {
         transform: scaleX(0);
@@ -171,7 +172,7 @@
     flex: 1 100%;
 
     & .input {
-        transition-delay: transform $message-delay;
+        transition-delay: $message-delay;
     }
     & div { // похоже на костыль
         height: 100%;
@@ -182,7 +183,7 @@
     margin-top: 20px;
 
     & .input {
-        transition-delay: transform $submit-button-delay;
+        transition-delay: $submit-button-delay;
     }
 }
 
