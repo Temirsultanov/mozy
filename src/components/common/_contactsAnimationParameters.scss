@@ -34,7 +34,7 @@ $social-media-link-timing-function: $timing-function;
 
 $close-button-duration: 0.3s;
 $close-button-delay: 0s;
-$close-button-timing-function: cubic-bezier(.17,.67,.3,1.33); 
+$close-button-timing-function: $timing-function; 
 
 @media (max-width: $mobile) {
     $message-delay: 0.45s;

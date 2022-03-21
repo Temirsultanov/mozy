@@ -10,6 +10,8 @@
     bottom: 0;
     z-index: 5;
     overflow: hidden;
+    visibility: visible;
+    pointer-events: all;
 
     display: flex;
     flex-direction: column;
@@ -33,8 +35,7 @@
         background-color: $teal;
         content: "";
 
-        transform: scaleX(0);
-        animation: background $background-duration $background-delay $background-timing-function forwards;
+        transition: transform $background-duration $background-timing-function $background-delay;
     }
     &::before {
         left: 0%;
@@ -45,15 +46,16 @@
         transform-origin: left center;
     }
 }
-@keyframes background {
-    100% {
-        transform: none;
-    }
-}
+
 .contactsHidden {
-    display: none;
-    visibility: hidden;
+    // display: none;
+    // visibility: hidden;
     pointer-events: none;
+
+    &::before, &::after {
+        transform: scaleX(0);
+        transition-delay: 0.6s;
+    }
 }
 .contacts__wrapper {
     position: absolute;
@@ -78,19 +80,17 @@
     width: calc(100% - 200px);
     min-width: 950px;
     padding: 50px 0;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    border-top: 1px solid $orange;
+    border-bottom: 1px solid $orange;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    animation: content $borders-duration $borders-delay $borders-timing-function forwards;
+    transition: border-color $borders-duration $borders-timing-function $borders-delay;
 }
-@keyframes content {
-    100% {
-        border-color: $orange;
-    }
+.contactsHidden .content{
+    border-color: transparent;
 }
 
 // Title
@@ -108,20 +108,18 @@
 }
 .title__inner {
     display: block;
-    transform: translateY(100%);
-    animation: title__inner $title-duration $title-timing-function forwards;
+    transition: transform $title-duration $title-timing-function; 
 }
 .title__outer:nth-child(1) .title__inner {
-    animation-delay: $title-first-delay;
+    transition-delay: $title-first-delay;
 }
 .title__outer:nth-child(2) .title__inner {
-    animation-delay: $title-second-delay;
+    transition-delay: $title-second-delay;
 }
-@keyframes title__inner {
-    100% {
-        transform: translateY(0);
-    }
+.contactsHidden .title__inner {
+    transform: translateY(100%);
 }
+
 
 // Subtitle
 .subtitle {
@@ -133,15 +131,13 @@
 }
 .subtitle__inner {
     display: block;
-    opacity: 0;
-    transform: translateY(100%);
-    animation: subtitle__inner $subtitle-duration $subtitle-delay $subtitle-timing-function forwards;
+    transition: transform $subtitle-duration $subtitle-timing-function $subtitle-delay, 
+                opacity $subtitle-duration $subtitle-timing-function $subtitle-delay;
+
 }
-@keyframes subtitle__inner {
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.contactsHidden .subtitle__inner {
+    transform: translateY(100%);
+    opacity: 0;
 }
 
 // Form
@@ -160,15 +156,11 @@
     flex: 30%;
 }
 .input {
+    transition: transform $input-duration $input-timing-function $input-delay;
+}
+.contactsHidden .input{
     transform: translateY(120%);
-    animation: formElement $input-duration $input-delay $input-timing-function forwards;
 }
-@keyframes formElement {
-    100% {
-        transform: translateY(0);
-    }
-}
-
 .inputMessageWrapper {
     overflow: hidden;
 
@@ -179,7 +171,7 @@
     flex: 1 100%;
 
     & .input {
-        animation-delay: $message-delay;
+        transition-delay: transform $message-delay;
     }
     & div { // похоже на костыль
         height: 100%;
@@ -190,7 +182,7 @@
     margin-top: 20px;
 
     & .input {
-        animation-delay: $submit-button-delay;
+        transition-delay: transform $submit-button-delay;
     }
 }
 
@@ -201,13 +193,11 @@
     gap: 90px;
 }
 .socialMediaLink {
-    transform: scale(0);
-    animation: socialMediaLink $social-media-link-duration $social-media-link-delay $social-media-link-timing-function forwards;
+    transform: scale(1);
+    transition: $social-media-link-duration $social-media-link-timing-function $social-media-link-delay;
 }
-@keyframes socialMediaLink {
-    100% {
-        transform: scale(1);
-    }
+.contactsHidden .socialMediaLink {
+    transform: scale(0);
 }
 
 // Close button
@@ -216,14 +206,12 @@
     top: 30px;
     z-index: 1;
 
+    transition: transform $close-button-duration $close-button-timing-function $close-button-delay;
+}
+.contactsHidden .closeButton {
     transform: translateY(-200px);
-    animation: closeButton $close-button-duration $close-button-delay $close-button-timing-function forwards;
 }
-@keyframes closeButton {
-    100% {
-        transform: translateY(0);
-    }
-}
+
 
 // Media queries
 @media (max-width: $tablet2) {
@@ -292,10 +280,10 @@
         gap: 20px;
 
         & .inputWrapper:nth-child(2) .input {
-            animation-delay: $input-second-delay;
+            transition-delay: $input-second-delay;
         }
         & .inputWrapper:nth-child(3) .input {
-            animation-delay: $input-third-delay;
+            transition-delay: $input-third-delay;
         }
     }
     .inputWrapper {
@@ -305,7 +293,7 @@
         margin-top: -10px; // костыль?
 
         & .input {
-            animation-delay: $message-delay;
+            transition-delay: $message-delay;
         }
     }
     .social-media {

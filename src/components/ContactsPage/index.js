@@ -66,7 +66,15 @@ const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
                     </form>
                 </div>
                 <ul className={socialMedia}>
-                    {links.map((link, index) => <SocialMediaLink className={socialMediaLinkStyle} key={index } href={link.href}> {link.icon} </SocialMediaLink>)}
+                    {links.map((link, index) => {
+                        return (
+                            <div className={socialMediaLinkStyle}>
+                                <SocialMediaLink key={index } href={link.href}>
+                                    {link.icon} 
+                                </SocialMediaLink>
+                            </div>
+                        )
+                    })}
                 </ul>
             </div>            
         </section>
