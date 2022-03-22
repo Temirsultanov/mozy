@@ -1,10 +1,11 @@
-@import "/src/components/common/_variables.scss";
+@import "/src/components/common/variables";
+@import "/src/components/common/heroPageAnimationParameters";
 
 .heroPage {
     display: flex;
     min-height: 100%;
 }
-.circles {
+.dots {
     position: fixed;
     top: 1.3vw;
     left: 50%;
@@ -12,6 +13,14 @@
     transform: translateX(-50%);
     width: 3.65vw;
     height: 2.08vw;
+
+    opacity: 0;
+    animation: dots $dots-duration $dots-timing-function $dots-delay forwards;
+}
+@keyframes dots {
+    100% {
+        opacity: 1;
+    }
 }
 .heroPageInfo {
     width: 50%;
@@ -25,7 +34,7 @@
     .heroPage {
         flex-direction: column;
     }
-    .circles {
+    .dots {
         display: none;
     }
     .heroPageInfo {

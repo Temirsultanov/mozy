@@ -1,5 +1,9 @@
 $timing-function: cubic-bezier(.4,0,0,1);
 
+$dots-duration: 0.3s;
+$dots-timing-function: $timing-function;
+$dots-delay: 0s;
+
 $logo-duration: 0.6s;
 $logo-timing-function: $timing-function;
 $logo-delay: 0s;
@@ -8,6 +12,14 @@ $title-duration: 0.8s;
 $title-first-delay: 0s;
 $title-second-delay: 0.2s;
 $title-timing-function: $timing-function;
+
+$hint-duration: 0.3s;
+$hint-timing-function: $timing-function;
+$hint-delay: 0.5s;
+
+$contactButton-duration: 0.3s;
+$contactButton-timing-function: $timing-function;
+$contactButton-delay: 0.3s;
 
 $pictureText-duration: 0.6s;
 $pictureText-timing-function: $timing-function;

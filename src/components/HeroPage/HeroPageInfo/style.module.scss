@@ -43,7 +43,7 @@
 @keyframes logo {
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0)    
     }
 }
 .title {
@@ -74,16 +74,32 @@
         transform: translateY(0);
     }
 }
-
-
-
 .hint {
     margin-top: 0.52vw;
+    opacity: 0;
+    transform: translateY(-50%);
+    transform-origin: 32px top;
+    animation: hint $hint-duration $hint-timing-function $hint-delay forwards;
+}
+@keyframes hint {
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.contactButtonWrapper {
+    margin-top: 3.13vw;
+    overflow: hidden;
 }
 .contactButton {
-    margin-top: 3.13vw;
+    transform: translateY(110%);
+    animation: contactButton $contactButton-duration $contactButton-timing-function $contactButton-delay forwards;
 }
-
+@keyframes contactButton {
+    100% {
+        transform: translateY(0);
+    }
+}
 .picture {
     width: calc(100% - 5.05vw);
     height: 20vw;
@@ -178,7 +194,7 @@
     .hint {
         margin-top: 10px;
     }
-    .contactButton {
+    .contactButtonWrapper {
         margin-top: 30px;
     }
     .picture {
@@ -224,7 +240,7 @@
         margin-top: 10.63vw;
         font-size: 8.75vw;
     }
-    .contactButton {
+    .contactButtonWrapper {
         margin-top: 11.5vw
     }
     .picture {

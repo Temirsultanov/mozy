@@ -6,7 +6,7 @@ import Hint from "./Hint/index.js";
 import ContactButton from "./ContactButton/index.js";
 import Circles from "./Circles/index.js"
 
-import {grid, grid__item, logo, title, title__outer, title__inner, hint, contactButton, picture, picture__text, sliderInfo, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
+import {grid, grid__item, logo, title, title__outer, title__inner, hint, contactButton, contactButtonWrapper, picture, picture__text, sliderInfo, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
 
 const HeroPageInfo = ({className, setContactsHiddenState}) => {
     return (
@@ -22,7 +22,9 @@ const HeroPageInfo = ({className, setContactsHiddenState}) => {
                         </span>
                 </h1>
                 <Hint className={hint}></Hint>
-                <ContactButton className={contactButton} setContactsHiddenState={setContactsHiddenState}></ContactButton>
+                <div className={contactButtonWrapper}>
+                    <ContactButton className={contactButton} setContactsHiddenState={setContactsHiddenState}></ContactButton>
+                </div>
             </div>
             <div className={grid__item}>
                 <StaticImage className={picture} src="../../../images/girl_on_bicycle.jpg" alt="Techno picture"/>
