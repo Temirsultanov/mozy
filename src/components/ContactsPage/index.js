@@ -46,7 +46,7 @@ const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
                             <span className={title__inner}>к вашим идеям</span>
                         </span>
                     </h2>
-                    <p className={subtitle}><span className={subtitle__inner}>Свяжитесь с&nbsp;нами</span></p>
+                    <p className={subtitle}><span className={subtitle__inner}>Свяжитесь с нами</span></p>
                     <form action="#" method="POST" className={form}>
                         <div className={inputWrapper}>
                             <Input className={inputStyle} name="firstname" type="text" placeholder="Ваше имя"/>

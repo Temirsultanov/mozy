@@ -19,7 +19,7 @@
     text-align: center;
     text-transform: uppercase;
 
-    box-shadow: none;
+    -webkit-appearance: none;
     transition: border 0.3s $timing-function;
 
     &:hover {
