@@ -132,6 +132,9 @@
 }
 .subtitle__inner {
     display: block;
+    
+    transform: translateY(0%);
+    opacity: 1;
     transition: transform $subtitle-duration $subtitle-timing-function $subtitle-delay, 
                 opacity $subtitle-duration $subtitle-timing-function $subtitle-delay;
 
