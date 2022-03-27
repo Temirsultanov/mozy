@@ -156,7 +156,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2.31vh;
+    column-gap: 2.31vh;
 }
 .inputWrapper {
     overflow: hidden;
@@ -173,7 +173,7 @@
     overflow: hidden;
 
     height: 14.35vh;
-    margin-top: -0.46vh; // костыль?
+    margin-top: 1.86vh;
     padding-top: 0.93vh;
     padding-bottom: 1px;
 
@@ -188,7 +188,7 @@
 }
 .submitButtonWrapper {
     overflow: hidden;
-    margin-top: 1.85vh;
+    margin-top: 4.19vh;
 
     & .input {
         transition: transform $input-duration $input-timing-function $submit-button-delay;
@@ -244,18 +244,18 @@
     .form {
         max-width: calc(100% - 60px);
         margin-top: 20px;
-        gap: 20px;
+        column-gap: 20px;
     }
     .inputWrapper {
         padding-top: 10px;
     }
     .inputMessageWrapper {
-        height: 105px;
-        margin-top: 5px;
+        height: 110px;
+        margin-top: 18px;
         padding-top: 10px;
     }
     .submitButtonWrapper {
-        margin-top: 5px;
+        margin-top: 28px;
     }
     .social-media {
         margin-top: 30px;
@@ -274,7 +274,7 @@
         padding-bottom: 75px;
     }
     .form {
-        gap: 15px;
+        column-gap: 15px;
     }  
     .inputMessageWrapper {
         height: 230px;
@@ -300,7 +300,8 @@
         font-size: 20px;
     }
     .form {
-        gap: 20px;
+        column-gap: 20px;
+        row-gap: 10px;
 
         & .inputWrapper:nth-child(2) .input {
             transition-delay: $input-second-delay;
@@ -313,11 +314,14 @@
         flex: 100%;
     }
     .inputMessageWrapper {
-        margin-top: -10px; // костыль?
+        margin-top: 0;
 
         & .input {
             transition-delay: $message-delay;
         }
+    }
+    .submitButtonWrapper {
+        margin-top: 10px;
     }
     .social-media {
         width: 250px;
