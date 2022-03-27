@@ -4,14 +4,16 @@
 .grid {
     display: grid;
     grid-template-columns: 29.17vw 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 35.55vh;
     grid-template-areas: "mainInfo mainInfo"
                          "picture sliderInfo";
+
+    background-color: $teal-light;
+    height: 100%;
 }
 .grid__item:nth-child(1) {
-    margin-bottom: 3.65vw;
-    padding-top: 2.08vw;
-    padding-left: 2.08vw;
+    padding-top: 3.7vh;
+    padding-left: 3.7vh;
 
     grid-area: mainInfo;
 
@@ -22,13 +24,15 @@
 .grid__item:nth-child(2) {
     position: relative;
     grid-area: picture;
+
+    overflow: hidden;
 }
 .grid__item:nth-child(3) {
     grid-area: sliderInfo;
     
-    padding-right: 4.48vw;
-    padding-bottom: 3.85vw;
-    padding-left: 4.69vw;
+    padding-right: 8.4vh;
+    padding-bottom: 7.22vh;
+    padding-left: 8.8vh;
     
     display: flex;
     flex-direction: column;
@@ -47,9 +51,9 @@
     }
 }
 .title {
-    margin-top: 6.77vw;
+    margin-top: 12.31vh;
 
-    font-size: 3.44vw;
+    font-size: 6.11vh;
     line-height: 1.2;
     text-transform: uppercase;
     color: $white;
@@ -75,10 +79,9 @@
     }
 }
 .hint {
-    margin-top: 0.52vw;
+    margin-top: 0.97vh;
     opacity: 0;
     transform: translateY(-50%);
-    transform-origin: 32px top;
     animation: hint $hint-duration $hint-timing-function $hint-delay forwards;
 }
 @keyframes hint {
@@ -88,8 +91,9 @@
     }
 }
 .contactButtonWrapper {
-    margin-top: 3.13vw;
+    margin-top: 5.87vh;
     overflow: hidden;
+    padding-bottom: 1px;
 }
 .contactButton {
     transform: translateY(110%);
@@ -102,18 +106,18 @@
 }
 .picture {
     width: calc(100% - 5.05vw);
-    height: 20vw;
+    height: 100%;
 }
 .picture__text {
     position: absolute;
-    bottom: 1.82vw;
+    bottom: 3.42vh;
     right: 0;
 
     transform: rotate(-90deg) translateX(50%);
     transform-origin: 100% 100%;
 
     color: $white;
-    font-size: 0.83vw;
+    font-size: 1.56vh;
     font-weight: 400;
     line-height: 1.4;
 
@@ -140,22 +144,22 @@
     }
 }
 .sliderInfo__number {
-    font-size: 0.625vw;
+    font-size: 1.17vh;
     font-weight: 400;
     color: $orange;
 }
 .sliderInfo__text {
-    margin-top: 1.3vw;
+    margin-top: 2.44vh;
 
-    font-size: 1.04vw;
+    font-size: 1.95vh;
     font-weight: 400;
     text-transform: uppercase;
     color: $white;
 }
 .circles {
     align-self: flex-end;
-    width: 8.33vw;
-    height: 6.77vw;
+    width: 15.62vh;
+    height: 12.7vh;
 
     opacity: 0;
     animation: circles $circles-duration $circles-timing-function $circles-delay forwards;
@@ -165,37 +169,36 @@
         opacity: 1;
     }    
 }
-
-
-@media (max-width: $tablet) {
+@include media-tablet-or-narrowScreen {
     .grid {
-        grid-template-columns: 410px 1fr;
+        grid-template-columns: 1fr 35.94vw;
+        grid-template-rows: auto;
         grid-template-areas: "mainInfo picture"
                              "sliderInfo picture";   
     }
     .grid__item:nth-child(1) {
-        margin-bottom: 35px;
-        padding-top: 20px;
-        padding-left: 10px;
-        padding-right: 20px;
+        margin-bottom: 4.47vw;
+        padding-top: 3.13vw;
+        padding-left: 1.56vw;
+        padding-right: 3.13vw;
     }
     .grid__item:nth-child(3) {
-        padding-right: 20px;
-        padding-bottom: 20px;
-        padding-left: 10px;
+        padding-right: 3.13vw;
+        padding-bottom: 3.13vw;
+        padding-left: 1.56vw;
 
         flex-direction: row;
         align-items: flex-end;
     }
     .title {
-        margin-top: 53px;
-        font-size: 36px;
+        margin-top: 8.28vw;
+        font-size: 5.63vw;
     }
     .hint {
-        margin-top: 10px;
+        margin-top: 1.56vw;
     }
     .contactButtonWrapper {
-        margin-top: 30px;
+        margin-top: 4.69vw;
     }
     .picture {
         width: 100%;
@@ -205,14 +208,14 @@
         display: none;
     }
     .sliderInfo__number {
-        font-size: 12px;
+        font-size: 1.88vw;
     }
     .sliderInfo__text {
-        margin-top: 17px;
-        font-size: 16px;
+        margin-top: 2.66vw;
+        font-size: 2.5vw;
     }
     .circles {
-        width: 65px;
+        width: 10.16vw;
         height: auto;
     }
 }

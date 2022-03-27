@@ -5,8 +5,9 @@ $orange: #FDAA5A;
 $teal-light: #3D6D79;
 $grey: #e0e2ee;
 
-$closeButtonSize: 60px;
+$closeButtonSize: 5.56vh;
 $timing-function: cubic-bezier(.4,0,0,1);
+
 // Media breakpoints
 
 //  -- mobile from 0 to 640; 
@@ -14,9 +15,9 @@ $timing-function: cubic-bezier(.4,0,0,1);
 //  -- tablet2 from 960 to 1300;
 //  -- and desktop from 1300 to infinity
 
-//  <number> is endpoint of <device>
 $mobile: 640px;
 $tablet: 960px;
+@mixin media-tablet-or-narrowScreen { @media (max-width: $tablet), (max-aspect-ratio: 7 / 5) { @content } }
 $tablet2: 1300px;
 
 @media (max-width: $tablet2) {

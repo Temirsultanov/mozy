@@ -4,6 +4,7 @@
 .heroPage {
     display: flex;
     min-height: 100%;
+    width: 100%;
 }
 .dots {
     position: fixed;
@@ -24,13 +25,14 @@
 }
 .heroPageInfo {
     width: 50%;
+    height: 100%;
 }
 .heroPageSlider {
     width: 50%;
     background-color: $grey;
 }
 
-@media (max-width: $tablet) {
+@include media-tablet-or-narrowScreen {
     .heroPage {
         flex-direction: column;
     }

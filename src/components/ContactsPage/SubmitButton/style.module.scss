@@ -1,13 +1,13 @@
 @import "/src/components/common/_variables.scss";
 
 .submit-button {
-    padding: 23px 63px;
+    padding: 2.5vh 5.993vh;
     border: 1px solid $white;
 
     background-color: transparent;
     color: $white;
 
-    font-size: 18px;
+    font-size: 1.67vh;
     text-transform: uppercase;
 
     transition: 0.2s $timing-function;
@@ -21,12 +21,13 @@
 
 @media (max-width: $tablet2) {
     .submit-button {
-        padding: 19px 44px;
+        padding: 24px 44px;
+        font-size: 18px;
     }   
 }
 @media (max-width: $tablet) {
     .submit-button {
-        padding: 16px 24px;
+        padding: 20px 24px;
     }
 }
 @media (max-width: $mobile) {

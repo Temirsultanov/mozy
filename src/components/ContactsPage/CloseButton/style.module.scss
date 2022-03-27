@@ -1,8 +1,8 @@
 @import "/src/components/common/_variables.scss";
 
 .close-button {
-    width: $closeButtonSize;
-    height: $closeButtonSize;
+    width: 5.56vh;;
+    height: 5.56vh;;
 
     display: flex;
     justify-content: center;
@@ -14,6 +14,10 @@
 
     cursor: pointer;
 
+    & svg {
+        width: 1.85vh;
+        height: auto;;
+    }
     &::before {
         position: absolute;
         top: 0;
@@ -41,7 +45,6 @@
         
         & svg {
             width: 12px;
-            height: 12px;
         }
         & line {
             stroke-width: 2px;

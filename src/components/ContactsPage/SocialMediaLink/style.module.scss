@@ -3,8 +3,8 @@
 .social-link {
     position: relative;
 
-    width: 120px;
-    height: 120px;
+    width: 11.11vh;
+    height: 11.11vh;
 
     display: flex;
     justify-content: center;
@@ -17,7 +17,10 @@
     &:hover {
         border-color: $teal;
     }
-    
+    & svg {
+        max-width: 4.17vh;
+        height: auto;
+    }
     & path {
         transition: fill .3s $timing-function;   
     }
@@ -41,12 +44,12 @@
     }
     &::before {
         position: absolute;
-        top: -15px;
-        left: -15px;
+        top: -1.39vh;
+        left: -1.39vh;
         z-index: -2;
     
-        width: 150px;
-        height: 150px;
+        width: 13.89vh;
+        height: 13.89vh;
         border-radius: 50%;
         background-color: $orange;
         transform: scale(0);
@@ -59,7 +62,7 @@
     }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: $tablet2) {
     .social-link {
         width: 90px;
         height: 90px;

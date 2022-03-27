@@ -64,26 +64,29 @@
     left: 0;
     right: 0;
     bottom: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     width: 100%;
-    padding-top: calc(30px * 2 + $closeButtonSize);
-    padding-bottom: 40px;
+    padding-top: calc(2.78vh * 2 + 5.56vh);
+    padding-bottom: 4vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 
 // Content
 .content {
-    width: calc(100% - 200px);
-    min-width: 950px;
-    padding: 50px 0;
+    width: calc(100% - 18.52vh);
+    min-width: 87.96vh;
+    padding: 4.57vh 0;
+
     border-top: 1px solid $orange;
     border-bottom: 1px solid $orange;
 
+    flex: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,12 +99,12 @@
 
 // Title
 .title {
-    max-width: 700px;
+    max-width: 64.81vh;
 
     display: flex;
     flex-direction: column;
 
-    font-size: 66px;
+    font-size: 6.11vh;
 }
 .title__outer {
     overflow: hidden;
@@ -124,9 +127,9 @@
 
 // Subtitle
 .subtitle {
-    margin-top: 25px;
+    margin-top: 2.31vh;
 
-    font-size: 24px;
+    font-size: 2.22vh;
     font-weight: 400;   
     color: $orange;
     width: 100%;
@@ -147,17 +150,17 @@
 
 // Form
 .form {
-    max-width: 900px;
-    margin-top: 30px;
+    max-width: 83.33vh;
+    margin-top: 2.78vh;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 2.31vh;
 }
 .inputWrapper {
     overflow: hidden;
-    padding-top: 10px;
+    padding-top: 0.93vh;
     flex: 30%;
 }
 .input {
@@ -169,9 +172,10 @@
 .inputMessageWrapper {
     overflow: hidden;
 
-    height: 155px;
-    margin-top: -5px; // костыль?
-    padding-top: 10px;
+    height: 14.35vh;
+    margin-top: -0.46vh; // костыль?
+    padding-top: 0.93vh;
+    padding-bottom: 1px;
 
     flex: 1 100%;
 
@@ -184,18 +188,18 @@
 }
 .submitButtonWrapper {
     overflow: hidden;
-    margin-top: 20px;
+    margin-top: 1.85vh;
 
     & .input {
-        transition-delay: $submit-button-delay;
+        transition: transform $input-duration $input-timing-function $submit-button-delay;
     }
 }
 
 // Social Media
 .social-media {
-    margin-top: 45px;
+    margin-top: 4vh;
     display: flex;
-    gap: 90px;
+    gap: 8.33vh;
 }
 .socialMediaLink {
     transform: scale(1);
@@ -208,42 +212,47 @@
 // Close button
 .closeButton {
     position: fixed;
-    top: 30px;
+    top: 2.78vh;
     z-index: 1;
 
     transition: transform $close-button-duration $close-button-timing-function $close-button-delay;
 }
 .contactsHidden .closeButton {
-    transform: translateY(-200px);
+    transform: translateY(-18.52vh);
 }
 
 
 // Media queries
 @media (max-width: $tablet2) {
-    // костыль, чтобы обновить переменную $closeButtonSize; 
-    // Можно решить, добавив новую переменную closeButtonSizeTablet, но тоже похоже на костыль; 
-    // В общем, это проблема scss компилятора, он не обновляет переменную везде, если я сменил её в медиа-запросе.
-    @import "/src/components/common/_variables.scss"; 
-
     .contacts__wrapper {
-        padding-top: calc(30px * 2 + $closeButtonSize);
+        padding-top: calc(30px * 2 + 46px);
         padding-bottom: 30px;
     }
     .content {
         width: calc(100% - 80px);
         min-width: auto; 
+        padding: 50px 0;
     }
     .title {
         max-width: 700px;
         font-size: 36px;
+    }
+    .subtitle {
+        margin-top: 25px;
+        font-size: 24px;
     }
     .form {
         max-width: calc(100% - 60px);
         margin-top: 20px;
         gap: 20px;
     }
+    .inputWrapper {
+        padding-top: 10px;
+    }
     .inputMessageWrapper {
         height: 105px;
+        margin-top: 5px;
+        padding-top: 10px;
     }
     .submitButtonWrapper {
         margin-top: 5px;
@@ -251,6 +260,12 @@
     .social-media {
         margin-top: 30px;
         gap: 65px;
+    }
+    .closeButton {
+        top: 30px;
+    }
+    .contactsHidden .closeButton {
+        transform: translateY(-200px);
     }
 }
 @media (max-width: $tablet) {
@@ -266,10 +281,13 @@
     }
 }
 @media (max-width: $mobile) {
-    // такой же костыль, как выше
+    // как будто костыль
     @import "/src/components/common/contactsAnimationParameters.scss"; 
 
     .contacts {
+        padding-bottom: 50px;
+    }
+    .contacts__wrapper {
         padding-bottom: 50px;
     }
     .content {

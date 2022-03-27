@@ -4,7 +4,7 @@
     position: relative;
     overflow: hidden;
 
-    padding: 1.2vw 3.13vw;
+    padding: 2.3vh 5.86vh;
     border: 1px solid $orange;
 
     display: flex;
@@ -18,27 +18,28 @@
     & .contactButton__text {
         display: block;
         color: $orange;
-        font-size: 1.04vw;
+        font-size: 1.95vh;
         text-transform: uppercase;
 
         transition: transform 0.3s 0s $timing-function, color 0.3s 0s $timing-function;
     }
     & .contactButton__arrow {
         position: absolute;
-        right: -1.56vw;
-        width: 1.67vw;
-        height: 1.67vw;
+        right: -2.93vh;
+        width: 3.13vh;
+        height: 3.13vh;
         
         transition: transform 0.3s 0s $timing-function;
     }
     & .contactButton__arrow path{
         transition: stroke 0.3s 0s $timing-function;
     }
+
     &:hover .contactButton__text {
-        transform: translateX(-1.04vw);
+        transform: translateX(-1.95vh);
     }
     &:hover .contactButton__arrow {
-        transform: translateX(-3.65vw);
+        transform: translateX(-6.84vh);
     }
 
     &:active {
@@ -52,24 +53,24 @@
     }
 }
 
-@media (max-width: $tablet) {
+@include media-tablet-or-narrowScreen {
     .contactButton {
-        padding: 16px 38px;
+        padding: 2.5vw 5.94vw;
         
         & .contactButton__text {
-            font-size: 18px;
+            font-size: 2.81vw;
         }   
         & .contactButton__arrow {
-            right: -23px;
-            width: 23px;
-            height: 23px;
+            right: -3.59vw;
+            width: 3.59vw;
+            height: 3.59vw;
         }
 
         &:hover .contactButton__text {
-            transform: translateX(-20px);
+            transform: translateX(-3.13vw);
         }
         &:hover .contactButton__arrow {
-            transform: translateX(-40px);
+            transform: translateX(-6.25vw);
         }
     }
 }

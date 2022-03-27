@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
-import HeroPage from "../components/HeroPage/index.js";
-import ContactsPage from "../components/ContactsPage/index.js";
+import HeroPage from "../components/HeroPage";
+import ContactsPage from "../components/ContactsPage";
+import Doors from "../components/Doors"
 import "/src/styles/index.scss";
 
 const mainStyle = {
-  height: "100%",
+  minHeight: "100%",
+  display: "flex",
 }
 
 
@@ -16,6 +18,7 @@ const IndexPage = () => {
       <title>Mozy • Мобильные приложения</title>
       <HeroPage setContactsHiddenState={setContactsHiddenState}></HeroPage>
       <ContactsPage isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></ContactsPage>
+      <Doors></Doors>
     </main>
   );
 }

@@ -1,13 +1,12 @@
 @import "/src/components/common/_variables.scss";
 
 .logo {
-    width: 6.35vw;
-    height: 2.5vw;
+    width: 11.3vh;
+    height: auto;
 }
-@media (max-width: $tablet) {
+@include media-tablet-or-narrowScreen {
     .logo {
-        width: 75px;
-        height: auto;
+        width: 11.72vw;
     }
 }
 @media (max-width: $mobile) {
