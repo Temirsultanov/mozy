@@ -48,7 +48,7 @@
 
 @media (max-width: $mobile) {
     .hint {
-        max-width: 86vw;
+        max-width: 87vw;
         padding-top: 2.5vw;
 
         & .hint__triangle {
@@ -57,7 +57,7 @@
             left: 4.06vw;
         }
         & .hint__text {
-            padding: 1.88vw 4.06vw;
+            padding: 1.88vw 4vw;
             border-radius: 1.85vw;
             font-size: 3.1vw;
         }
