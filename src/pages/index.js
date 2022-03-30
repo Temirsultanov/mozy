@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 
 import HeroPage from "../components/HeroPage";
-import ContactsPage from "../components/ContactsPage";
+import ContactsPopup from "../components/ContactsPopup";
 import Doors from "../components/Doors"
 import "/src/styles/index.scss";
 
-const mainStyle = {
-  minHeight: "100%",
-  display: "flex",
-}
-
-
 const IndexPage = () => {
   const [isContactsHidden, setContactsHiddenState] = useState(true);
+  
+  const openContacts = () => {
+    setContactsHiddenState(false);
+  }
+  const closeContacts = () => {
+    setContactsHiddenState(true);
+  }
+
   return (
-    <main style={mainStyle}>
+    <main className="mozy">
       <title>Mozy • Мобильные приложения</title>
-      <HeroPage setContactsHiddenState={setContactsHiddenState}></HeroPage>
-      <ContactsPage isContactsHidden={isContactsHidden} setContactsHiddenState={setContactsHiddenState}></ContactsPage>
+      <HeroPage openContacts={openContacts}></HeroPage>
+      <ContactsPopup isContactsHidden={isContactsHidden} closeContacts={closeContacts}></ContactsPopup>
       <Doors></Doors>
     </main>
   );
 }
 
-export default IndexPage
+export default IndexPage;

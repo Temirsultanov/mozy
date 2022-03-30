@@ -3,7 +3,6 @@ import {input, label, inputWrapper, inputFilled} from "./style.module.scss"
 
 
 const Input = ({className, isTextArea = false, type, name, placeholder}) => {
-
     const randomNumber = Math.floor((Math.random() * 100000)).toString(); // какая-то уязвимость, но как создать уникальный id?
     const inputId = `input-${name}${randomNumber}`;
 
@@ -17,7 +16,8 @@ const Input = ({className, isTextArea = false, type, name, placeholder}) => {
     }
 
     function onChangeHandler(event) {
-        const newInputClassName = event.target.value.trim() === "" ? input : `${input} ${inputFilled}`;
+        const inputValue = event.target.trim();
+        const newInputClassName = inputValue === "" ? input : `${input} ${inputFilled}`;
         setInputClassName(newInputClassName);
     }
 

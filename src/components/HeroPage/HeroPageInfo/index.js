@@ -1,14 +1,14 @@
 import * as React from 'react';
 import {StaticImage} from "gatsby-plugin-image";
 
-import Logo from "./Logo/index.js"
-import Hint from "./Hint/index.js";
-import ContactButton from "./ContactButton/index.js";
-import Circles from "./Circles/index.js"
+import Logo from "./Logo"
+import Hint from "./Hint";
+import ContactButton from "./ContactButton";
+import Circles from "./Circles";
 
 import {grid, grid__item, logo, title, title__outer, title__inner, hint, contactButton, contactButtonWrapper, picture, picture__text, sliderInfo, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
 
-const HeroPageInfo = ({className, setContactsHiddenState}) => {
+const HeroPageInfo = ({className, openContacts}) => {
     return (
         <div className={`${className} ${grid}`}>
             <div className={grid__item}>
@@ -23,7 +23,7 @@ const HeroPageInfo = ({className, setContactsHiddenState}) => {
                 </h1>
                 <Hint className={hint}></Hint>
                 <div className={contactButtonWrapper}>
-                    <ContactButton className={contactButton} setContactsHiddenState={setContactsHiddenState}></ContactButton>
+                    <ContactButton className={contactButton} onClick={openContacts}></ContactButton>
                 </div>
             </div>
             <div className={grid__item}>

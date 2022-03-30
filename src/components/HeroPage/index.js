@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import HeroPageSlider from "./HeroPageSlider/index.js"
-import HeroPageInfo from "./HeroPageInfo/index.js"
+import HeroPageSlider from "./HeroPageSlider"
+import HeroPageInfo from "./HeroPageInfo"
 
 import {heroPage, dots, heroPageInfo, heroPageSlider} from "./style.module.scss";
 
-const HeroPage = ({setContactsHiddenState}) => {
+const HeroPage = ({openContacts}) => {
     return (
         <section className={heroPage}>
             <svg className={dots} width="70" height="40" viewBox="0 0 70 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@ const HeroPage = ({setContactsHiddenState}) => {
                 <circle cx="35" cy="35" r="5" fill="#E0E2EE"/>
                 <circle cx="5" cy="35" r="5" fill="#E0E2EE"/>
             </svg>
-            <HeroPageInfo className={heroPageInfo} setContactsHiddenState={setContactsHiddenState}></HeroPageInfo>
+            <HeroPageInfo className={heroPageInfo} openContacts={openContacts}></HeroPageInfo>
             <HeroPageSlider className={heroPageSlider}></HeroPageSlider>
         </section>
     )

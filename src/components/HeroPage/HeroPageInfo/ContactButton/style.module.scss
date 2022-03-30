@@ -25,21 +25,25 @@
     }
     & .contactButton__arrow {
         position: absolute;
-        right: -2.93vh;
-        width: 3.13vh;
-        height: 3.13vh;
+        right: 3.76vh;
         
-        transition: transform 0.3s 0s $timing-function;
+        width: 1.11vh;
+        height: auto;
+        opacity:0;
+        
+        transform: translate(-100%);
+        transition: opacity 0.3s 0s $timing-function, transform 0.3s 0s $timing-function;
     }
     & .contactButton__arrow path{
         transition: stroke 0.3s 0s $timing-function;
     }
 
     &:hover .contactButton__text {
-        transform: translateX(-1.95vh);
+        transform: translateX(-2.1vh);
     }
     &:hover .contactButton__arrow {
-        transform: translateX(-6.84vh);
+        opacity: 1;
+        transform: translateX(0%);
     }
 
     &:active {
@@ -61,16 +65,12 @@
             font-size: 2.81vw;
         }   
         & .contactButton__arrow {
-            right: -3.59vw;
-            width: 3.59vw;
-            height: 3.59vw;
+            right: 3.81vw;
+            width: 1.4vw;
         }
 
         &:hover .contactButton__text {
-            transform: translateX(-3.13vw);
-        }
-        &:hover .contactButton__arrow {
-            transform: translateX(-6.25vw);
+            transform: translateX(-2.13vw);
         }
     }
 }
@@ -82,16 +82,12 @@
             font-size: 4.38vw;
         }   
         & .contactButton__arrow {
-            right: -5.63vw;
-            width: 5.63vw;
-            height: 5.63vw;
+            right: 5.36vw;
+            width: 2.19vw;
         }
 
         &:hover .contactButton__text {
-            transform: translateX(-5vw);
-        }
-        &:hover .contactButton__arrow {
-            transform: translateX(-10vw);
+            transform: translateX(-3.7vw);
         }
     }
 }

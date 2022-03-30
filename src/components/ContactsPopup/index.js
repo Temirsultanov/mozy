@@ -26,17 +26,13 @@ const links = [
     },
 ]
 
-const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
-    let contactsClassName;
-    if (isContactsHidden) {
-        contactsClassName = `${contacts} ${contactsHidden}`
-    } else {
-        contactsClassName = `${contacts}`;
-    }
+const ContactsPage = ({isContactsHidden, closeContacts}) => {
+    let contactsClassName = isContactsHidden ? `${contacts} ${contactsHidden}` : contacts;
+    
     return (
         <section className={contactsClassName} >
             <div className={contacts__wrapper}>
-                <CloseButton className={closeButtonStyle} setContactsHiddenState={setContactsHiddenState}></CloseButton>
+                <CloseButton className={closeButtonStyle} onClick={closeContacts}></CloseButton>
                 <div className={content}>
                     <h2 className={title}>
                         <span className={title__outer}>
@@ -73,7 +69,7 @@ const ContactsPage = ({isContactsHidden, setContactsHiddenState}) => {
                                     {link.icon} 
                                 </SocialMediaLink>
                             </div>
-                        )
+                        );
                     })}
                 </ul>
             </div>            

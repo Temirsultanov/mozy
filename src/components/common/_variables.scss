@@ -17,8 +17,8 @@ $timing-function: cubic-bezier(.4,0,0,1);
 
 $mobile: 640px;
 $tablet: 960px;
-@mixin media-tablet-or-narrowScreen { @media (max-width: $tablet), (max-aspect-ratio: 7 / 5) { @content } }
 $tablet2: 1300px;
+@mixin media-tablet-or-narrowScreen { @media (max-width: $tablet), (max-aspect-ratio: 7 / 5) { @content } };
 
 @media (max-width: $tablet2) {
     $closeButtonSize: 48px;

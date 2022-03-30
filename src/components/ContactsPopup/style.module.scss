@@ -1,5 +1,5 @@
-@import "/src/components/common/_variables.scss";
-@import "/src/components/common/_contactsAnimationParameters.scss";
+@import "/src/components/common/variables";
+@import "/src/components/common/contactsAnimationParameters";
 
 // Contacts
 .contacts {
@@ -282,7 +282,7 @@
 }
 @media (max-width: $mobile) {
     // как будто костыль
-    @import "/src/components/common/contactsAnimationParameters.scss"; 
+    @import "/src/components/common/contactsAnimationParameters"; 
 
     .contacts {
         padding-bottom: 50px;
