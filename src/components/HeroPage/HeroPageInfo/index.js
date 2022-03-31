@@ -2,11 +2,11 @@ import * as React from 'react';
 import {StaticImage} from "gatsby-plugin-image";
 
 import Logo from "./Logo"
-import Hint from "./Hint";
+import Tooltip from "./Tooltip";
 import ContactButton from "./ContactButton";
 import Circles from "./Circles";
 
-import {grid, grid__item, logo, title, title__outer, title__inner, hint, contactButton, contactButtonWrapper, picture, picture__text, sliderInfo, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
+import {grid, grid__item, logo, title, title__outer, title__inner, tooltip, contactButton, contactButtonWrapper, picture, picture__text, sliderInfo, sliderInfo__number, sliderInfo__text, circles} from "./style.module.scss";
 
 const HeroPageInfo = ({className, openContacts}) => {
     return (
@@ -21,7 +21,7 @@ const HeroPageInfo = ({className, openContacts}) => {
                             <span className={title__inner}>и технологии</span>
                         </span>
                 </h1>
-                <Hint className={hint}></Hint>
+                <Tooltip className={tooltip}></Tooltip>
                 <div className={contactButtonWrapper}>
                     <ContactButton className={contactButton} onClick={openContacts}></ContactButton>
                 </div>

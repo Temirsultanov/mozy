@@ -6,7 +6,7 @@ const Input = ({className, isTextArea = false, type, name, placeholder}) => {
     const randomNumber = Math.floor((Math.random() * 100000)).toString(); // какая-то уязвимость, но как создать уникальный id?
     const inputId = `input-${name}${randomNumber}`;
 
-    const [inputClassName, setInputClassName] = useState(`${input}`);
+    const [inputClassName, setInputClassName] = useState(input);
 
     const properties = {
         name,

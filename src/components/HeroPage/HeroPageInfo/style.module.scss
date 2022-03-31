@@ -78,13 +78,13 @@
         transform: translateY(0);
     }
 }
-.hint {
+.tooltip {
     margin-top: 0.97vh;
     opacity: 0;
     transform: translateY(-50%);
-    animation: hint $hint-duration $hint-timing-function $hint-delay forwards;
+    animation: tooltip $tooltip-duration $tooltip-timing-function $tooltip-delay forwards;
 }
-@keyframes hint {
+@keyframes tooltip {
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -194,7 +194,7 @@
         margin-top: 8.28vw;
         font-size: 5.63vw;
     }
-    .hint {
+    .tooltip {
         margin-top: 1.56vw;
     }
     .contactButtonWrapper {

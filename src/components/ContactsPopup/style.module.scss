@@ -133,6 +133,9 @@
     font-weight: 400;   
     color: $orange;
     width: 100%;
+
+    display: flex;
+    justify-content: center;
 }
 .subtitle__inner {
     display: block;

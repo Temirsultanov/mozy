@@ -1,19 +1,19 @@
 @import "/src/components/common/variables";
 
-.hint {
+.tooltip {
     position: relative;
 
     max-width: 52.3vh;
     padding-top: 1.85vh;
 
-    & .hint__triangle {
+    & .tooltip__triangle {
         position: absolute;
         top: 0;
         left: 2.96vh;
         width: 2.96vh;
         height: 2.96vh;
     }
-    & .hint__text {
+    & .tooltip__text {
         width: 100%;
         padding: 1.39vh 2.78vh;
 
@@ -28,16 +28,16 @@
 }
 
 @include media-tablet-or-narrowScreen {
-    .hint {
+    .tooltip {
         max-width: 52.34vw;
         padding-top: 1.56vw;
 
-        & .hint__triangle {
+        & .tooltip__triangle {
             left: 2.5vw;
             width: 2.5vw;
             height: 2.5vw;
         }
-        & .hint__text {
+        & .tooltip__text {
             padding: 1.25vw 2.34vw;
             border-radius: 0.94vw;
             font-size: 1.88vw;
@@ -47,16 +47,16 @@
 }
 
 @media (max-width: $mobile) {
-    .hint {
+    .tooltip {
         max-width: 87vw;
         padding-top: 2.5vw;
 
-        & .hint__triangle {
+        & .tooltip__triangle {
             width: 4.06vw;
             height: 4.06vw;
             left: 4.06vw;
         }
-        & .hint__text {
+        & .tooltip__text {
             padding: 1.88vw 4vw;
             border-radius: 1.85vw;
             font-size: 3vw;
