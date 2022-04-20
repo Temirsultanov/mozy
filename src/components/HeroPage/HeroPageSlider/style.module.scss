@@ -11,19 +11,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-h1 {
-    font-size: 1.5vw;    
-}
 
+    overflow: hidden;
+}
+.slider__item {
+    width: 100%;
+    height: 100%;
+}
 @include media-tablet-or-narrowScreen {
     .heroPageSlider {
         position: static;
         width: 100%;
         min-height: 320px;
         flex: 100%;
-    }
-    h1 {
-        font-size: 5vw;
     }
 }
