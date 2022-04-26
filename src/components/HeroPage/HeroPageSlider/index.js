@@ -15,6 +15,7 @@ const HeroPageSlider = ({className}) => {
     const animationMainOptions = {
         loop: true,
         autoplay: true,
+        isClickToPauseDisabled: true,
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
         }
@@ -40,13 +41,13 @@ const HeroPageSlider = ({className}) => {
                 autoplay={{delay: 5000}}
             >
                 <SwiperSlide className={slider__item}>
-                    <Lottie options={firstAnimationOptions}></Lottie>
+                    <Lottie isClickToPauseDisabled={true} options={firstAnimationOptions}></Lottie>
                 </SwiperSlide>
                 <SwiperSlide className={slider__item}>
-                    <Lottie options={secondAnimationOptions}></Lottie>
+                    <Lottie isClickToPauseDisabled={true} options={secondAnimationOptions}></Lottie>
                 </SwiperSlide>
                 <SwiperSlide className={slider__item}>
-                    <Lottie options={thirdAnimationOptions}></Lottie>
+                    <Lottie isClickToPauseDisabled={true} options={thirdAnimationOptions}></Lottie>
                 </SwiperSlide>
             </Swiper>    
         </div>
