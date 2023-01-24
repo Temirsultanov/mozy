@@ -16,7 +16,7 @@ const Input = ({className, isTextArea = false, type, name, placeholder}) => {
     }
 
     function onChangeHandler(event) {
-        const inputValue = event.target.trim();
+        const inputValue = event.target.value.trim();
         const newInputClassName = inputValue === "" ? input : `${input} ${inputFilled}`;
         setInputClassName(newInputClassName);
     }

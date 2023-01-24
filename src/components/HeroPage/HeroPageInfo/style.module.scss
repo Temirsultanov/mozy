@@ -144,17 +144,33 @@
     }
 }
 .sliderInfo__number {
+    max-height: 1.4vh;
+    overflow: hidden;
+
+    display: inline-flex;
+    justify-content: flex-start;
+
     font-size: 1.17vh;
     font-weight: 400;
     color: $orange;
 }
+.sliderNumberSlide {
+    max-height: 1.4vh;
+}
+// .numberSlider {
+// }
 .sliderInfo__text {
     margin-top: 2.44vh;
+    max-width: 11vw;
+    overflow: hidden;
 
     font-size: 1.95vh;
     font-weight: 400;
     text-transform: uppercase;
     color: $white;
+}
+.sliderTextSlide {
+    width: 100%;
 }
 .circles {
     align-self: flex-end;
@@ -208,9 +224,14 @@
         display: none;
     }
     .sliderInfo__number {
+        max-height: 2.5vh;
         font-size: 1.88vw;
     }
+    .sliderNumberSlide {
+        max-height: 3vh;
+    }
     .sliderInfo__text {
+        max-width: 20vw;
         margin-top: 2.66vw;
         font-size: 2.5vw;
     }
@@ -257,9 +278,14 @@
         font-size: 3.13vw;
     }
     .sliderInfo__number {
+        max-height: 3.13vw;
         font-size: 2.5vw;
     }
+    .sliderNumberSlide {
+        max-height: 3.13vw;
+    }
     .sliderInfo__text {
+        max-width: 40vw;
         margin-top: 3.75vw;
         font-size: 3.13vw;
     }
