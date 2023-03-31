@@ -163,11 +163,13 @@ const IndexPage = () => {
   function openContacts() {
     setContactsPopupClosed(false);
     document.body.addEventListener("pointerdown", onBodyPointerDownHandler);
+    document.body.classList.add("hidden");
   }
 
   function closeContacts() {
     setContactsPopupClosed(true);
     document.body.removeEventListener("pointerdown", onBodyPointerDownHandler);
+    document.body.classList.remove("hidden");
   }
 
   return (
