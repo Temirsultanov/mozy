@@ -17,6 +17,7 @@ export default IndexPage;
 
 export const Head = () => (
   <>
+    <html lang="ru" />
     <Seo title="Политика конфиденциальности • Mozy • Соединяем идеи и технологии • Диджитал-агенство • Разработка сайтов, приложений"></Seo>
   </>
 );
