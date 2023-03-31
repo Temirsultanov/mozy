@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import "./style.scss";
 
 import { CloseButton } from "./CloseButton";
@@ -9,38 +9,24 @@ import { SocialLinks } from "../../lib/components/SocialLinks";
 
 export const ContactsPopup = ({ isClose, close }) => {
     const [submitted, setSubmitted] = useState(false);
-    const section = useRef(null);
 
-    function closeWrapper() {
+    function onCloseButtonClick() {
         setTimeout(() => {
             setSubmitted(false);
         }, 1000);
         close();
     }
 
-    useEffect(() => {
-        if (!section.current) return;
-
-        function handleTouchMove(event) {
-            event.stopPropagation();
-            console.log("Stop Propagation from contactsPopup");
-        }
-
-        section.current.addEventListener("touchmove", handleTouchMove);
-        return () => section.current.removeEventListener("touchmove", handleTouchMove);
-    }, [])
-
-
     return (
-        <section ref={section} className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
+        <section className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
             <div className="contactsPopup__left"></div>
             <div className="contactsPopup__right"></div>
             <div className="contactsPopup__inner">
-                <CloseButton className="contactsPopup__closeButton" onClick={closeWrapper} />
+                <CloseButton className="contactsPopup__closeButton" onClick={onCloseButtonClick} />
                 <ContactsLine className="contactsPopup__line" />
                 <h2 className={"contactsPopup__title " + (submitted ? "contactsPopup__title-hide" : "")}>Мы готовы к&nbsp;вашим&nbsp;идеям</h2>
                 <Form isHide={submitted} setSubmitted={setSubmitted} className="contactsPopup__form" />
-                <SuccessSubmit isOpen={submitted} closePopup={closeWrapper} className="contactsPopup__successSubmit" />
+                <SuccessSubmit isOpen={submitted} closePopup={onCloseButtonClick} className="contactsPopup__successSubmit" />
                 <ContactsLine className="contactsPopup__line" />
                 <SocialLinks className="contactsPopup__socialLinks" />
             </div>

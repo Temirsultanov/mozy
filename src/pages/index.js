@@ -41,6 +41,21 @@ function isScrollUp(event) {
   return event.deltaY < 0;
 }
 
+function openBrief() {
+  window.open(BRIEF_LINK, "_blank");
+}
+
+function scrollTo(elem) {
+  window.scrollTo({
+    top: elem.offsetTop,
+    behavior: "smooth",
+  });
+}
+
+function onBodyPointerDownHandler(event) {
+  event.preventDefault();
+}
+
 const IndexPage = () => {
   const [opened, setOpened] = useState(sections.promoBlock);
   const [closed, setClosed] = useState(sections.promoBlock);
@@ -134,36 +149,25 @@ const IndexPage = () => {
   const portfolio = useRef(null);
   const contacts = useRef(null);
 
-  function scrollTo(elem) {
-    window.scrollTo({
-      top: elem.current.offsetTop,
-      behavior: "smooth",
-    });
-  }
-
-  function openBrief() {
-    window.open(BRIEF_LINK, "_blank");
-  }
-
   function openPortfolio() {
-    setOpened(3);
+    setOpened(sections.portfolio);
     setScrolling(true);
     setTimeout(() => {
       setScrolling(false);
-    }, DELAY_BETWEEN_SLIDES - 500);
+    }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
     if (window.innerWidth < MOBILE_HEIGHT) {
-      scrollTo(portfolio);
+      scrollTo(portfolio.current);
     }
   }
 
   function openContacts() {
-    document.body.classList.add("hidden");
     setContactsPopupClosed(false);
+    document.body.addEventListener("pointerdown", onBodyPointerDownHandler);
   }
 
   function closeContacts() {
-    document.body.classList.remove("hidden");
     setContactsPopupClosed(true);
+    document.body.removeEventListener("pointerdown", onBodyPointerDownHandler);
   }
 
   return (
