@@ -1,0 +1,73 @@
+@import "../../../styles/lib.scss";
+
+.question {
+    width: 100%;
+    padding: 0;
+    border: 0;
+
+    display: flex;
+    align-items: stretch;
+    background-color: transparent;
+
+    &__number {
+        width: vh(260px);
+        padding-left: vh(68px);
+
+        display: flex;
+        align-items: center;
+
+        font-size: vh(124px);
+        font-weight: 700;
+        line-height: 1;
+
+        color: $Rosemery;
+        background-color: $RosemeryDark;
+    }
+    &__title {
+        flex: 1;
+
+        display: flex;
+        padding: vh(40px);
+        
+        font-size: vh(48px);
+        font-weight: 700;
+        text-transform: uppercase;
+     
+        color: $Oragon;
+        background-color: rgb(37, 79, 89, 0.7);
+    }
+    &:hover {
+        cursor: pointer;
+        
+        & .question__number {
+            color: $Oragon;
+        }
+        & .question__title {
+            background-color: $Oragon;
+            color: $RosemeryDark;
+        }
+    }
+    &-active {
+        & .question__number {
+            color: $Oragon;
+        }
+        & .question__title {
+            color: $RosemeryDark;
+            background-color: $Oragon;
+        }
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .question {
+        &__number {
+            width: vw(260px);
+            padding-left: vw(68px);
+            font-size: vw(124px);
+        }
+        &__title {
+            padding: vw(40px);
+            font-size: vw(48px);
+        }
+    }   
+}

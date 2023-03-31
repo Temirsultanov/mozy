@@ -1,0 +1,102 @@
+@import "../../../styles/lib.scss";
+
+.reason {
+    display: flex;
+
+    &__number {
+        margin-top: vh(2px);
+        font-size: vh(22px);
+    }
+    &__icon {
+        margin-top: vh(2px);
+        width: vh(50px);
+        height: vh(50px);
+        margin-left: vh(23px);
+        flex-shrink: 0;
+    }
+    &__content {
+        margin-left: vh(23px);
+        display: flex;
+        flex-direction: column;
+    }
+    &__title {
+        font-size: vh(26px);
+        font-weight: 400;
+        text-transform: uppercase;
+
+        span {
+            display: block;
+        }
+    }
+    &__text {
+        margin-top: vh(22px);
+        font-size: vh(20px);
+    }
+    &__line {
+        display: none;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .reason {
+        &__number {
+            margin-top: vw(2px);
+            font-size: vw(22px);
+        }
+        &__icon {
+            margin-top: vw(2px);
+            width: vw(50px);
+            height: vw(50px);
+            margin-left: vw(23px);
+        }
+        &__content {
+            margin-left: vw(23px);
+        }
+        &__title {
+            font-size: vw(26px);
+        }
+        &__text {
+            margin-top: vw(22px);
+            font-size: vw(20px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .reason {
+        padding-top: vw(30px, 390px);
+        padding-right: vw(25px, 390px);
+        padding-bottom: vw(30px, 390px);
+        padding-left: vw(16px, 390px);
+        
+        position: relative;
+        
+        &__number {
+            margin-top: vw(2px, 390px);
+            font-size: vw(10px, 390px);
+        }
+        &__icon {
+            margin-top: vw(2px, 390px);
+            width: vw(26px, 390px);
+            height: vw(26px, 390px);
+            margin-left: vw(16px, 390px);
+        }
+        &__content {
+            margin-left: vw(16px, 390px);
+        }
+        &__title {
+            font-size: vw(18px, 390px);
+        }
+        &__text {
+            margin-top: vw(16px, 390px);
+            font-size: vw(16px, 390px);
+        }
+        & .reason__line {
+            display: block;
+            width: calc(100% - vw(32px, 390px));
+            position: absolute;
+            left: vw(16px, 390px);
+            bottom: 0;
+        }
+    }
+}

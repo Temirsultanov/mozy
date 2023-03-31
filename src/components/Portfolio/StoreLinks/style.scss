@@ -1,0 +1,65 @@
+@import "../../../styles/lib.scss";
+
+.storeLinks {
+    display: flex;
+    & li:not(:first-child) {
+        margin-left: vh(14px);
+    }
+}
+
+.storeLink {
+    height: vh(58px);
+    display: block;
+    overflow: hidden;
+    border: 1px solid $Coal;
+    border-radius: vh(8px);
+    background-color: $Milk;
+
+    &-ios {
+        width: vh(180px);
+    }
+    &-android {
+        width: vh(195px);
+    }
+}
+
+.appStoreImage {
+    width: 100%;
+    height: 100%;
+}
+.playMarketImage  {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .storeLinks li:not(:first-child) {
+        margin-left: vw(14px);
+    }
+    .storeLink {
+        height: vw(58px);
+        border-radius: vw(8px);
+        &-ios {
+            width: vw(180px);
+        }
+        &-android {
+            width: vw(195px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .storeLinks li:not(:first-child) {
+        margin-left: vw(10px, 390px);
+    }
+    .storeLink {
+        height: vw(36px, 390px);
+        border-radius: vw(5px, 390px);
+        &-ios {
+            width: vw(110px, 390px);
+        }
+        &-android {
+            width: vw(120px, 390px);
+        }
+    }   
+}

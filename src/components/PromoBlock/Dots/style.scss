@@ -1,0 +1,101 @@
+@import "../../../styles/lib.scss";
+
+.dots {
+    width: vh(155px);
+    flex-wrap: wrap;
+    display: flex;
+    gap: vh(19px);
+
+    &__item {
+        width: vh(10px);
+        height: vh(10px);
+        border-radius: 50%;
+        background-color: $Oragon;
+        animation: 1s dots infinite linear;
+
+        &:nth-child(1) {
+            opacity: 0.2;
+            animation-delay: 0.1s;
+        }
+        &:nth-child(2) {
+            opacity: 0.9;
+            animation-delay: 0.35s;
+        }
+        &:nth-child(3) {
+            opacity: 0.5;
+            animation-delay: 0.25s;
+        }
+        &:nth-child(4) {
+            opacity: 0.9;
+            animation-delay: 0s;
+        }
+        &:nth-child(5) {
+            opacity: 0.8;
+            animation-delay: 0.05s;
+        }
+        &:nth-child(6) {
+            opacity: 0.7;
+            animation-delay: 0.4s;
+        }
+        &:nth-child(7) {
+            opacity: 1;
+            animation-delay: 0.35s;
+        }
+        &:nth-child(8) {
+            opacity: 0.9;
+            animation-delay: 0.5s;
+        }
+        &:nth-child(9) {
+            opacity: 0.3;
+            animation-delay: 0.2s;
+        }
+        &:nth-child(10) {
+            opacity: 0.4;
+            animation-delay: 0.3s;
+        }
+        &:nth-child(11) {
+            opacity: 0.6;
+            animation-delay: 0s;
+        }
+        &:nth-child(12) {
+            opacity: 0.8;
+            animation-delay: 0.15s;
+        }
+    }
+}
+
+@keyframes dots {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .dots {
+        width: vw(155px);
+        gap: vw(19px);
+    
+        &__item {
+            width: vw(10px);
+            height: vw(10px);
+        }
+    }
+}  
+
+@media (max-width: 700px) {
+    .dots {
+        width: vw(100px, 390px);
+        gap: vw(12px, 390px);
+
+        &__item {
+            width: vw(6px, 390px);
+            height: vw(6px, 390px);
+        }
+    }
+}

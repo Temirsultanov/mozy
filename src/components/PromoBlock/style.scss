@@ -1,0 +1,323 @@
+@import "../../styles/lib.scss";
+
+.promoBlock {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+    &__info {
+        width: 50%;
+        padding-top: vh(50px);
+        padding-left: vh(68px);
+        background-color: $RosemeryDark;
+        
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+    }
+    &__logo {
+        width: vh(190px);
+        height: vh(64px);
+    }
+    & .promoBlock__button {
+        &-header {
+            margin-left: vh(40px);
+        }
+        &-portfolio {
+            position: absolute;
+            transform: translateY(-50%);
+            left: vh(540px);
+        }
+        &-brief {
+            display: none;
+        }
+    }
+    &__eyeAndCompetencies {
+        margin-top: vh(120px);
+        display: flex;
+        align-items: center;
+    }
+    &__eye {
+        width: vh(58px);
+        height: vh(33px);
+        animation: 10s promoBlock__eye infinite linear;
+
+        & .pupil {
+            animation: 10s promoBlock__pupil infinite linear;
+        }
+    }
+    &__competencies {
+        margin-left: vh(25px);
+
+        font-size: vh(16px);
+        font-weight: 700;
+        text-transform: uppercase;
+        color: $Oragon;
+    }
+    &__borderLeft {
+        margin-left: vh(29px);
+        padding-bottom: vh(100px);
+        border-left: vh(2px) solid $Oragon;
+        position: relative;
+    }
+    &__dots {
+        margin-top: vh(40px);
+        margin-left: vh(55px);
+    }
+    &__title {
+        margin-top: vh(55px);
+        margin-left: vh(50px);
+    
+        font-size: vh(74px);
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+    
+        color: $Oragon;
+
+        -webkit-text-fill-color: transparent;
+        background: linear-gradient(-45deg, $Oragon, $Orange, $Oragon);
+        background-size: 500px;
+        background-position: 100% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+
+        animation: 2s promoBlock__title infinite cubic-bezier(0.4, 0, 0, 1);
+    }
+    &__description {
+        margin-top: vh(35px);
+        margin-left: vh(55px);
+        
+        font-size: vh(26px);
+        color: $Oragon;
+    }
+    &__links {
+        position: absolute;
+        bottom: vh(45px);
+    }
+    &__animation {
+        width: 50%;
+        background-color: $Cloud;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .promoBlock {
+        &__info {
+            padding-top: vw(50px);
+            padding-left: vw(68px);
+        }
+        &__logo {
+            width: vw(190px);
+            height: vw(64px);
+        }
+        & .promoBlock__button {
+            &-header {
+                margin-left: vw(40px);
+            }
+            &-portfolio {
+                left: vw(540px);
+            }
+        }
+        &__eyeAndCompetencies {
+            margin-top: vw(120px);
+        }
+        &__eye {
+            width: vw(58px);
+            height: vw(33px);
+        }
+        &__competencies {
+            margin-left: vw(25px);
+            font-size: vw(16px);
+        }
+        &__borderLeft {
+            margin-left: vw(29px);
+            padding-bottom: vw(100px);
+            border-left: vw(2px) solid $Oragon;
+        }
+        &__dots {
+            margin-top: vw(40px);
+            margin-left: vw(55px);
+        }
+        &__title {
+            margin-top: vw(55px);
+            margin-left: vw(50px);
+            font-size: vw(74px);
+        }
+        &__description {
+            margin-top: vw(35px);
+            margin-left: vw(55px);
+            font-size: vw(26px);
+        }
+        &__links {
+            bottom: vw(45px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .promoBlock {
+        height: auto;
+        min-height: 100vh;
+        position: static;
+
+        &__info {
+            width: 100%;
+            padding-top: vw(15px, 390px);
+            padding-left: vw(16px, 390px);
+            padding-right: vw(16px, 390px);
+            padding-bottom: vw(100px, 390px);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__logo {
+            width: vw(180px, 390px);
+            height: vw(60px, 390px);
+            margin-top: vw(45px, 390px);
+        }
+        &__eyeAndCompetencies {
+            margin-top: vw(50px, 390px);
+            flex-direction: column;   
+            align-items: center;
+        }
+        &__eye {
+            width: vw(65px, 390px);
+            height: vw(38px, 390px);
+        }
+        &__competencies {
+            margin-top: vw(20px, 390px);
+            margin-left: 0;
+            font-size: vw(12px, 390px);
+        }
+        &__borderLeft {
+            width: 100%;
+            margin-left: 0;
+            padding-bottom: 0;
+            border: none;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__dots {
+            margin-top: vw(20px, 390px);
+            margin-left: 0;
+        }
+        &__title {
+            margin-top: vw(20px, 390px);
+            font-size: vw(32px, 390px);
+            text-align: center;
+            margin-left: 0;
+        }
+        &__description {
+            margin-top: vw(12px, 390px);
+            font-size: vw(14px, 390px);
+            text-align: center;
+            margin-left: 0;
+        }
+        &__links {
+            position: static;
+        }
+        & .promoBlock__button {
+            width: 100%;
+            padding: vw(12px, 390px) 0;
+            font-size: vw(14px, 390px);
+
+            &-header {
+                display: none;
+            }
+            &-portfolio {
+                margin-top: vw(16px, 390px);
+                position: static;
+                transform: translateY(0);
+            }
+            &-brief {
+                margin-top: vw(20px, 390px);
+                display: block;
+                color: $RosemeryDark;
+                background-color: $Oragon;
+
+                &:hover {
+                    background-color: $Milk;
+                    border-color: $Milk;
+                }
+                &:active {
+                    opacity: 0.8;
+                }
+            }
+        }
+        &__animation {
+            display: none;
+        }
+    }
+}
+
+@keyframes promoBlock__title {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes promoBlock__eye {
+    0% {
+        transform: scaleY(1);
+    }
+    25% {
+        transform: scaleY(1);
+    }
+    27% {
+        transform: scaleY(0);
+    }
+    29% {
+        transform: scaleY(1);
+    }
+    34% {
+        transform: scaleY(1);
+    }
+    36% {
+        transform: scaleY(0);
+    }
+    38% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes promoBlock__pupil {
+    0% {
+        transform: translateX(0) scaleX(1);
+    }
+    28% {
+        transform: translateX(0) scaleX(1);
+    }
+    29% {
+        transform: translateX(12px) scaleX(0.8);
+    }
+    30% {
+        transform: translateX(12px) scaleX(0.8);
+    }
+    32% {
+        transform: translateX(-4px) scaleX(0.8);
+    }
+    34% {
+        transform: translateX(0) scaleX(1);
+    }
+    100% {
+        transform: translateX(0) scaleX(1);
+    }
+}

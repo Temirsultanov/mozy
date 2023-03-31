@@ -1,0 +1,71 @@
+@import "../../../styles/lib.scss";
+
+.closeButton {
+    width: vh(72px);
+    height: vh(72px);
+    
+    border: none;
+    border-radius: 50%;;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    background-color: $Milk;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0, 1);
+
+    svg {
+        width: vh(25px);
+        height: vh(25px);
+        position: relative;
+    }
+
+    &:before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-color: $Milk;
+        transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.3, 1.33);
+    }
+    &:hover {
+        cursor: pointer;
+        &::before {
+            transform: scale(1.2);
+        }
+    }
+    &:focus-visible {
+        outline: 1px solid $Milk;
+        outline-offset: 5px;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .closeButton {
+        width: vw(72px);
+        height: vw(72px);
+
+        svg {
+            width: vw(25px);
+            height: vw(25px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .closeButton {
+        width: vw(46px, 390px);
+        height: vw(46px, 390px);
+
+        svg {
+            width: vw(13px, 390px);
+            height: vw(13px, 390px);
+        }
+    }
+}

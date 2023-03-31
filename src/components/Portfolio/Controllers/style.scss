@@ -1,0 +1,49 @@
+@import "../../../styles/lib.scss";
+
+.controllers {
+    display: flex;
+}
+
+.controller {
+    width: vh(110px);
+    height: vh(110px);
+    border: 2px solid $Milk;
+    outline: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $Milk;
+
+    & svg {
+        width: vh(50px);
+        height: vh(50px);
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: $Rosemery;
+        border-color: $Rosemery;
+    }
+    &:active {
+        background-color: $RosemeryDark;
+        border-color: $RosemeryDark;
+    }
+    &:focus-visible {
+        border-color: $RosemeryDark;
+    } 
+    &-increase svg {
+        transform: rotate(180deg);  
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .controller {
+        width: vw(110px);
+        height: vw(110px);
+        & svg {
+            width: vw(50px);
+            height: vw(50px);
+        }
+    }
+}

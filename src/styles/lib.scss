@@ -1,0 +1,20 @@
+$Rosemery: #3D6D79;
+$RosemeryDark: #254F59;
+$Oragon: #FDAA5A;
+
+$Cloud: #E0E2EE;
+$Gandalf: #f6f6f6;
+$Milk: #ffffff;
+
+$Sky: #5E83E4;
+$Lilac: #9E5ED1;
+$Orange: #E38A4A;
+$Coal: #191A1F;
+
+@function vw($px, $vw: 1920px){
+    @return calc($px * 100 * 1vw / $vw);
+}
+
+@function vh($px, $vh: 1080px){
+    @return calc($px * 100 * 1vh / $vh);
+}

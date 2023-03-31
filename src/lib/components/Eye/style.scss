@@ -1,0 +1,9 @@
+@import "../../../styles/lib.scss";
+
+.eye path{
+    stroke: $Oragon;
+}
+.eye-dark path{
+    stroke: $RosemeryDark;
+    stroke-width: 0.5px;
+}

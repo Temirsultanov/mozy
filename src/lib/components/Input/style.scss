@@ -1,0 +1,96 @@
+@import "../../../styles/lib.scss";
+
+.input, .textarea {
+    width: 100%;
+    height: 100%;
+
+    padding: vh(30px) vh(20px);
+    border: 1px solid $Oragon;
+    border-radius: 0px;
+    
+    font-size: vh(22px);
+    text-transform: uppercase;
+    color: $Milk;
+    background-color: $RosemeryDark;
+
+    appearance: none;
+    
+    &__wrapper {
+        position: relative;
+    }
+    &__label {
+        padding: vh(5px);
+        position: absolute;
+        top: vh(25px);
+        left: vh(15px);
+        z-index: 1;
+        
+        font-size: vh(22px);
+        text-transform: uppercase;
+        background-color: $RosemeryDark;
+        
+        transform-origin: 0 0;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+
+        &:hover {
+            cursor: text;
+        }
+    }
+    &:focus, &__filled {
+        outline: none;
+        border-color: $Milk;
+
+        & + .input__label, & + .textarea__label {
+            color: $Milk;
+            transform: translateY(vh(-40px)) scale(0.8);
+        }
+    }
+   
+    &:focus  {
+        & + .input__label, & + .textarea__label {
+            color: $Oragon;
+        } 
+    }
+}
+
+.textarea {
+    resize: none;
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .input, .textarea {
+        padding: vw(30px) vw(20px);
+        font-size: vw(22px);
+        &__label {
+            padding: vw(5px);
+            top: vw(25px);
+            left: vw(15px);
+            font-size: vw(22px);
+        }
+        &:focus, &__filled {
+            & + .input__label, & + .textarea__label {
+                transform: translateY(vw(-40px)) scale(0.8);
+            }
+        }
+        &:focus  {
+            & + .input__label, & + .textarea__label {
+                transform: translateY(vw(-40px)) scale(0.8);
+            } 
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .input, .textarea {
+        &:focus, &__filled {
+            & + .input__label, & + .textarea__label {
+                transform: translateY(vw(-24px, 390px)) scale(0.8);
+            }
+        }
+        &:focus  {
+            & + .input__label, & + .textarea__label {
+                transform: translateY(vw(-24px, 390px)) scale(0.8);
+            } 
+        }
+    }
+}

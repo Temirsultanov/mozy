@@ -1,0 +1,124 @@
+@import "../../../styles/lib.scss";
+
+.project {
+    position: relative;
+    &__number {
+        display: none;
+    }
+    &__tags {
+        margin-top: vh(180px);
+        margin-left: vh(200px);
+    }
+    &__subtitle {
+        margin-top: vh(8px);
+        margin-left: vh(200px);
+        font-size: vh(30px);
+        font-weight: 400;
+        position: relative;
+        z-index: 1;
+    }
+    &__title {
+        width: vw(700px);
+        line-height: 1;
+        margin-top: vh(16px);
+        margin-left: vh(200px);
+        font-size: vh(100px);
+        position: relative;
+        z-index: 1;
+    }
+    &__description {
+        width: vw(600px);
+        margin-top: vh(32px);
+        margin-left: vh(200px);
+        font-size: vh(26px);
+    }
+    &__storeLinks {
+        margin-top: vh(60px);
+        margin-left: vh(200px);
+    }
+    &__photoWrapper {
+        margin-top: vw(30px, 390px);
+        display: none;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .project {
+        &__tags {
+            margin-top: vw(180px);
+            margin-left: vw(200px);
+        }
+        &__subtitle {
+            margin-top: vw(8px);
+            margin-left: vw(200px);
+            font-size: vw(30px);
+        }
+        &__title {
+            margin-top: vw(16px);
+            margin-left: vw(200px);
+            font-size: vw(100px);
+        }
+        &__description {
+            margin-top: vw(32px);
+            margin-left: vw(200px);
+            font-size: vw(26px);
+        }
+        &__storeLinks {
+            margin-top: vw(60px);
+            margin-left: vw(200px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .project {       
+        padding-top: vw(20px, 390px);
+
+        &__number {
+            display: block;
+            position: absolute;
+            top: vw(20px, 390px);
+            left: vw(16px, 390px);
+            font-size: vw(32px, 390px);
+            font-weight: 700;
+            line-height: 0.8;
+            color: $Milk;
+        } 
+        &__tags {
+            margin-top: 0;
+            margin-left: vw(70px, 390px);
+        }
+        &__subtitle {
+            margin-top: vw(20px, 390px);
+            margin-left: vw(70px, 390px);
+            font-size: vw(14px, 390px);
+        }
+        &__title {
+            width: auto;
+            margin-top: vw(3px, 390px);
+            margin-left: vw(70px, 390px);
+            margin-right: vw(16px, 390px);
+            font-size: vw(34px, 390px);
+        }
+        &__description {
+            width: auto;
+            margin-top: vw(16px, 390px);
+            margin-left: vw(70px, 390px);
+            margin-right: vw(16px, 390px);
+            font-size: vw(16px, 390px);
+        }
+        &__storeLinks {
+            margin-top: 0;
+            margin-left: vw(70px, 390px);
+    
+            & li {
+                margin-top: vw(30px, 390px);
+            }
+        }
+        &__photoWrapper {
+            width: 100%;
+            display: block;
+            background-color: $RosemeryDark;
+        }
+    }
+}

@@ -1,0 +1,55 @@
+variables:
+  REGISTRY: ${CI_REGISTRY_IMAGE}
+  K8S_NAMESPACE: web
+
+stages:
+  - build
+  - deploy
+  - cleaning
+
+build:
+  stage: build
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+  script:
+    - docker build -t ${REGISTRY}:${CI_COMMIT_SHORT_SHA} .
+    - docker push ${REGISTRY}:${CI_COMMIT_SHORT_SHA}
+    - echo "Build successful"
+  only:
+    refs:
+      - main
+  tags:
+    - web
+
+deploy:
+  stage: deploy
+  variables:
+    DEPLOYMENT: web
+  before_script:
+    - export KUBECONFIG=${KUBECONFIG}
+  script:
+    - kubectl set image deployment/${DEPLOYMENT} web=${REGISTRY}:${CI_COMMIT_SHORT_SHA} --namespace ${K8S_NAMESPACE}
+    - echo "Deploy successful"
+  only:
+    refs:
+      - main
+  needs:
+    - build
+  tags:
+    - web
+
+cleaning:
+  stage: cleaning
+  before_script:
+    - echo $CI_REGISTRY_PASSWORD | docker login -u $CI_REGISTRY_USER $CI_REGISTRY --password-stdin
+  script:
+    - docker system prune -a -f
+    - docker image prune -f
+    - docker volume prune -f
+  only:
+    refs:
+      - main
+  needs:
+    - deploy
+  tags:
+    - web

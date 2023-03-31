@@ -1,0 +1,195 @@
+@import "../../styles/lib.scss";
+
+.whatWeCanDo {
+    width: 100%;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &__titleAndEye {
+        display: none;
+    }
+}
+
+.competencies {
+    width: 100%;
+    display: flex;
+    color: $Milk;
+
+    &__item {
+        width: 25%;
+        min-height: 100vh;
+        padding-bottom: 80px;
+        position: relative;
+
+        background-size: 200vh 200vh;
+        transition: background 0.7s cubic-bezier(0.4, 0, 0, 1);
+
+        &-mobile {
+            background-image: linear-gradient($Orange 50%, $Milk 50%);
+            & .competence__icon {
+                width: vh(69px);
+                height: vh(69px);
+            }
+            & .competence__button:hover {
+                border-color: $Orange;
+                background: $Orange;
+                color: $Milk;
+            }
+        }
+        &-web {
+            background-image: linear-gradient($Sky 50%, $Milk 50%);
+            background-color: $Sky;
+            & .competence__icon {
+                width: vh(57px);
+                height: vh(67px);
+            }
+            & .competence__button:hover {
+                border-color: $Sky;
+                background: $Sky;
+                color: $Milk;
+            }
+        }
+        &-desktop {
+            background-image: linear-gradient($Rosemery 50%, $Milk 50%);
+            & .competence__icon {
+                width: vh(79px);
+                height: vh(78px);
+            }
+            & .competence__button:hover {
+                border-color: $Rosemery;
+                background: $Rosemery;
+                color: $Milk;
+            }
+        }
+        &-design {
+            background-image: linear-gradient($Lilac 50%, $Milk 50%);
+            & .competence__icon {
+                width: vh(89px);
+                height: vh(57px);
+            }
+            & .competence__button:hover {
+                border-color: $Lilac;
+                background: $Lilac;
+                color: $Milk;
+            }
+        }
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .competencies {
+        &__item {
+            &-mobile {
+                & .competence__icon {
+                    width: vw(69px);
+                    height: vw(69px);
+                }
+            }
+            &-web {
+                & .competence__icon {
+                    width: vw(57px);
+                    height: vw(67px);
+                }
+            }
+            &-desktop {
+                & .competence__icon {
+                    width: vw(79px);
+                    height: vw(78px);
+                }
+            }
+            &-design {
+                background-color: $Lilac;
+                & .competence__icon {
+                    width: vw(89px);
+                    height: vw(57px);
+                }
+            }
+        }
+    }  
+}
+
+@media (max-width: 700px) {
+    .whatWeCanDo {
+        padding-top: vw(30px, 390px);
+        position: static;
+        background-color: $Orange;
+
+        &__titleAndEye {
+            display: flex;
+            padding: 0 vw(16px, 390px);
+            justify-content: space-between;
+        }
+        &__title {
+            display: flex;
+            font-size: vw(24px, 390px);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $RosemeryDark;
+        }
+        &__eye {
+            width: vw(54px, 390px);   
+            height: vw(31px, 390px);
+
+            path {
+                stroke-width: 1px;
+            }
+        }
+    }
+    .competencies {
+        flex-direction: column;
+        align-items: center;
+        &__item {
+            width: 100%;
+            min-height: auto;
+            background-size: auto;
+
+            &-mobile {
+                background: $Orange;
+                & .competence__icon {
+                    width: vw(46px, 390px);
+                    height: vw(46px, 390px);
+                }
+                & .competence__button:hover, & .competence__button:active {
+                    color: $Orange;
+                }
+            }
+            &-web {
+                background: $Sky;
+                & .competence__icon {
+                    width: vw(38px, 390px);
+                    height: vw(45px, 390px);
+                }
+                & .competence__button:hover, & .competence__button:active {
+                    color: $Sky;
+                }
+            }
+            &-desktop {
+                background: $Rosemery;
+                & .competence__icon {
+                    width: vw(53px, 390px);
+                    height: vw(52px, 390px);
+                }
+                & .competence__button:hover, & .competence__button:active {
+                    color: $RosemeryDark;
+                }
+            }
+            &-design {
+                background: $Lilac;
+                background-color: $Lilac;
+                & .competence__icon {
+                    width: vw(60px, 390px);
+                    height: vw(38px, 390px);
+                }
+                & .competence__button:hover, & .competence__button:active {
+                    color: $Lilac;
+                }
+            }
+            & .competence__button:hover {
+                background-color: $Milk;
+            }
+        }
+    }   
+}

@@ -1,0 +1,35 @@
+@import "../../../styles/lib.scss";
+
+.primaryButton {
+    padding: vh(22px) vh(40px);
+    border: 1px solid $Oragon;
+    border-radius: 0;
+    
+    font-size: vh(22px);
+    text-transform: uppercase;
+    color: $Oragon;
+    
+    background-color: $RosemeryDark;
+
+    &:hover {
+        background-color: $Oragon;
+        color: $RosemeryDark;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: $Milk;
+        border-color: $Milk;
+        color: $RosemeryDark;
+    }
+    &:focus-visible {
+        outline: 1px solid $Milk;
+        outline-offset: 5px;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .primaryButton {
+        padding: vw(22px) vw(40px);
+        font-size: vw(22px);
+    }    
+}

@@ -1,0 +1,129 @@
+@import "../../../styles/lib.scss";
+
+.links {
+    display: flex;
+    
+    &__item {
+        display: flex;
+        align-items: center;
+        
+        &:not(:first-child) {
+            margin-left: vh(60px);
+        }
+    }
+}
+
+.link {
+    padding: vh(10px) 0;
+    display: flex;
+    align-items: center;
+
+    font-size: vh(20px);
+    color: $Oragon;
+    text-decoration: underline;
+    text-underline-offset: vh(13px);
+    text-decoration-color: $Milk;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &__icon {
+        margin-right: vh(14px);
+
+        &-circle {
+            width: vh(14px);
+            height: vh(14px);
+            margin-top: vh(2px);
+        
+            border-radius: 50%;
+            background-color: $Oragon;
+        }
+        &-triangle {
+            margin-top: vh(2px);
+            width: vh(15px);
+            height: vh(15px);
+        }
+    }
+    &:hover {
+        color: $Milk;
+        text-underline-offset: vh(7px);
+
+        & .link__icon {
+            &-circle {
+                border-radius: 0;
+                transform: rotate(45deg);
+            }
+            &-triangle {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &:focus-visible {
+        outline: 1px solid $Milk;
+        outline-offset: 5px;
+    }
+}
+
+// @media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+//     .links {
+//         &__item {
+//             &:not(:first-child) {
+//                 margin-left: vh(60px);
+//             }
+//         }
+//     } 
+//     .link {
+//         padding: vw(10px) 0;
+//         font-size: vw(20px);
+//         text-underline-offset: vw(13px);
+    
+//         &__icon {
+//             margin-right: vw(14px);
+//             &-circle {
+//                 width: vw(14px);
+//                 height: vw(14px);
+//                 margin-top: vw(2px);
+//             }
+//             &-triangle {
+//                 margin-top: vw(2px);
+//                 width: vw(15px);
+//                 height: vw(15px);
+//             }
+//         }
+//         &:hover {
+//             text-underline-offset: vw(7px);
+//         }
+//     }
+// }  
+
+@media (max-width: 700px) {
+    .links {
+        &__item {
+            &:not(:first-child) {
+                margin-left: vw(20px, 390px);
+            }
+        }
+    } 
+    .link {
+        padding: vw(10px, 390px) 0;
+        font-size: vw(14px, 390px);
+        text-underline-offset: vw(10px, 390px);
+    
+        &__icon {
+            margin-right: vw(8px, 390px);
+            &-circle {
+                width: vw(8px, 390px);
+                height: vw(8px, 390px);
+                margin-top: vw(2px, 390px);
+            }
+            &-triangle {
+                margin-top: vw(3px, 390px);
+                width: vw(9px, 390px);
+                height: vw(9px, 390px);
+            }
+        }
+        &:hover {
+            text-underline-offset: vw(5px, 390px);
+        }
+    }
+}

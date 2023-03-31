@@ -1,0 +1,1 @@
+export { competenceIcons } from "./CompetenceIcon";

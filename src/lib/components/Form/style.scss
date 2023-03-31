@@ -1,0 +1,177 @@
+@import "../../../styles/lib.scss";
+
+.contactsForm {
+    width: 100%;
+
+    & fieldset {
+        padding: 0;
+        border: 0;
+    }
+    &__title {
+        padding: 0;
+        font-size: vh(26px);
+        text-transform: uppercase;
+    }
+    &__inputs {
+        margin-top: vh(40px);
+        display: flex;
+        gap: vh(20px);
+    }
+    &__input {
+        flex: 1;
+    }
+    &__textarea {
+        width: 100%;
+        height: vh(150px);
+        margin-top: vh(20px);
+    }
+    &__buttonAndAcceptionText {
+        margin-top: vh(30px);
+        display: flex;
+        align-items: center;
+    }
+    &__acceptionText {
+        max-width: vw(530px);
+        margin-left: vh(42px);
+        font-size: vh(18px);
+        opacity: 0.7;
+    }
+    &__link {
+        text-decoration: underline;
+        
+        &:hover {
+            color: $Milk;
+        }
+        &:focus-visible {
+            outline: 1px solid $Milk;
+            outline-offset: 5px;
+        }
+    }
+    &-hide {
+        display: none;
+    }
+}
+
+.successSubmit {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+        font-size: vh(42px);
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__text {
+        margin-top: vh(30px);
+        font-size: vh(26px);
+        font-weight: 500;
+        text-align: center;
+    }
+    &__button {
+        margin-top: vh(38px);
+    }
+    &-open {
+        display: flex;
+    }
+}
+
+@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+    .contactsForm {
+        &__title {
+            font-size: vw(26px);
+        }
+        &__inputs {
+            margin-top: vw(40px);
+            gap: vw(20px);
+        }
+        &__textarea {
+            height: vw(150px);
+            margin-top: vw(20px);
+        }
+        &__buttonAndAcceptionText {
+            margin-top: vw(30px);
+        }
+        &__acceptionText {
+            max-width: none;
+            margin-left: vw(42px);
+            font-size: vw(18px);
+        }
+    } 
+    .successSubmit {
+        &__title {
+            font-size: vw(42px);
+        }
+        &__text {
+            margin-top: vw(30px);
+            font-size: vw(26px);
+        }
+        &__button {
+            margin-top: vw(38px);
+        }
+    }  
+}
+
+@media (max-width: 700px) {
+    .contactsForm {
+        &__title {
+            font-size: vw(18px, 390px);
+        }
+        &__titleDesktop {
+            display: none;
+        }
+        &__inputs {
+            flex-direction: column;
+            margin-top: vw(20px, 390px);
+            gap: vw(16px, 390px);
+        }
+        & .input, & .textarea {
+            padding: vw(16px, 390px);
+            font-size: vw(16px, 390px);
+
+            &__label {
+                font-size: vw(16px, 390px);
+                top: vw(14px, 390px);
+                left: vw(14px, 390px);
+            }
+        }
+        &__textarea {
+            height: 150px;
+            margin-top: vw(16px, 390px);
+        }
+        &__buttonAndAcceptionText {
+            flex-direction: column;
+            margin-top: vw(30px, 390px);
+        }
+        &__button {
+            width: 100%;
+            padding: vw(12px, 390px) 0px;
+            font-size: vw(14px, 390px);
+
+            &:active {
+                opacity: 0.8;
+            }
+        }
+        &__acceptionText {
+            max-width: none;
+            margin-top: vw(16px, 390px);
+            margin-left: 0;
+            font-size: vw(14px, 390px);
+        }
+    }
+    .successSubmit {
+        &__title {
+            font-size: vw(24px, 390px);
+        }
+        &__text {
+            margin-top: vw(20px, 390px);
+            font-size: vw(16px, 390px);
+        }
+        &__button {
+            margin-top: vw(40px, 390px);
+            font-size: vw(14px, 390px);
+            width: 100%;
+        }
+    }
+}
