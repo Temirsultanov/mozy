@@ -9,6 +9,7 @@ import { SocialLinks } from "../../lib/components/SocialLinks";
 
 export const ContactsPopup = ({ isClose, close }) => {
     const [submitted, setSubmitted] = useState(false);
+    const section = useRef(null);
 
     function closeWrapper() {
         setTimeout(() => {
@@ -17,8 +18,21 @@ export const ContactsPopup = ({ isClose, close }) => {
         close();
     }
 
+    useEffect(() => {
+        if (!section.current) return;
+
+        function handleTouchMove(event) {
+            event.stopPropagation();
+            console.log("Stop Propagation from contactsPopup");
+        }
+
+        section.current.addEventListener("touchmove", handleTouchMove);
+        return () => section.current.removeEventListener("touchmove", handleTouchMove);
+    }, [])
+
+
     return (
-        <section className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
+        <section ref={section} className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
             <div className="contactsPopup__left"></div>
             <div className="contactsPopup__right"></div>
             <div className="contactsPopup__inner">
