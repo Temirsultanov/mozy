@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title:
-      "Mozy • Соединяем идеи и технологии • Диджитал-агенство • Разработка сайтов, приложений",
-    siteUrl: `https://mozy.gatsbyjs.io`,
-    description: "",
+    title: "Mozy — Cтудия разработки",
+    siteUrl: `https://mozy.dev`,
+    description: "Разрабатываем сайты и приложения, которые объединят ваш бизнес и клиентов",
   },
   plugins: [
     `gatsby-plugin-image`,

@@ -10,7 +10,7 @@ export default NotFoundPage;
 export const Head = () => (
   <>
     <html lang="ru" />
-    <Seo title="Страница не найдена • Mozy • Соединяем идеи и технологии • Диджитал-агенство • Разработка сайтов, приложений"></Seo>
+    <Seo title="Страница не найдена • Mozy — Cтудия разработки"></Seo>
   </>
   
 );

@@ -7,14 +7,17 @@ body {
     overflow-y: scroll;
     scroll-behavior: smooth;
     background-color: $RosemeryDark;
+
+    position: relative;
 }
 
 button {
-    font-family: "Uni", Arial, Helvetica, sans-serif;   
+    font-family: "Uni", Arial, Helvetica, sans-serif;
 }
 
-input, textarea {
-    font-family: "Uni", Arial, Helvetica, sans-serif;   
+input,
+textarea {
+    font-family: "Uni", Arial, Helvetica, sans-serif;
 }
 
 p {
@@ -48,18 +51,18 @@ p {
     .bottom {
         transform: none;
     }
-    
+
     .top {
         transform: none;
     }
-    
+
     .prev {
         transition: 0s;
     }
-    
+
     .cur {
         transition: 0s;
-    }    
+    }
 }
 
 .hidden {
