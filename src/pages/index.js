@@ -194,6 +194,7 @@ export default IndexPage;
 
 export const Head = () => (
   <>
+    <html lang="ru" />
     <Seo></Seo>
   </>
 );

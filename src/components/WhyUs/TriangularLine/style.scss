@@ -9,13 +9,14 @@
     overflow: visible;
     opacity: 0.8;
 
-    &::after, &::before {
+    &::after,
+    &::before {
         content: "";
         width: 0px;
         height: 0px;
         border-top: 5px solid $RosemeryDark;
         border-bottom: 5px solid $RosemeryDark;
-        
+
         position: absolute;
         top: 1px;
 
@@ -23,12 +24,25 @@
         transform: translateY(-50%);
         background-color: $Oragon;
     }
+
     &::after {
         left: 0;
         border-left: 9px solid $Oragon;
     }
+
     &::before {
         right: 0;
         border-right: 9px solid $Oragon;
+    }
+}
+
+@media (max-width: 700px) {
+    .triangularLine {
+        height: 1px;
+
+        &::after,
+        &::before {
+            top: 0px;
+        }
     }
 }

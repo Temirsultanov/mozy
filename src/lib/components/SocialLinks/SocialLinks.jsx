@@ -14,11 +14,11 @@ for (let key in SOCIALS) {
     })
 }
 
-const SocialLink = ( {className, children, href }) => {
+const SocialLink = ({ className, icon, href, name }) => {
     return (
-        <a className={className + " socialLink"} target="_blank" href={href} rel="noreferrer">
+        <a className={className + " socialLink"} target="_blank" href={href} rel="noreferrer" aria-label={name}>
             <span className="socialLink__circle"></span>
-            <span className="socialLink__icon">{children}</span>
+            <span className="socialLink__icon">{icon}</span>
         </a>
     )
 }
@@ -28,9 +28,12 @@ export const SocialLinks = ({ className }) => {
         <ul className={"socialLinks " + className}>
             {socials.map(social => (
                 <li key={social.name}>
-                    <SocialLink className={"socialLink socialLink-" + social.name} href={social.href}>
-                        {social.icon}                        
-                    </SocialLink>
+                    <SocialLink
+                        className={"socialLink socialLink-" + social.name}
+                        href={social.href}
+                        name={social.name + " - " + social.title}
+                        icon={social.icon}
+                    />
                 </li>
             ))}
         </ul>
