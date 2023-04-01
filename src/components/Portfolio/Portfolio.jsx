@@ -1,4 +1,4 @@
-import React, { useState, useMemo, forwardRef } from "react"
+import React, { useState, useMemo } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -8,7 +8,7 @@ import { Eye } from "../../lib/components/Eye";
 import { Controllers } from "./Controllers";
 import { Project } from "./Project";
 
-export const Portfolio = forwardRef(({ className }, ref) => {
+export const Portfolio = ({ className, id }) => {
     const { allFile } = useStaticQuery(graphql`
 		{
             allFile {
@@ -26,14 +26,14 @@ export const Portfolio = forwardRef(({ className }, ref) => {
 
     const images = projects.map(project => {
         const edge = allFile.edges.find(edge => edge.node.name === project.imgSrc);
-        return edge ? edge.node.childImageSharp.gatsbyImageData : null;  
+        return edge ? edge.node.childImageSharp.gatsbyImageData : null;
     });
 
     const [curProjIdx, setCurProjIdx] = useState(0);
     const curProj = useMemo(() => {
         return projects[curProjIdx];
     }, [curProjIdx]);
-    
+
     function decrement() {
         setCurProjIdx(() => {
             if (curProjIdx === 0) return projects.length - 1
@@ -48,7 +48,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
     }
 
     return (
-        <section ref={ref} className={className + " portfolio"}>
+        <section id={id} className={className + " portfolio"}>
             <div className="portfolio__info">
                 <h4 className="portfolio__smallTitle">Our Works</h4>
                 <h2 className="portfolio__title">Наши работы</h2>
@@ -76,4 +76,4 @@ export const Portfolio = forwardRef(({ className }, ref) => {
             <Controllers className="portfolio__controllers" decrement={decrement} increment={increment} />
         </section>
     )
-})
+}

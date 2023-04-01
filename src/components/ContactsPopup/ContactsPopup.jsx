@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
 
 import { CloseButton } from "./CloseButton";
@@ -9,6 +9,7 @@ import { SocialLinks } from "../../lib/components/SocialLinks";
 
 export const ContactsPopup = ({ isClose, close }) => {
     const [submitted, setSubmitted] = useState(false);
+    const section = useRef(null);
 
     function onCloseButtonClick() {
         setTimeout(() => {
@@ -17,8 +18,12 @@ export const ContactsPopup = ({ isClose, close }) => {
         close();
     }
 
+    function onTouchStart(event) {
+        event.stopPropagation();
+    }
+
     return (
-        <section className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
+        <section onTouchStart={onTouchStart} ref={section} className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
             <div className="contactsPopup__left"></div>
             <div className="contactsPopup__right"></div>
             <div className="contactsPopup__inner">

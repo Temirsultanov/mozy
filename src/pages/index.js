@@ -1,13 +1,8 @@
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useState,
-  useMemo,
-  useRef,
-} from "react";
+import React, { useEffect, useLayoutEffect, useState, useMemo, } from "react";
+import scrollTo from 'gatsby-plugin-smoothscroll';
+
 import "../styles/common.scss";
 
-import smoothscroll from 'smoothscroll-polyfill';
 import { Layout } from "../components/Layout";
 import { PromoBlock } from "../components/PromoBlock";
 import { WhyUs } from "../components/WhyUs";
@@ -46,35 +41,23 @@ function openBrief() {
   window.open(BRIEF_LINK, "_blank");
 }
 
-function scrollTo(elem) {
-  window.scrollTo({
-    top: elem.offsetTop,
-    behavior: "smooth",
-  });
-}
-
-function onDocumentTouchstart(event) {
-  event.preventDefault();
+function scrollById(id) {
+  scrollTo(id);
 }
 
 function closeScrollToBody() {
   document.body.classList.add("hidden");
-  document.addEventListener("touchstart", onDocumentTouchstart);
 }
 
 function openScrollToBody() {
   document.body.classList.remove("hidden");
-  document.removeEventListener("touchstart", onDocumentTouchstart);
 }
-
-smoothscroll.polyfill();
 
 const IndexPage = () => {
   const [openedSection, setOpenedSection] = useState(sections.promoBlock);
   const [closedSection, setClosedSection] = useState(sections.promoBlock);
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
   const [scrolling, setScrolling] = useState(false);
-  const portfolio = useRef(null);
 
   const sectionsClassNames = useMemo(() => {
     const classNames = Array(SECTIONS_LENGTH).fill("");
@@ -125,7 +108,7 @@ const IndexPage = () => {
 
   function openPortfolio() {
     if (window.innerWidth < MOBILE_HEIGHT) {
-      scrollTo(portfolio.current);
+      scrollById("portfolio");
       return;
     }
     
@@ -162,7 +145,7 @@ const IndexPage = () => {
         className={sectionsClassNames[sections.whatWeCanDo]}
       />
       <WhyUs openContacts={openContacts} className={sectionsClassNames[sections.whyUs]} />
-      <Portfolio ref={portfolio} className={sectionsClassNames[sections.portfolio]} />
+      <Portfolio id="portfolio" className={sectionsClassNames[sections.portfolio]} />
       <Faq className={sectionsClassNames[sections.faq]} />
       <ContactsAndFooter className={sectionsClassNames[sections.contactsAndFooter]} />
     </Layout>
