@@ -25,11 +25,13 @@
         color: $RosemeryDark;
         background-color: $Oragon;
     }
+
     &__smallTitle {
         font-size: vh(14px);
         font-weight: 700;
         text-transform: uppercase;
     }
+
     &__title {
         font-weight: 700;
         font-size: vh(120px);
@@ -41,9 +43,11 @@
         transform-origin: 0 0;
         transform: rotate(90deg) translateY(-75%);
     }
+
     &__mobile {
         display: none;
     }
+
     &__line {
         width: vw(540px);
         height: vh(130px);
@@ -54,6 +58,7 @@
         transform: rotate(-17deg);
         background-color: $Gandalf;
     }
+
     &__counter {
         display: flex;
         align-items: baseline;
@@ -62,19 +67,23 @@
         left: vh(20px);
         font-weight: 700;
     }
+
     &__currentNumber {
         display: block;
         font-size: vh(118px);
         width: vh(150px);
     }
+
     &__countNumber {
         margin-left: vh(30px);
         font-size: vh(52px);
         color: $Gandalf;
     }
+
     &__photoSection {
         width: 50%;
     }
+
     &__photoWrapper {
         width: 100%;
         height: calc(100% - vh(120px));
@@ -82,29 +91,33 @@
         z-index: 1;
         background-color: $RosemeryDark;
     }
+
     &__photo {
         width: 100%;
         height: 100%;
     }
+
     &__type {
         margin-left: vh(140px);
         position: absolute;
         bottom: vh(80px);
-        
+
         font-size: vh(26px);
         color: $Milk;
         text-transform: uppercase;
     }
+
     &__eye {
         position: absolute;
-        z-index: 0; 
+        z-index: 0;
 
         right: vh(35px);
         bottom: vh(35px);
-        
+
         width: vh(235px);
         height: vh(130px);
     }
+
     &__controllers {
         position: absolute;
         z-index: 2;
@@ -120,43 +133,53 @@
             padding-top: vw(25px);
             padding-left: vw(30px);
         }
+
         &__smallTitle {
             font-size: vw(14px);
         }
+
         &__title {
             font-size: vw(120px);
             -webkit-text-stroke: vw(2px) $RosemeryDark;
         }
+
         &__line {
             width: vw(540px);
             height: vw(130px);
             top: vw(120px);
         }
+
         &__counter {
             left: vw(20px);
         }
+
         &__currentNumber {
             font-size: vw(118px);
             width: vw(150px);
         }
+
         &__countNumber {
             margin-left: vw(30px);
             font-size: vw(52px);
         }
+
         &__photoWrapper {
             height: calc(100% - vw(120px));
         }
+
         &__type {
             margin-left: vw(140px);
             bottom: vw(80px);
             font-size: vw(26px);
         }
+
         &__eye {
             right: vw(35px);
             bottom: vw(35px);
             width: vw(235px);
             height: vw(130px);
         }
+
         &__controllers {
             bottom: vw(80px);
         }
@@ -177,9 +200,11 @@
             padding-top: vw(30px, 390px);
             padding-left: 0;
         }
+
         &__smallTitle {
             display: none;
         }
+
         &__title {
             position: static;
             font-size: vw(24px, 390px);
@@ -188,33 +213,41 @@
             -webkit-text-stroke: 0px;
             transform: none;
         }
+
         &__desktop {
             display: none;
         }
+
         &__mobile {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
         &__line {
             display: none;
         }
+
         &__counter {
             display: none;
         }
+
         &__photoSection {
             display: none;
             width: 100%;
         }
+
         &__photoWrapper {
             height: auto;
         }
+
         &__type {
             display: none;
         }
+
         &__eye {
             right: vw(16px, 390px);
-            top: vw(13px, 390px);
+            top: vw(30px, 390px);
             width: vw(54px, 390px);
             height: vw(31px, 390px);
 
@@ -222,6 +255,7 @@
                 stroke-width: 1px;
             }
         }
+
         & .portfolio__controllers {
             display: none;
         }

@@ -1,7 +1,8 @@
 @import "../../styles/lib.scss";
 
 .contactsPopup {
-    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
     height: 100vh;
 
     display: block;
@@ -15,7 +16,7 @@
     z-index: 5;
 
     &__inner {
-        width: 100%;
+        width: 100vw;
         min-height: 100%;
 
         display: flex;

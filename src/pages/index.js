@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import "../styles/common.scss";
 
+import smoothscroll from 'smoothscroll-polyfill';
 import { Layout } from "../components/Layout";
 import { PromoBlock } from "../components/PromoBlock";
 import { WhyUs } from "../components/WhyUs";
@@ -52,9 +53,11 @@ function scrollTo(elem) {
   });
 }
 
-function onBodyPointerDownHandler(event) {
+function onDocumentTouchtart(event) {
   event.preventDefault();
 }
+
+smoothscroll.polyfill();
 
 const IndexPage = () => {
   const [opened, setOpened] = useState(sections.promoBlock);
@@ -162,15 +165,17 @@ const IndexPage = () => {
 
   function openContacts() {
     setContactsPopupClosed(false);
-    document.body.addEventListener("pointerdown", onBodyPointerDownHandler);
     document.body.classList.add("hidden");
+    document.body.addEventListener("touchstart", onDocumentTouchtart);
   }
 
   function closeContacts() {
     setContactsPopupClosed(true);
-    document.body.removeEventListener("pointerdown", onBodyPointerDownHandler);
     document.body.classList.remove("hidden");
+    document.body.removeEventListener("touchstart", onDocumentTouchtart);
   }
+
+
 
   return (
     <Layout>
