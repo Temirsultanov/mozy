@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import "./style.scss";
 
 import { CloseButton } from "./CloseButton";
@@ -7,6 +7,8 @@ import { ContactsLine } from "./ContactsLine";
 import { Form, SuccessSubmit } from "../../lib/components/Form";
 import { SocialLinks } from "../../lib/components/SocialLinks";
 
+const CLOSE_TIME = 1000;
+
 export const ContactsPopup = ({ isClose, close }) => {
     const [submitted, setSubmitted] = useState(false);
     const section = useRef(null);
@@ -14,7 +16,7 @@ export const ContactsPopup = ({ isClose, close }) => {
     function onCloseButtonClick() {
         setTimeout(() => {
             setSubmitted(false);
-        }, 1000);
+        }, CLOSE_TIME);
         close();
     }
 

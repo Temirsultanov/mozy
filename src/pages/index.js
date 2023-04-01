@@ -57,7 +57,7 @@ const IndexPage = () => {
   const [openedSection, setOpenedSection] = useState(sections.promoBlock);
   const [closedSection, setClosedSection] = useState(sections.promoBlock);
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
-  const [scrolling, setScrolling] = useState(false);
+  let scrolling = false;
 
   const sectionsClassNames = useMemo(() => {
     const classNames = Array(SECTIONS_LENGTH).fill("");
@@ -98,7 +98,7 @@ const IndexPage = () => {
     return () => {
       window.removeEventListener("wheel", onMouseWheel);
     };
-  }, [contactsPopupClosed, scrolling]);
+  }, [contactsPopupClosed]);
 
   useLayoutEffect(() => {
     setTimeout(() => {
@@ -113,9 +113,9 @@ const IndexPage = () => {
     }
     
     setOpenedSection(sections.portfolio);
-    setScrolling(true);
+    scrolling = true;
     setTimeout(() => {
-      setScrolling(false);
+      scrolling = false;
     }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
     
   }
