@@ -42,7 +42,7 @@ function openBrief() {
 }
 
 function scrollById(id) {
-  scrollTo(id);
+  scrollTo("#" + id);
 }
 
 function closeScrollToBody() {
