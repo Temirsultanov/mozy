@@ -120,8 +120,8 @@
 
     &__controllers {
         position: absolute;
-        z-index: 2;
-        left: calc(50% + 0.5px);
+        z-index: 5;
+        left: calc(50%);
         bottom: vh(80px);
         transform: translateX(-50%);
     }

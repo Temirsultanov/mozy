@@ -15,10 +15,12 @@
 
     &__questionsBlock {
         width: 50%;
+        align-self: start;
         position: relative;
+        z-index: 2;
         color: $Oragon;
-        background-color: $RosemeryDark;
     }
+
     &__answers {
         &-desktop {
             width: 50%;
@@ -26,10 +28,12 @@
             align-items: center;
             background-color: $Oragon;
         }
+
         &-mobile {
             display: none;
         }
     }
+
     &__titles {
         margin-top: vh(50px);
         margin-left: vh(68px);
@@ -37,6 +41,7 @@
         align-items: center;
         position: relative;
     }
+
     &__smallTitle {
         position: absolute;
 
@@ -46,10 +51,12 @@
 
         transform: translateX(-100%) rotate(-90deg);
     }
+
     &__title {
         font-size: vh(72px);
         text-transform: uppercase;
     }
+
     &__questions {
         width: 100%;
         margin-top: vh(50px);
@@ -59,33 +66,39 @@
         position: relative;
         z-index: 1;
     }
+
     &__pictureWrapper {
         width: 50%;
         position: absolute;
         z-index: 0;
         bottom: 0;
     }
+
     &__picture {
         width: 100%;
         height: 100%;
     }
+
     &__eye {
         display: none;
     }
 }
 
 @media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .faq {    
+    .faq {
         &__titles {
             margin-top: vw(50px);
             margin-left: vw(68px);
         }
+
         &__smallTitle {
             font-size: vw(14px);
         }
+
         &__title {
             font-size: vw(72px);
         }
+
         &__questions {
             margin-top: vw(50px);
         }
@@ -106,15 +119,17 @@
             width: 100%;
             position: static;
         }
+
         &__answers {
             &-desktop {
                 display: none;
             }
+
             &-mobile {
                 width: 100%;
                 margin-top: vw(20px, 390px);
                 padding-left: vw(70px, 390px);
-                display: flex;    
+                display: flex;
                 flex-direction: column;
                 background-color: $RosemeryDark;
 
@@ -123,24 +138,30 @@
                 }
             }
         }
+
         &__titles {
             margin-top: 0;
             margin-left: vw(16px, 390px);
         }
+
         &__smallTitle {
             display: none;
         }
+
         &__title {
             font-size: vw(24px, 390px);
         }
+
         &__questions {
             display: none;
         }
+
         &__pictureWrapper {
             position: static;
             margin-top: vw(30px, 390px);
             width: 100%;
         }
+
         &__eye {
             display: block;
             position: absolute;

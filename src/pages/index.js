@@ -28,6 +28,7 @@ const sections = {
   faq: 4,
   contactsAndFooter: 5,
 };
+let scrolling = false;
 
 function isScrollDown(event) {
   return event.deltaY > 0;
@@ -45,19 +46,10 @@ function scrollById(id) {
   scrollTo("#" + id);
 }
 
-function closeScrollToBody() {
-  document.body.classList.add("hidden");
-}
-
-function openScrollToBody() {
-  document.body.classList.remove("hidden");
-}
-
 const IndexPage = () => {
   const [openedSection, setOpenedSection] = useState(sections.promoBlock);
   const [closedSection, setClosedSection] = useState(sections.promoBlock);
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
-  let scrolling = false;
 
   const sectionsClassNames = useMemo(() => {
     const classNames = Array(SECTIONS_LENGTH).fill("");
@@ -122,17 +114,14 @@ const IndexPage = () => {
 
   function openContacts() {
     setContactsPopupClosed(false);
-    closeScrollToBody();
   }
 
   function closeContacts() {
     setContactsPopupClosed(true);
-    openScrollToBody()
-    
   }
 
   return (
-    <Layout>
+    <Layout scroll={contactsPopupClosed}>
       <ContactsPopup isClose={contactsPopupClosed} close={closeContacts} />
       <PromoBlock
         openPortfolio={openPortfolio}

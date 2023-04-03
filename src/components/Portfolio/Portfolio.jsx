@@ -15,7 +15,7 @@ export const Portfolio = ({ className, id }) => {
                 edges {
                   node {
                     childImageSharp {
-                        gatsbyImageData(quality: 80, outputPixelDensities: 2)
+                      gatsbyImageData(quality: 90, outputPixelDensities: 2, placeholder: BLURRED)
                     }
                     name
                   }
