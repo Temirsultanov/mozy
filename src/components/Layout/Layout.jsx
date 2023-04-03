@@ -1,10 +1,9 @@
 import React from "react";
-import "./style.scss";
 import { OpenAnimation } from "../OpenAnimation";
 
-export const Layout = ({ children, scroll }) => {
+export const Layout = ({ children }) => {
     return (
-        <main className={"main " + (scroll ? "" : "main-hide")}>
+        <main>
             <OpenAnimation></OpenAnimation>
             {children}
         </main>

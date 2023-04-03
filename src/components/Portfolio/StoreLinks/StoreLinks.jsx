@@ -1,28 +1,30 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
-import "./style.scss"
+import "./style.scss";
+
+import appStoreImage from "../../../images/appstore.png";
+import playMarketImage from "../../../images/playmarket.png";
 
 const StoreLink = ({ isIOS = true, href }) => {
     if (isIOS) {
         return (
             <li><a className="storeLink storeLink-ios" href={href} target="_blank" rel="noreferrer">
-                <StaticImage alt="Логотип AppStore" className="appStoreImage" src="../../../images/appstore.png"/>
+                <img alt="Логотип AppStore" className="appStoreImage" src={appStoreImage} />
             </a></li>
         )
-    } 
-    
+    }
+
     return (
         <li><a className="storeLink storeLink-android" href={href} target="_blank" rel="noreferrer">
-            <StaticImage alt="Логотип playMarket" className="playMarketImage" src="../../../images/playmarket.png"/>
+            <img alt="Логотип playMarket" className="playMarketImage" src={playMarketImage} />
         </a></li>
     )
 }
 
-export const StoreLinks = ({ className, appStoreLink, playMarketLink}) => {
+export const StoreLinks = ({ className, appStoreLink, playMarketLink }) => {
     return (
         <ul className={className + " storeLinks"}>
-            {appStoreLink ? <StoreLink href={appStoreLink} /> : null }
-            {playMarketLink ? <StoreLink isIOS={false} href={playMarketLink} /> : null }
+            {appStoreLink ? <StoreLink href={appStoreLink} /> : null}
+            {playMarketLink ? <StoreLink isIOS={false} href={playMarketLink} /> : null}
         </ul>
     )
 }

@@ -46,6 +46,14 @@ function scrollById(id) {
   scrollTo("#" + id);
 }
 
+function closeScrollToBody() {
+  document.body.classList.add("hidden");
+}
+
+function openScrollToBody() {
+  document.body.classList.remove("hidden");
+}
+
 const IndexPage = () => {
   const [openedSection, setOpenedSection] = useState(sections.promoBlock);
   const [closedSection, setClosedSection] = useState(sections.promoBlock);
@@ -114,14 +122,16 @@ const IndexPage = () => {
 
   function openContacts() {
     setContactsPopupClosed(false);
+    closeScrollToBody();
   }
 
   function closeContacts() {
     setContactsPopupClosed(true);
+    openScrollToBody()
   }
 
   return (
-    <Layout scroll={contactsPopupClosed}>
+    <Layout>
       <ContactsPopup isClose={contactsPopupClosed} close={closeContacts} />
       <PromoBlock
         openPortfolio={openPortfolio}
