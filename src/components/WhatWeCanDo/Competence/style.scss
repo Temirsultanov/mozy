@@ -2,52 +2,57 @@
 
 .competence {
     padding: vh(40px);
-        
+
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 
     position: relative;
     overflow: hidden;
-    
+
     &__iconWrapper {
         width: vh(120px);
         height: vh(120px);
-        
+
         display: flex;
         justify-content: center;
         align-items: center;
-    
+
         background-color: $Milk;
     }
+
     &__number {
         margin-top: vh(34px);
         font-size: vh(18px);
         transition: color 0.4s cubic-bezier(0.4, 0, 0, 1);
     }
+
     &__title {
         margin-top: vh(34px);
-    
+
         font-size: vh(30px);
         font-weight: 400;
         text-transform: uppercase;
         transition: color 0.4s cubic-bezier(0.4, 0, 0, 1);
     }
+
     &__line {
         width: vh(70px);
         height: vh(4px);
         margin-top: vh(34px);
-        
+
         background-color: $Milk;
         transition: background 0.4s cubic-bezier(0.4, 0, 0, 1);
     }
-    &__text { 
+
+    &__text {
         margin-top: vh(34px);
-    
+
         font-size: vh(22px);
         font-weight: 400;
         transition: color 0.4s cubic-bezier(0.4, 0, 0, 1);
     }
+
     &__decorTitle {
         color: $Milk;
 
@@ -60,9 +65,10 @@
         text-transform: uppercase;
         font-weight: 700;
         transform-origin: 100% 100%;
-        transform: rotate(90deg) translateY(100%);   
+        transform: rotate(90deg) translateY(100%);
         transition: opacity 0.3s cubic-bezier(0.4, 0, 0, 1);
     }
+
     &__button {
         border-color: $Coal;
         color: $Coal;
@@ -76,10 +82,12 @@
         &:active {
             opacity: 0.8;
         }
+
         &:focus-visible {
             outline-color: $Coal;
         }
     }
+
     &:hover {
         background-position: 0 -100vh;
         color: $Coal;
@@ -89,21 +97,26 @@
             background-color: $Coal;
             transition: background 0.4s 0.3s cubic-bezier(0.4, 0, 0, 1);
         }
+
         & .competence__title {
             color: $Coal;
             transition: color 0.4s 0.3s cubic-bezier(0.4, 0, 0, 1);
         }
+
         & .competence__text {
             color: $Coal;
             transition: color 0.4s 0.3s cubic-bezier(0.4, 0, 0, 1);
         }
+
         & .competence__number {
             color: $Coal;
             transition: color 0.4s 0.3s cubic-bezier(0.4, 0, 0, 1);
         }
+
         & .competence__decorTitle {
             opacity: 0;
         }
+
         & .competence__button {
             transform: translateY(0);
         }
@@ -113,69 +126,83 @@
 @media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
     .competence {
         padding: vw(40px);
+
         &__iconWrapper {
             width: vw(120px);
             height: vw(120px);
         }
+
         &__number {
             margin-top: vw(34px);
             font-size: vw(18px);
         }
+
         &__title {
             margin-top: vw(34px);
             font-size: vw(30px);
         }
+
         &__line {
             width: vw(70px);
             height: vw(4px);
             margin-top: vw(34px);
         }
-        &__text { 
+
+        &__text {
             margin-top: vw(34px);
             font-size: vw(22px);
         }
+
         &__decorTitle {
             bottom: vw(40px);
             right: vw(40px);
             font-size: vw(20px);
         }
-    }   
+    }
 }
 
 @media (max-width: 700px) {
     .competence {
         padding: vw(20px, 390px) vw(16px, 390px);
+
         &__iconWrapper {
             position: absolute;
             width: vw(80px, 390px);
             height: vw(80px, 390px);
         }
+
         &__number {
             margin-top: 0px;
             margin-left: vw(90px, 390px);
             font-size: vw(12px, 390px);
         }
+
         &__title {
             margin-top: 0px;
             margin-left: vw(90px, 390px);
             font-size: vw(24px, 390px);
         }
+
         &__desktopElem {
             display: none;
         }
+
         &__line {
             width: vw(40px, 390px);
             height: vw(2px, 390px);
             margin-top: vw(20px, 390px);
         }
-        &__text { 
+
+        &__text {
             max-width: vw(316px, 390px);
             margin-top: vw(14px, 390px);
             font-size: vw(16px, 390px);
         }
+
         &__decorTitle {
             display: none;
         }
+
         &__button {
             margin-top: vw(24px, 390px);
             padding: vw(12px, 390px) 0;
@@ -186,23 +213,26 @@
             transform: translateY(0);
             transition: 0s;
         }
+
         &:hover {
             color: $Milk;
             background-position: 0 0;
+
             & .competence__number {
                 color: $Milk;
             }
+
             & .competence__title {
                 color: $Milk;
             }
+
             & .competence__text {
                 color: $Milk;
             }
+
             & .competence__line {
                 background-color: $Milk;
             }
         }
     }
 }
-
-
