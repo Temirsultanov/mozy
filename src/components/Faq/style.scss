@@ -19,6 +19,7 @@
         position: relative;
         z-index: 2;
         color: $Oragon;
+        transform: translate3d(0, 0, 200px);
     }
 
     &__answers {

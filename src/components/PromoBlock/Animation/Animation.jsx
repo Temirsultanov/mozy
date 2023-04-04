@@ -6,10 +6,10 @@ export const Animation = () => {
     useLayoutEffect(() => {
         setInterval(() => {
             setAnimation(false);
-        }, 10500)
+        }, 11000)
         setInterval(() => {
             setAnimation(true);
-        }, 11000)
+        }, 11500)
     }, []);
     return (animation ? <div className="animation animation-start">
         <div className="animation__rectangle animation__rectangle-1"></div>

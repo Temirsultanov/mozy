@@ -82,6 +82,7 @@
 
     &__photoSection {
         width: 50%;
+        transform: translate3d(0px, 0px, 0px);
     }
 
     &__photoWrapper {
@@ -123,7 +124,7 @@
         z-index: 5;
         left: calc(50%);
         bottom: vh(80px);
-        transform: translateX(-50%);
+        transform: translate3d(-50%, 0, 200px);
     }
 }
 
