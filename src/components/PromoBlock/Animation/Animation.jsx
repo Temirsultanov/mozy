@@ -1,22 +1,17 @@
-import React, { useState, useLayoutEffect } from "react";
-import "./style.scss";
+import React from "react";
+import Lottie from "react-lottie";
+import lottieAnimation from "../../../lottie/animation.json";
 
 export const Animation = () => {
-    const [animation, setAnimation] = useState(true);
-    useLayoutEffect(() => {
-        setInterval(() => {
-            setAnimation(false);
-        }, 11000)
-        setInterval(() => {
-            setAnimation(true);
-        }, 11500)
-    }, []);
-    return (animation ? <div className="animation animation-start">
-        <div className="animation__rectangle animation__rectangle-1"></div>
-        <div className="animation__rectangle animation__rectangle-2"></div>
-        <div className="animation__rectangle animation__rectangle-3"></div>
-        <div className="animation__rectangle animation__rectangle-4"></div>
-        <div className="animation__rectangle animation__rectangle-5"></div>
-        <div className="animation__rectangle animation__rectangle-6"></div>
-    </div> : null)
+    const animationOptions = {
+        loop: true,
+        autoplay: true,
+        isClickToPauseDisabled: true,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        },
+        animationData: lottieAnimation,
+    }
+
+    return <Lottie options={animationOptions} />
 }
