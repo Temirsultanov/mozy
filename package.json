@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "mozy",
-  "author": "Мухаммад",
+  "author": "Muhammad",
   "keywords": [
     "gatsby"
   ],
@@ -23,14 +23,11 @@
     "gatsby-plugin-sharp": "^5.7.0",
     "gatsby-plugin-smoothscroll": "^1.2.0",
     "gatsby-plugin-yandex-metrika": "^2.5.0",
-    "gatsby-remark-lottie": "^1.0.3",
     "gatsby-source-filesystem": "^5.7.0",
-    "gatsby-transformer-remark": "^6.8.0",
     "gatsby-transformer-sharp": "^5.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lottie": "^1.2.3",
-    "sass": "^1.59.3",
-    "smoothscroll-polyfill": "^0.4.4"
+    "sass": "^1.59.3"
   }
 }
