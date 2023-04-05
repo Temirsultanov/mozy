@@ -17,7 +17,7 @@ export const SOCIALS = {
   },
 };
 
-export const BRIEF_LINK = "https://google.com";
+export const BRIEF_LINK = "https://mrqz.me/6421fba9c674900025aeabf2";
 
 export const projects = [
   {
