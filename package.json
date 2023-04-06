@@ -15,7 +15,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@barba/core": "^2.9.7",
     "gatsby": "^5.7.0",
     "gatsby-plugin-image": "^3.7.0",
     "gatsby-plugin-manifest": "^5.7.0",
@@ -25,9 +24,9 @@
     "gatsby-plugin-yandex-metrika": "^2.5.0",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-sharp": "^5.7.0",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-lottie": "^1.2.3",
     "sass": "^1.59.3"
   }
 }
