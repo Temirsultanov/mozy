@@ -9,20 +9,23 @@
     left: 0;
     z-index: 10;
 
-    &__1, &__2 {
+    &__1,
+    &__2 {
         width: 50%;
         height: 100%;
         position: absolute;
         background-color: $Oragon;
     }
+
     &__1 {
         left: 0;
         transform-origin: 0% 0%;
     }
+
     &__2 {
         left: 50%;
         transform-origin: 100% 100%;
-    }  
+    }
 }
 
 @keyframes openAnimation-desktop {
@@ -39,13 +42,16 @@
 
 @media (min-width: 700px) {
     .openAnimation {
-        &__1, &__2 {
-            animation: openAnimation-desktop 0.7s 0.5s cubic-bezier(0.4, 0, 0, 1) forwards;
+
+        &__1,
+        &__2 {
+            animation: openAnimation-desktop 0.7s 1s cubic-bezier(0.4, 0, 0, 1) forwards;
         }
     }
 }
+
 @media (max-width: 700px) {
     .openAnimation {
-        animation: openAnimation-mobile 0.7s 0.5s cubic-bezier(0.4, 0, 0, 1) forwards;
+        animation: openAnimation-mobile 0.7s 1s cubic-bezier(0.4, 0, 0, 1) forwards;
     }
 }
