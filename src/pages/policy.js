@@ -18,6 +18,6 @@ export default IndexPage;
 export const Head = () => (
   <>
     <html lang="ru" />
-    <Seo title="Политика конфиденциальности • Mozy — Cтудия разработки"></Seo>
+    <Seo title="Политика конфиденциальности • Студия разработки Mozy — делаем сайты и приложения"></Seo>
   </>
 );

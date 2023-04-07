@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: "Mozy — Cтудия разработки",
+    title: "Студия разработки Mozy — делаем сайты и приложения",
     siteUrl: `https://mozy.dev`,
-    description: "Разрабатываем сайты и приложения, которые объединят ваш бизнес и клиентов",
+    description: "Первый рабочий прототип через 30 дней. Бесплатно составляем техническое задание после брифа и переговоров. Разрабатываем IOS и Android приложения, сайты, Windows, MacOS и Linux приложения и UX/UI дизайн",
+    keywords: "Разработка, приложение, сайт, мобильное, iOS, Android, Web, Windows, MacOS, Linux"
   },
   plugins: [
     `gatsby-plugin-image`,
