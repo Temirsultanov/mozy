@@ -195,8 +195,6 @@
 @media (max-width: 700px) {
     .promoBlock {
         height: auto;
-        min-height: -webkit-fill-available;
-        min-height: -moz-available;
         position: static;
 
         &__info {
