@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { forwardRef, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss"
 
@@ -130,15 +130,15 @@ const questionsDesktop = [
     }
 ]
 
-export const Faq = ({ className }) => {
+export const Faq = forwardRef(({ className }, ref) => {
     const [currentQuestion, setCurrentQuestion] = useState(questionsDesktop[0].name);
-    
-    const onButtonClick = function(questionNumber) {
+
+    const onButtonClick = function (questionNumber) {
         setCurrentQuestion(questionNumber)
     }
 
     return (
-        <section className={className + " faq"}>
+        <section ref={ref} id="faq" className={className + " faq"}>
             <div className="faq__questionsBlock">
                 <div className="faq__titles">
                     <h4 className="faq__smallTitle">Faq</h4>
@@ -148,7 +148,7 @@ export const Faq = ({ className }) => {
                 <ul className="faq__questions">
                     {questionsDesktop.map((question, index) => (
                         <li key={question.name}>
-                            <QuestionButton 
+                            <QuestionButton
                                 isActive={currentQuestion === question.name}
                                 number={"0" + (index + 1)}
                                 title={question.name}
@@ -160,7 +160,7 @@ export const Faq = ({ className }) => {
             </div>
             <ul className="faq__answers faq__answers-desktop">
                 {questionsDesktop.map(question => (
-                    <AnswerDesktop 
+                    <AnswerDesktop
                         key={question.name}
                         isActive={question.name === currentQuestion}
                         title={question.title}
@@ -185,4 +185,4 @@ export const Faq = ({ className }) => {
             </div>
         </section>
     )
-}
+})

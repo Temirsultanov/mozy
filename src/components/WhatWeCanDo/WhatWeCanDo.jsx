@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import "./style.scss";
 
 import { Competence } from "./Competence";
@@ -8,13 +8,13 @@ import { Eye } from "../../lib/components/Eye";
 const competencies = [
     {
         name: "mobile",
-        title: <span>iOS / Android<br/>Разработка</span>,
+        title: <span>iOS / Android<br />Разработка</span>,
         text: "Реализуем мобильные приложения на React Native — с   помощью фреймворка разрабатываем проекты сразу и\u00A0на IOS, и\u00A0на Android. Решение экономит время и\u00A0ускоряет дату релиза в полтора раза.",
         decorTitle: "IOS / Android Development"
     },
     {
         name: "web",
-        title: <span>Web<br/>Разработка</span>,
+        title: <span>Web<br />Разработка</span>,
         text: "95% веб-приложений делаем на стеке React и Node.js. Занимаемся как фронтендом, так и бэкендом. Специализация на одном языке помогает разрабатывать проекты в\u00A0краткие сроки без потери в качестве.",
         decorTitle: "Web Development"
     },
@@ -26,7 +26,7 @@ const competencies = [
     },
     {
         name: "design",
-        title: <span>UX / UI<br/>Дизайн</span>,
+        title: <span>UX / UI<br />Дизайн</span>,
         text: "Делаем прототипы, выстраиваем бренд, прорабатываем пользовательские сценарии. Ведем проект от первого экрана до готового дизайна продукта. В\u00A0конце работы организуем UX-интервью, чтобы убедиться в удобстве созданной платформы.",
         decorTitle: "UX / UI Design"
     },
@@ -35,17 +35,17 @@ const competencies = [
     return competence;
 })
 
-export const WhatWeCanDo = ({ className, openContacts }) => {
+export const WhatWeCanDo = forwardRef(({ className, openContacts }, ref) => {
     return (
-        <section className={className + " whatWeCanDo"}>
+        <section ref={ref} id="services" className={className + " whatWeCanDo"}>
             <div className="whatWeCanDo__titleAndEye">
                 <h2 className="whatWeCanDo__title">Что мы делаем</h2>
                 <Eye dark={true} className="whatWeCanDo__eye" />
             </div>
             <ol className="competencies">
                 {competencies.map((competence, index) => (
-                    <Competence 
-                        key={competence.name} 
+                    <Competence
+                        key={competence.name}
                         openContacts={openContacts}
                         number={index + 1}
                         {...competence}
@@ -55,4 +55,4 @@ export const WhatWeCanDo = ({ className, openContacts }) => {
             </ol>
         </section>
     )
-}
+})

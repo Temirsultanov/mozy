@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, forwardRef } from "react";
 import "./style.scss";
 
 import { CloseButton } from "./CloseButton";
@@ -9,9 +9,8 @@ import { SocialLinks } from "../../lib/components/SocialLinks";
 
 const CLOSE_TIME = 1000;
 
-export const ContactsPopup = ({ isClose, close }) => {
+export const ContactsPopup = forwardRef(({ isClose, close }, ref) => {
     const [submitted, setSubmitted] = useState(false);
-    const section = useRef(null);
 
     function onCloseButtonClick() {
         setTimeout(() => {
@@ -25,7 +24,7 @@ export const ContactsPopup = ({ isClose, close }) => {
     }
 
     return (
-        <section onTouchStart={onTouchStart} ref={section} className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
+        <section ref={ref} id="contacts-us-modal" onTouchStart={onTouchStart} className={"contactsPopup " + (isClose ? "contactsPopup-close" : "")}>
             <div className="contactsPopup__left"></div>
             <div className="contactsPopup__right"></div>
             <div className="contactsPopup__inner">
@@ -39,4 +38,4 @@ export const ContactsPopup = ({ isClose, close }) => {
             </div>
         </section>
     )
-};
+});

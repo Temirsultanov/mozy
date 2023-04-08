@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
 import "./style.scss"
@@ -30,9 +30,9 @@ const EyeAndCompetencies = () => {
     )
 }
 
-export const PromoBlock = ({ className, openPortfolio, openBrief, openContacts }) => {
+export const PromoBlock = forwardRef(({ className, openPortfolio, openBrief, openContacts }, ref) => {
     return (
-        <section className={className + " promoBlock"}>
+        <section ref={ref} id="home" className={className + " promoBlock"}>
             <div className="promoBlock__info">
                 <Links openContacts={openContacts} className="promoBlock__links"></Links>
                 <Header openBrief={openBrief}></Header>
@@ -40,8 +40,8 @@ export const PromoBlock = ({ className, openPortfolio, openBrief, openContacts }
                 <div className="promoBlock__borderLeft">
                     <Dots className="promoBlock__dots" />
                     <ArrowBody></ArrowBody>
-                    <h1 className="promoBlock__title">Соединяем идеи<br/>и&nbsp;технологии</h1>
-                    <p className="promoBlock__description">Разрабатываем сайты и приложения, <br/>которые&nbsp;объединят&nbsp;ваш&nbsp;бизнес и&nbsp;клиентов</p>
+                    <h1 className="promoBlock__title">Соединяем идеи<br />и&nbsp;технологии</h1>
+                    <p className="promoBlock__description">Разрабатываем сайты и приложения, <br />которые&nbsp;объединят&nbsp;ваш&nbsp;бизнес и&nbsp;клиентов</p>
                 </div>
                 <Button onClick={openBrief} className="promoBlock__button promoBlock__button-brief">Заполнить бриф</Button>
                 <Button onClick={openPortfolio} className="promoBlock__button promoBlock__button-portfolio">Смотреть портфолио</Button>
@@ -51,4 +51,4 @@ export const PromoBlock = ({ className, openPortfolio, openBrief, openContacts }
             </div>
         </section>
     )
-}
+})

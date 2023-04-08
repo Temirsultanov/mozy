@@ -6,18 +6,22 @@
         flex-direction: column;
         padding-left: vh(95px);
         color: $RosemeryDark;
+
         & .answer__title {
             font-size: vh(26px);
             font-weight: 400;
-            text-transform: uppercase;    
+            text-transform: uppercase;
+
             &::selection {
                 background-color: $RosemeryDark;
                 color: $Oragon;
             }
+
             &-mobile {
                 display: none;
             }
         }
+
         & .answer__description {
             margin-top: vh(30px);
             padding: vh(24px);
@@ -29,18 +33,22 @@
                 display: block;
                 margin-top: vh(12px);
             }
+
             ::selection {
                 background-color: $RosemeryDark;
                 color: $Oragon;
-            }   
+            }
         }
+
         & .answer__link {
             text-decoration: underline;
             font-weight: 700;
+
             &:hover {
                 color: $Rosemery;
             }
         }
+
         & .answer__attributes {
             margin-top: vh(30px);
 
@@ -56,27 +64,30 @@
                 }
             }
         }
-        & .answer__attributeTitle { 
+
+        & .answer__attributeTitle {
             padding: vh(20px);
-            
+
             font-size: vh(22px);
             font-weight: 700;
             text-transform: uppercase;
             color: $Oragon;
             background-color: $RosemeryDark;
         }
+
         & .answer__attributeDescription {
             padding: vh(18px) vh(24px);
             font-size: vh(42px);
             font-weight: 400;
             line-height: 1.4;
-            
+
             &::selection {
                 background-color: $RosemeryDark;
                 color: $Oragon;
             }
         }
     }
+
     &-active {
         display: flex;
     }
@@ -86,34 +97,40 @@
     .answer {
         &-dekstop {
             padding-left: vw(95px);
+
             &__title {
                 font-size: vw(26px);
             }
+
             &__description {
                 margin-top: vw(30px);
                 padding: vw(24px);
                 font-size: vw(24px);
-        
+
                 & span:not(:first-child) {
                     margin-top: vw(12px);
                 }
             }
+
             &__attributes {
                 margin-top: vw(30px);
+
                 & li:not(:first-child) {
                     margin-top: vw(20px);
                 }
             }
-            &__attributeTitle { 
+
+            &__attributeTitle {
                 padding: vw(20px);
                 font-size: vw(22px);
             }
+
             &__attributeDescription {
                 padding: vw(18px) vw(24px);
                 font-size: vw(42px);
             }
         }
-    }   
+    }
 }
 
 @media (max-width: 700px) {
@@ -139,6 +156,7 @@
             color: $RosemeryDark;
             background-color: $Oragon;
         }
+
         &__subtitle {
             padding: 0 vw(16px, 390px);
             font-size: vw(16px, 390px);
@@ -149,38 +167,45 @@
                 color: $RosemeryDark;
             }
         }
+
         &__description {
             font-size: vw(15px, 390px);
             padding: 0 vw(16px, 390px);
-            
+
             & span:not(:first-child) {
                 display: block;
                 margin-top: vw(12px, 390px);
             }
+
             ::selection {
                 background-color: $Oragon;
                 color: $RosemeryDark;
             }
         }
+
         &__link {
             text-decoration: underline;
             font-weight: 700;
+
             &:hover {
                 color: $Milk;
             }
         }
+
         &__attributes {
             margin-top: vw(12px, 390px);
             margin-left: vw(16px, 390px);
             margin-right: vw(12px, 390px);
             margin-bottom: vw(12px, 390px);
             padding-left: vw(20px, 390px);
+            font-size: vw(15px, 390px);
             list-style: disc;
 
             & li:not(:first-child) {
                 margin-top: vw(4px, 390px);
             }
         }
+
         &__attributeTitle {
             margin-left: 0;
             padding: 0;
@@ -188,6 +213,7 @@
             font-size: vw(15px, 390px);
             font-weight: 400;
         }
+
         &__attributeDescription {
             padding: 0;
             display: inline;
@@ -199,6 +225,7 @@
                 color: $RosemeryDark;
             }
         }
+
         &::before {
             counter-increment: answer;
             content: "0" counter(answer);

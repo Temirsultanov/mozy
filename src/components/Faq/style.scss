@@ -109,7 +109,7 @@
 @media (max-width: 700px) {
     .faq {
         height: auto;
-        padding-top: vw(30px, 390px);
+        padding-top: 0px;
         position: relative;
         counter-reset: answer;
 
@@ -150,6 +150,7 @@
         }
 
         &__title {
+            margin-top: vw(30px, 390px);
             font-size: vw(24px, 390px);
         }
 

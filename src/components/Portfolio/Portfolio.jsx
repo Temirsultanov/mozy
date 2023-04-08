@@ -1,26 +1,31 @@
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, forwardRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
 
 import "./style.scss";
+
 import { projects } from "../../lib/constants";
 import { Eye } from "../../lib/components/Eye";
 import { Controllers } from "./Controllers";
 import { Project } from "./Project";
 
-export const Portfolio = ({ className, id }) => {
+export const Portfolio = forwardRef(({ className }, ref) => {
     const { allFile } = useStaticQuery(graphql`
 		{
             allFile {
                 edges {
                   node {
                     childImageSharp {
-                      gatsbyImageData(quality: 90, outputPixelDensities: 2, placeholder: BLURRED)
+                      gatsbyImageData(
+                        quality: 50
+                        outputPixelDensities: 2
+                        placeholder: DOMINANT_COLOR
+                      )
                     }
                     name
                   }
                 }
-            }
+              }
 		}
 	`);
 
@@ -48,7 +53,7 @@ export const Portfolio = ({ className, id }) => {
     }
 
     return (
-        <section id={id} className={className + " portfolio"}>
+        <section ref={ref} id="projects" className={className + " portfolio"}>
             <div className="portfolio__info">
                 <h4 className="portfolio__smallTitle">Our Works</h4>
                 <h2 className="portfolio__title">Наши работы</h2>
@@ -76,4 +81,4 @@ export const Portfolio = ({ className, id }) => {
             <Controllers className="portfolio__controllers" decrement={decrement} increment={increment} />
         </section>
     )
-}
+})

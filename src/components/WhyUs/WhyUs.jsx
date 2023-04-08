@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import "./style.scss";
 
 import { Button } from "../../lib/components/Button";
@@ -75,12 +75,12 @@ const Header = ({ openContacts }) => {
     )
 }
 
-export const WhyUs = ({ className, openContacts }) => {
+export const WhyUs = forwardRef(({ className, openContacts }, ref) => {
     const firstTriple = reasons.slice(0, 3);
     const secondTriple = reasons.slice(3);
 
     return (
-        <section className={className + " whyUs"}>
+        <section ref={ref} id="why-us" className={className + " whyUs"}>
             <Header openContacts={openContacts}></Header>
             <ul className="whyUs__reasons whyUs__reasons-1">
                 {firstTriple.map((reason) => (
@@ -108,4 +108,4 @@ export const WhyUs = ({ className, openContacts }) => {
             <Spinner className="whyUs__spinner"></Spinner>
         </section>
     )
-}
+})
