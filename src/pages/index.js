@@ -70,13 +70,13 @@ function openScrollToBody() {
 
 function removeTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.classList.add("noTransition");
+    section.style.transition = "0s";
   })
 }
 
 function addTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.classList.remove("noTransition");
+    section.style.transition = "transform 1s cubic-bezier(0.4, 0, 0, 1)";
   })
 }
 
