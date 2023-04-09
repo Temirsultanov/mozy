@@ -68,6 +68,18 @@ function openScrollToBody() {
   document.body.classList.remove("hidden");
 }
 
+function removeTransitionToSections() {
+  document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
+    section.classList.add("noTransition");
+  })
+}
+
+function addTransitionToSections() {
+  document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
+    section.classList.remove("noTransition");
+  })
+}
+
 function setHashToUrl(id) {
   window.history.replaceState(null, null, "#" + id);
 }
@@ -109,6 +121,7 @@ const IndexPage = ({ location }) => {
   const observer = useRef(null);
   const observe = useCallback(() => {
     if (observer.current === null) return;
+    
     observer.current.observe(promoBlockRef.current);
     observer.current.observe(whatWeCanDoRef.current);
     observer.current.observe(whyUsRef.current);
@@ -127,14 +140,28 @@ const IndexPage = ({ location }) => {
     closeScrollToBody();
     setHashToUrl(contactsPopupId);
     setContactsPopupClosed(false);
-  }, [disconnectObserver, setContactsPopupClosed])
+  }, [disconnectObserver])
 
   const closeContacts = useCallback(() => {
     openScrollToBody()
     setContactsPopupClosed(true);
     observe();
-  }, [setContactsPopupClosed, observe])
+  }, [observe])
 
+  const openPortfolio = useCallback(() => {
+    if (isMobile(window.innerWidth)) {
+      scrollById("projects");
+      return;
+    }
+    
+    setOpenedSection(sections.portfolio);
+
+    setScrolling(true);
+    setTimeout(() => {
+      setScrolling(false);
+    }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
+  }, [])
+  
   const sectionsClassNames = useMemo(() => {
     const classNames = Array(SECTIONS_LENGTH).fill("");
     for (let i = 0; i < classNames.length; i++) {
@@ -158,12 +185,14 @@ const IndexPage = ({ location }) => {
     if (isScrollDown(event)) setOpenedSection(incrementSection);
     else if (isScrollUp(event)) setOpenedSection(decrementSection);
 
-  }, DELAY_BETWEEN_SLIDES), [contactsPopupClosed, scrolling, setOpenedSection]);
+  }, DELAY_BETWEEN_SLIDES), [contactsPopupClosed, scrolling]);
 
   const openSectionByHash = useCallback((hash) => {
+    removeTransitionToSections();
     if (hash === contactsPopupId) openContacts();
     else if (hash in sectionsId) setOpenedSection(sectionsId[hash]);
-  }, [openContacts, setOpenedSection])
+    addTransitionToSections();
+  }, [openContacts])
 
   useEffect(() => {
     window.addEventListener("wheel", onMouseWheel);
@@ -183,20 +212,6 @@ const IndexPage = ({ location }) => {
   useLayoutEffect(() => {
     setTimeout(() => setClosedSection(openedSection), DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
   }, [openedSection]);
-
-  function openPortfolio() {
-    if (isMobile(window.innerWidth)) {
-      scrollById("projects");
-      return;
-    }
-    
-    setOpenedSection(sections.portfolio);
-
-    setScrolling(true);
-    setTimeout(() => {
-      setScrolling(false);
-    }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
-  }
 
   return (
     <Layout>

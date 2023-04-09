@@ -68,3 +68,7 @@ p {
 .hidden {
     overflow: hidden;
 }
+
+section.noTransition {
+    transition: 0s;
+}
