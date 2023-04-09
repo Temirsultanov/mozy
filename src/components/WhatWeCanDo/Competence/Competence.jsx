@@ -8,7 +8,7 @@ export const Competence = ({ className, name, icon, number, title, text, decorTi
         <li className={className + " competence"}>
             <div className="competence__iconWrapper">
                 {icon}
-            </div> 
+            </div>
             <span className="competence__number">0{number}</span>
             <h3 className="competence__title">{title}</h3>
             <hr className="competence__line" />

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState, useMemo, useRef} from "react";
+import React, { useEffect, useLayoutEffect, useState, useMemo, useRef, useCallback } from "react";
 import scrollTo from 'gatsby-plugin-smoothscroll';
 
 import "../styles/common.scss";
@@ -16,10 +16,12 @@ import { Seo } from "../components/seo";
 import { BRIEF_LINK } from "../lib/constants";
 import { throttle } from "../lib/utils";
 
-const MOBILE_HEIGHT = 700;
+const MOBILE_WIDTH = 700;
 const DELAY_BETWEEN_SLIDES = 1500;
 const TIME_TO_CHANGE_CLASSES = 500;
+const OPEN_ANIMATION_TIME = 1000;
 const SECTIONS_LENGTH = 6;
+
 const sections = {
   promoBlock: 0,
   whatWeCanDo: 1,
@@ -28,16 +30,15 @@ const sections = {
   faq: 4,
   contactsAndFooter: 5,
 };
-const ids = {
+const sectionsId = {
   "home": 0,
   "services": 1,
   "why-us": 2,
   "projects": 3,
   "faq": 4,
   "contacts-us": 5,
-}
-
-let scrolling = false;
+};
+const contactsPopupId = "contacts-us-modal"
 
 function isScrollDown(event) {
   return event.deltaY > 0;
@@ -45,6 +46,10 @@ function isScrollDown(event) {
 
 function isScrollUp(event) {
   return event.deltaY < 0;
+}
+
+function isMobile(screenWidth) {
+  return screenWidth < MOBILE_WIDTH
 }
 
 function openBrief() {
@@ -63,31 +68,35 @@ function openScrollToBody() {
   document.body.classList.remove("hidden");
 }
 
+function setHashToUrl(id) {
+  window.history.replaceState(null, null, "#" + id);
+}
+
+const incrementSection = (cur) => {
+  if (cur < sections.contactsAndFooter) return cur + 1;
+  return cur;
+}
+
+const decrementSection = (cur) => {
+  if (cur > sections.promoBlock) return cur - 1;
+  return cur;
+}
+
 const observerOptions = { rootMargin: "0px", threshold: 0.1 }
-const observer = new IntersectionObserver((entries) => {
+const observerCallback = (entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      if (entry.target.id === "home") {
-        window.history.replaceState(null, null, "#home");
-      } else if (entry.target.id === "services") {
-        window.history.replaceState(null, null, "#services");
-      } else if (entry.target.id === "why-us") {
-        window.history.replaceState(null, null, "#why-us");
-      } else if (entry.target.id === "projects") {
-        window.history.replaceState(null, null, "#projects");
-      } else if (entry.target.id === "faq") {
-        window.history.replaceState(null, null, "#faq");
-      } else if (entry.target.id === "contacts-us") {
-        window.history.replaceState(null, null, "#contacts-us");
-      }
+    const id = entry.target.id;
+    if (entry.isIntersecting && (id in sectionsId)) {
+      setHashToUrl(id);
     }
   })
-}, observerOptions);
+}
 
 const IndexPage = ({ location }) => {
   const [openedSection, setOpenedSection] = useState(sections.promoBlock);
   const [closedSection, setClosedSection] = useState(sections.promoBlock);
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
+  const [scrolling, setScrolling] = useState(false);
   
   const promoBlockRef = useRef(null);
   const whatWeCanDoRef = useRef(null);
@@ -96,16 +105,36 @@ const IndexPage = ({ location }) => {
   const faqRef = useRef(null);
   const contactsAndFooterRef = useRef(null);
   const contactsPopupRef = useRef(null);
-  
-  function observe() {
-    observer.observe(promoBlockRef.current);
-    observer.observe(whatWeCanDoRef.current);
-    observer.observe(whyUsRef.current);
-    observer.observe(portfolioRef.current);
-    observer.observe(faqRef.current);
-    observer.observe(contactsAndFooterRef.current);
-  }
-  
+
+  const observer = useRef(null);
+  const observe = useCallback(() => {
+    if (observer.current === null) return;
+    observer.current.observe(promoBlockRef.current);
+    observer.current.observe(whatWeCanDoRef.current);
+    observer.current.observe(whyUsRef.current);
+    observer.current.observe(portfolioRef.current);
+    observer.current.observe(faqRef.current);
+    observer.current.observe(contactsAndFooterRef.current);
+  }, []);
+
+  const disconnectObserver = useCallback(() => {
+    if (observer.current === null) return;
+    observer.current.disconnect();
+  }, []);
+
+  const openContacts = useCallback(() => {
+    disconnectObserver();
+    closeScrollToBody();
+    setHashToUrl(contactsPopupId);
+    setContactsPopupClosed(false);
+  }, [disconnectObserver, setContactsPopupClosed])
+
+  const closeContacts = useCallback(() => {
+    openScrollToBody()
+    setContactsPopupClosed(true);
+    observe();
+  }, [setContactsPopupClosed, observe])
+
   const sectionsClassNames = useMemo(() => {
     const classNames = Array(SECTIONS_LENGTH).fill("");
     for (let i = 0; i < classNames.length; i++) {
@@ -121,78 +150,52 @@ const IndexPage = ({ location }) => {
     return classNames;
   }, [openedSection, closedSection]);
 
+  const onMouseWheel = useCallback(throttle((event) => {
+    if (scrolling === true) return;
+    if (contactsPopupClosed === false) return;
+    if (isMobile(window.innerWidth)) return;
+
+    if (isScrollDown(event)) setOpenedSection(incrementSection);
+    else if (isScrollUp(event)) setOpenedSection(decrementSection);
+
+  }, DELAY_BETWEEN_SLIDES), [contactsPopupClosed, scrolling, setOpenedSection]);
+
+  const openSectionByHash = useCallback((hash) => {
+    if (hash === contactsPopupId) openContacts();
+    else if (hash in sectionsId) setOpenedSection(sectionsId[hash]);
+  }, [openContacts, setOpenedSection])
+
   useEffect(() => {
-    let onMouseWheel = function(event) {
-      if (window.innerWidth < MOBILE_HEIGHT) return;
-      if (contactsPopupClosed === false) return;
-      if (scrolling === true) return;
-
-      if (isScrollDown(event)) {
-        setOpenedSection((cur) => {
-          if (cur < sections.contactsAndFooter) return cur + 1;
-          return cur;
-        });
-      } else if (isScrollUp(event)) {
-        setOpenedSection((cur) => {
-          if (cur > sections.promoBlock) return cur - 1;
-          return cur;
-        });
-      }
-    };
-
-    const hash = location.hash.slice(1);
-    if (hash === "contacts-us-modal")  {
-      openContacts();
-    } else if (hash in ids) {
-      setOpenedSection(ids[hash]);
-    }
-
-    onMouseWheel = throttle(onMouseWheel, DELAY_BETWEEN_SLIDES);
     window.addEventListener("wheel", onMouseWheel);
+    return () => window.removeEventListener("wheel", onMouseWheel);
+  }, [onMouseWheel]);
 
-    if (hash !== "contacts-us-modal") {
-      setTimeout(() => {
-        observe();
-      }, 1000);
-    }
-    
-    return () => {
-      window.removeEventListener("wheel", onMouseWheel);
-      observer.disconnect();
-    };
-  }, []);
+  useEffect(() => {
+    const hash = location.hash.slice(1);
+    openSectionByHash(hash);
+
+    observer.current = new IntersectionObserver(observerCallback, observerOptions);
+    if (hash !== contactsPopupId) setTimeout(observe, OPEN_ANIMATION_TIME);
+
+    return disconnectObserver;
+  }, [location, observe, disconnectObserver, openSectionByHash])
 
   useLayoutEffect(() => {
-    setTimeout(() => {
-      setClosedSection(openedSection);
-    }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
+    setTimeout(() => setClosedSection(openedSection), DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
   }, [openedSection]);
 
   function openPortfolio() {
-    if (window.innerWidth < MOBILE_HEIGHT) {
+    if (isMobile(window.innerWidth)) {
       scrollById("projects");
       return;
     }
     
     setOpenedSection(sections.portfolio);
-    scrolling = true;
+
+    setScrolling(true);
     setTimeout(() => {
-      scrolling = false;
+      setScrolling(false);
     }, DELAY_BETWEEN_SLIDES - TIME_TO_CHANGE_CLASSES);
-    
-  }
-
-  function openContacts() {
-    observer.disconnect();
-    setContactsPopupClosed(false);
-    window.history.replaceState(null, null, "#contacts-us-modal");
-    closeScrollToBody();
-  }
-
-  function closeContacts() {
-    setContactsPopupClosed(true);
-    observe();
-    openScrollToBody()
   }
 
   return (
