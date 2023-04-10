@@ -13,7 +13,6 @@ import { ContactsAndFooter } from "../components/ContactsAndFooter";
 import { ContactsPopup } from "../components/ContactsPopup/ContactsPopup";
 import { Seo } from "../components/seo";
 
-import { BRIEF_LINK } from "../lib/constants";
 import { throttle } from "../lib/utils";
 
 const MOBILE_WIDTH = 700;
@@ -66,13 +65,13 @@ function openScrollToBody() {
 
 function removeTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.classList.add("noTransition");
+    section.style.transition = "none";
   })
 }
 
 function addTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.classList.remove("noTransition");
+    section.style.transition = "";
   })
 }
 
@@ -184,10 +183,8 @@ const IndexPage = ({ location }) => {
   }, DELAY_BETWEEN_SLIDES), [contactsPopupClosed, scrolling]);
 
   const openSectionByHash = useCallback((hash) => {
-    removeTransitionToSections();
     if (hash === contactsPopupId) openContacts();
     else if (hash in sectionsId) setOpenedSection(sectionsId[hash]);
-    addTransitionToSections();
   }, [openContacts])
 
   useEffect(() => {
@@ -197,8 +194,9 @@ const IndexPage = ({ location }) => {
 
   useEffect(() => {
     const hash = location.hash.slice(1);
+    removeTransitionToSections();
     openSectionByHash(hash);
-
+    addTransitionToSections();
     observer.current = new IntersectionObserver(observerCallback, observerOptions);
     if (hash !== contactsPopupId) setTimeout(observe, OPEN_ANIMATION_TIME);
 
