@@ -52,10 +52,6 @@ function isMobile(screenWidth) {
   return screenWidth < MOBILE_WIDTH
 }
 
-function openBrief() {
-  window.open(BRIEF_LINK, "_blank");
-}
-
 function scrollById(id) {
   scrollTo("#" + id);
 }
@@ -70,13 +66,13 @@ function openScrollToBody() {
 
 function removeTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.style.transition = "0s";
+    section.classList.add("noTransition");
   })
 }
 
 function addTransitionToSections() {
   document.querySelectorAll("#home, #services, #why-us, #projects, #faq, #contacts-us").forEach(section => {
-    section.style.transition = "transform 1s cubic-bezier(0.4, 0, 0, 1)";
+    section.classList.remove("noTransition");
   })
 }
 
@@ -105,8 +101,8 @@ const observerCallback = (entries) => {
 }
 
 const IndexPage = ({ location }) => {
-  const [openedSection, setOpenedSection] = useState(sections.promoBlock);
-  const [closedSection, setClosedSection] = useState(sections.promoBlock);
+  const [openedSection, setOpenedSection] = useState(null);
+  const [closedSection, setClosedSection] = useState(null);
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
   const [scrolling, setScrolling] = useState(false);
   
@@ -219,7 +215,6 @@ const IndexPage = ({ location }) => {
       <PromoBlock
         ref={promoBlockRef}
         openPortfolio={openPortfolio}
-        openBrief={openBrief}
         openContacts={openContacts}
         className={sectionsClassNames[sections.promoBlock]}
       />

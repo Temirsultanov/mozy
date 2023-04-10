@@ -4,16 +4,16 @@ export const SOCIALS = {
     title: "@fredikey",
   },
   whatsapp: {
-    href: "https://wa.me/+79876543210",
-    title: "+7(987)654-32-10",
+    href: "https://wa.me/+74955459169",
+    title: "+7(495)545-91-69",
   },
   email: {
     href: "mailto:main@mozy.dev",
     title: "main@mozy.dev",
   },
   phone: {
-    href: "tel:+79876543210",
-    title: "+7(987)654-32-10",
+    href: "tel:+74955459169",
+    title: "+7(495)545-91-69",
   },
 };
 

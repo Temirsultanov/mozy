@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 
+import { BRIEF_LINK } from "../../lib/constants";
 import "./style.scss"
 
 import { Eye } from "../../lib/components/Eye";
@@ -10,8 +11,11 @@ import { Dots } from "./Dots"
 import { Links } from "./Links";
 import { Animation } from "./Animation";
 
+function openBrief() {
+    window.open(BRIEF_LINK, "_blank");
+}
 
-const Header = ({ openBrief }) => {
+const Header = () => {
     return (
         <header className="promoBlock__header">
             <StaticImage placeholder="#254F59" className="promoBlock__logo" src="../../images/logo.png" alt="Логотип Mozy" />
@@ -30,12 +34,12 @@ const EyeAndCompetencies = () => {
     )
 }
 
-export const PromoBlock = forwardRef(({ className, openPortfolio, openBrief, openContacts }, ref) => {
+export const PromoBlock = forwardRef(({ className, openPortfolio, openContacts }, ref) => {
     return (
         <section ref={ref} id="home" className={className + " promoBlock"}>
             <div className="promoBlock__info">
                 <Links openContacts={openContacts} className="promoBlock__links"></Links>
-                <Header openBrief={openBrief}></Header>
+                <Header></Header>
                 <EyeAndCompetencies></EyeAndCompetencies>
                 <div className="promoBlock__borderLeft">
                     <Dots className="promoBlock__dots" />

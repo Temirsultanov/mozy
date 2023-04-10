@@ -2,6 +2,7 @@ import React, { forwardRef, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss"
 
+import { BRIEF_LINK } from "../../lib/constants";
 import { Eye } from "../../lib/components/Eye";
 import { QuestionButton } from "./QuestionButton/QuestionButton";
 import { AnswerMobile, AnswerDesktop } from "./Answer";
@@ -25,7 +26,7 @@ const questionsMobile = [
             }
         ],
         description: (<>
-            <span>Чтобы получить более точную стоимость разработки проекта — заполните <a className="answer__link" href="/brief">бриф</a>. После&nbsp;его&nbsp;заполнения мы с вами свяжемся</span>
+            <span>Чтобы получить более точную стоимость разработки проекта — заполните <a className="answer__link" href={BRIEF_LINK} target="_blank">бриф</a>. После&nbsp;его&nbsp;заполнения мы с вами свяжемся</span>
             <span>Затем мы бесплатно составим техническое задание для определения финальных сроков&nbsp;и&nbsp;цены. Вам останется только решить, подходят условия или нет</span>
         </>)
     },
@@ -85,7 +86,7 @@ const questionsDesktop = [
             }
         ],
         description: (<>
-            <span>Чтобы получить более точную стоимость разработки проекта — заполните <a className="answer__link" href="/brief">бриф</a>. После&nbsp;его&nbsp;заполнения мы с вами свяжемся</span>
+            <span>Чтобы получить более точную стоимость разработки проекта — заполните <a className="answer__link" href={BRIEF_LINK} target="_blank">бриф</a>. После&nbsp;его&nbsp;заполнения мы с вами свяжемся</span>
             <span>Затем мы бесплатно составим техническое задание для определения финальных сроков&nbsp;и&nbsp;цены. Вам останется только решить, подходят условия или нет</span>
         </>)
     },
