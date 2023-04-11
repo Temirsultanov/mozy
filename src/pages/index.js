@@ -13,7 +13,7 @@ import { ContactsAndFooter } from "../components/ContactsAndFooter";
 import { ContactsPopup } from "../components/ContactsPopup/ContactsPopup";
 import { Seo } from "../components/seo";
 
-import { throttle } from "../lib/utils";
+import { useThrottle } from "../hooks/use-throttle";
 
 const MOBILE_WIDTH = 700;
 const DELAY_BETWEEN_SLIDES = 1500;
@@ -172,19 +172,20 @@ const IndexPage = ({ location }) => {
     return classNames;
   }, [openedSection, closedSection]);
 
-  const onMouseWheel = useCallback(throttle((event) => {
+  const onMouseWheel = useThrottle((event) => {
     if (scrolling === true) return;
     if (contactsPopupClosed === false) return;
     if (isMobile(window.innerWidth)) return;
 
     if (isScrollDown(event)) setOpenedSection(incrementSection);
     else if (isScrollUp(event)) setOpenedSection(decrementSection);
-
-  }, DELAY_BETWEEN_SLIDES), [contactsPopupClosed, scrolling]);
+  }, DELAY_BETWEEN_SLIDES, [contactsPopupClosed, scrolling])
 
   const openSectionByHash = useCallback((hash) => {
-    if (hash === contactsPopupId) openContacts();
-    else if (hash in sectionsId) setOpenedSection(sectionsId[hash]);
+    if (hash === contactsPopupId) {
+      openContacts();
+      setOpenedSection(sections.promoBlock);
+    } else if (hash in sectionsId) setOpenedSection(sectionsId[hash]);
   }, [openContacts])
 
   useEffect(() => {
