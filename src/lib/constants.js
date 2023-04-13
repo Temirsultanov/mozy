@@ -1,21 +1,23 @@
 export const SOCIALS = {
   telegram: {
-    href: "https:/t.me/fredikey",
-    title: "@fredikey",
+    href: "https:/t.me/mozystudio",
+    title: "@mozystudio",
   },
   whatsapp: {
-    href: "https://wa.me/+74955459169",
-    title: "+7(495)545-91-69",
+    href: "https://wa.me/+79151550900",
+    title: "+7 (915) 155-09-00",
   },
   email: {
     href: "mailto:main@mozy.dev",
     title: "main@mozy.dev",
   },
   phone: {
-    href: "tel:+74955459169",
-    title: "+7(495)545-91-69",
+    href: "tel:+79151550900",
+    title: "+7 (915) 155-09-00",
   },
 };
+
++79151550900
 
 export const BRIEF_LINK = "https://mrqz.me/6421fba9c674900025aeabf2";
 
