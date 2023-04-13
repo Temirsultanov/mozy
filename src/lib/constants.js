@@ -1,6 +1,6 @@
 export const SOCIALS = {
   telegram: {
-    href: "https:/t.me/mozystudio",
+    href: "https://t.me/mozystudio",
     title: "@mozystudio",
   },
   whatsapp: {
