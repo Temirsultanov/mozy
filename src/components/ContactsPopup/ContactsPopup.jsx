@@ -31,7 +31,7 @@ export const ContactsPopup = forwardRef(({ isClose, close }, ref) => {
                 <CloseButton className="contactsPopup__closeButton" onClick={onCloseButtonClick} />
                 <ContactsLine className="contactsPopup__line" />
                 <h2 className={"contactsPopup__title " + (submitted ? "contactsPopup__title-hide" : "")}>Мы готовы к&nbsp;вашим&nbsp;идеям</h2>
-                <Form isHide={submitted} setSubmitted={setSubmitted} className="contactsPopup__form" />
+                <Form id="2" isHide={submitted} setSubmitted={setSubmitted} className="contactsPopup__form" />
                 <SuccessSubmit isOpen={submitted} closePopup={onCloseButtonClick} className="contactsPopup__successSubmit" />
                 <ContactsLine className="contactsPopup__line" />
                 <SocialLinks className="contactsPopup__socialLinks" />

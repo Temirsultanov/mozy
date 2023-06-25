@@ -2,7 +2,8 @@
 
 .policy {
     width: 100%;
-    background-color: $Milk;
+    padding-top: vh(90px);
+    background-color: $Light-Gray;
 
     &__inner {
         width: 800px;
@@ -15,7 +16,7 @@
         margin-bottom: 60px;
         font-size: 30px;
         text-transform: uppercase;
-        color: $RosemeryDark;
+        color: $Coal;
     }
     & h2 {
         margin-top: 60px;
@@ -30,7 +31,7 @@
     }
     & a {
         text-decoration: underline;
-        color: $Rosemery;
+        color: $Coal;
 
         &:hover {
             color: $Sky;

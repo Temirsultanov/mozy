@@ -1,21 +1,15 @@
 import React from "react";
 import "./style.scss";
-import { TriangularLine } from "../TriangularLine";
 
-export const Reason = ({ className, number, Icon, title, text }) => {
+export const Reason = ({ onClick, className = "", number, Icon, title, text, isActive = false }) => {
     return (
-        <li className={className + " reason"}>
-            <span className="reason__number">0{number}</span>
+        <li onClick={onClick} className={className + " reason" + (isActive ? " reason-active" : "")}>
             <Icon className="reason__icon"></Icon>
-            <div className="reason__content">
-                <h3 className="reason__title">
-                    {title.map(row => <span key={row}>{row}</span>)}
-                </h3>
-                {text.map(paragraph => (
-                    <p key={paragraph} className="reason__text">{paragraph}</p>
-                ))}
-            </div>
-            <TriangularLine className="reason__line" />
+            <h3 className="reason__title">
+                {title}
+                <sup>0{number}</sup>
+            </h3>
+            <p className="reason__text">{text}</p>
         </li>
     )
 }

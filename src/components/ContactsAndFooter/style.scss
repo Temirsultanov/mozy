@@ -3,97 +3,45 @@
 .contactsAndFooter {
     width: 100%;
     height: 100vh;
+    padding-left: vh(90px);
 
     display: flex;
     flex-direction: column;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    color: $White;
+    background-color: $Coal;
 }
 
 .contacts {
     flex: 1;
     display: flex;
-    color: $Oragon;
-
-    &__titleSection {
-        width: 50%;
-        padding-top: vh(130px);
-        padding-left: vh(68px);
-
-        font-weight: 900;
-        color: $RosemeryDark;
-        background-color: $Oragon;
-    }
-
-    &__smallTitle {
-        margin-left: vh(10px);
-        margin-bottom: vh(10px);
-        font-size: vh(14px);
-        font-weight: 900;
-        text-transform: uppercase;
-    }
-
-    &__title {
-        font-size: vh(144px);
-        font-weight: 900;
-        line-height: 0.9;
-        text-transform: uppercase;
-
-        &-2 {
-            color: transparent;
-            font-size: vh(144px);
-            -webkit-text-stroke: vh(4px) $RosemeryDark;
-        }
-
-        &-3 {
-            color: transparent;
-            -webkit-text-stroke: vh(3px) $RosemeryDark;
-        }
-
-        &-4 {
-            color: transparent;
-            -webkit-text-stroke: vh(2px) $RosemeryDark;
-        }
-
-        &-5 {
-            color: transparent;
-            -webkit-text-stroke: vh(1px) $RosemeryDark;
-        }
-    }
-
+    
     &__content {
-        width: 50%;
-        padding-top: vh(90px);
-        padding-right: vh(68px);
+        width: vw(915px);
+        
+        padding-top: vh(130px);
+        padding-right: vh(40px);
         padding-left: vh(40px);
-        padding-bottom: vh(70px);
+        padding-bottom: vh(40px);
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
-        background-color: $RosemeryDark;
     }
 
-    &__eye {
-        width: vh(166px);
-        height: vh(96px);
-        align-self: flex-end;
+    &__title {
+        font-size: vh(48px);
+        font-weight: 400;
+    }
 
-        & path {
-            stroke-width: 0.5px;
-        }
+    &__description {
+        width: vh(500px);
+        margin-top: vh(20px);
+        font-size: vh(24px);
     }
 
     &__form {
-        margin-top: vh(10px);
-    }
-
-    &__socialLinks {
-        margin-top: vh(85px);
+        margin-top: vh(40px);
     }
 
     & .successSubmit {
@@ -109,225 +57,164 @@
             display: none;
         }
     }
+
+    &__benefits {
+        flex: 1;
+        margin-top: vh(90px);
+    }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .contacts {
-        &__titleSection {
-            padding-top: vw(130px);
-            padding-left: vw(68px);
+.benefits {
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        width: 1px;
+
+        position: absolute;
+        left: 50%;
+        background-color: $Yellow;
+        opacity: 0.8;
+    }
+
+    &::before {
+        bottom: vh(470px);
+        height: vh(240px);
+    }
+
+    &::after {
+        top: vh(455px);
+        height: vh(260px);
+    }
+
+    &__logo {
+        width: vh(238px);
+        height: vh(80px);
+
+        position: absolute;
+        top: vh(333px);
+        right: vw(430px);
+
+        overflow: visible;
+
+        &::after {
+            content: "";
+            width: vw(345px);
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            right: vw(-40px);
+
+            transform: translateX(100%);
+            background-color: $Yellow;
+            opacity: 0.8;
         }
+    }
 
-        &__smallTitle {
-            margin-left: vw(10px);
-            margin-bottom: vw(10px);
-            font-size: vw(14px);
-        }
+    &__text {
+        width: max-content;
+        position: absolute;
+        font-size: vw(24px);
+        opacity: 0.5;
 
-        &__title {
-            font-size: vw(144px);
+        &-conversion {
+            top: vh(198px);
+            right: vw(620px);
 
-            &-2 {
-                font-size: vw(144px);
-                -webkit-text-stroke: vw(4px) $RosemeryDark;
+            &::before {
+                width: vw(320px);
+                bottom: vw(-12px);
+                right: vw(-47px);
             }
-
-            &-3 {
-                color: transparent;
-                -webkit-text-stroke: vw(3px) $RosemeryDark;
-            }
-
-            &-4 {
-                color: transparent;
-                -webkit-text-stroke: vw(2px) $RosemeryDark;
-            }
-
-            &-5 {
-                color: transparent;
-                -webkit-text-stroke: vw(1px) $RosemeryDark;
+            &::after {
+                height: vh(217px);
+                right: vw(-12px);
+                bottom: vw(-47px);
             }
         }
+        &-analysis {
+            top: vh(260px);
+            right: vw(124px);
 
-        &__content {
-            padding-top: vw(90px);
-            padding-right: vw(68px);
-            padding-left: vw(40px);
+            &::before {
+                width: vw(310px);
+                bottom: vw(-12px);
+                right: vw(-45px);
+            }
+            &::after {
+                height: vw(360px);
+                left: vw(-12px);
+                bottom: vw(-210px);
+            }
+        }
+        &-lead {
+            bottom: vh(265px);
+            right: vw(620px);
+            
+            &::before {
+                width: vw(275px);
+                bottom: vw(-12px);
+                right: vw(-62px);
+            }
+            &::after {
+                height: vw(217px);
+                right: vw(-12px);
+                top: vw(-10px);
+            }
+        }
+        &-terms {
+            bottom: vh(169px);
+            right: vw(195px);
+
+            &::before {
+                width: vw(260px);
+                bottom: vw(-12px);
+                right: vw(-40px);
+            }
+            &::after {
+                height: vw(217px);
+                right: vw(-12px);
+                bottom: vw(-40px);
+            }
         }
 
-        &__form {
-            margin-top: vw(10px);
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            background-color: #4D4D4E;
         }
 
-        &__eye {
-            width: vw(166px);
-            height: vw(96px);
+        &::before {
+            height: 2px;
         }
-
-        &__socialLinks {
-            margin-top: vw(85px);
-        }
-
-        & .successSubmit {
-            margin-top: vw(150px);
+        &::after {
+            width: 2px;
         }
     }
 }
 
 @media (max-width: 700px) {
     .contactsAndFooter {
-        position: static;
         height: auto;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .contacts {
-        padding: vw(30px, 390px) vw(16px, 390px);
         flex-direction: column;
-        background-color: $Oragon;
-
-        ::selection {
-            background-color: $RosemeryDark;
-            color: $Oragon;
-        }
-
-        &__titleSection {
-            width: 100%;
-            padding-top: 0;
-            padding-left: 0;
-        }
-
-        &__smallTitle {
-            display: none;
-        }
-
-        &__title {
-            font-size: vw(24px, 390px);
-            font-weight: 700;
-
-            &-2 {
-                display: none;
-            }
-
-            &-3 {
-                display: none;
-            }
-
-            &-4 {
-                display: none;
-            }
-
-            &-5 {
-                display: none;
-            }
-        }
 
         &__content {
             width: 100%;
-            background: none;
-
-            padding-top: 0;
-            padding-right: 0;
+            padding-top: 30px;
             padding-left: 0;
-            padding-bottom: 0;
+            padding-right: 0;
+            padding-bottom: 40px;
         }
+        &__title {
 
-        &__eye {
-            display: none;
         }
-
-        &__form {
-            margin-top: vw(16px, 390px);
-
-            & .contactsForm__link:hover {
-                color: $Coal;
-            }
-        }
-
-        &__socialLinks {
-            margin-top: vw(30px, 390px);
-
-            & .socialLink__circle {
-                background-color: $RosemeryDark;
-            }
-
-            & .socialLink__icon {
-                border-color: $RosemeryDark;
-
-                & path {
-                    fill: $RosemeryDark;
-                }
-            }
-
-            & .socialLink:hover {
-                & .socialLink__icon {
-                    border-color: $Oragon;
-
-                    & svg path {
-                        fill: $Oragon;
-                    }
-                }
-            }
-        }
-
-        & .contactsForm {
-            &__title {
-                color: $RosemeryDark;
-            }
-
-            & .input,
-            & .textarea {
-                border-color: $RosemeryDark;
-                background-color: $Oragon;
-                color: $RosemeryDark;
-
-                &__label {
-                    background-color: $Oragon;
-                    color: $RosemeryDark;
-                }
-
-                &:focus,
-                &__filled {
-                    border-color: $RosemeryDark;
-
-                    &+.input__label,
-                    &+.textarea__label {
-                        color: $Coal;
-                    }
-                }
-
-                &:focus {
-                    border-color: $Coal;
-
-                    &+.input__label,
-                    &+.textarea__label {
-                        color: $Coal;
-                    }
-                }
-            }
-
-            &__button {
-                border-color: $RosemeryDark;
-
-                &:hover {
-                    background-color: $Rosemery;
-                    border-color: $Rosemery;
-                    color: $Milk;
-                }
-
-                &:active {
-                    background-color: $Rosemery;
-                    border-color: $Rosemery;
-                    color: $Milk;
-                }
-            }
-
-            &__acceptionText {
-                color: $RosemeryDark;
-            }
-        }
-
-        & .successSubmit {
-            color: $RosemeryDark;
-            margin-top: vw(20px, 390px);
+        &__description {
+            
         }
     }
 }

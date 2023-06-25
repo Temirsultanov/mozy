@@ -2,64 +2,67 @@
 
 .storeLinks {
     display: flex;
+
     & li:not(:first-child) {
-        margin-left: vh(14px);
+        margin-left: vh(20px);
     }
 }
 
 .storeLink {
     height: vh(58px);
-    display: block;
+    padding: vh(14px) vh(20px);
+
+    display: flex;
+    align-items: center;
+    gap: vh(12px);
+
+    font-size: vh(18px);
+    font-weight: 700;
+    color: $Coal;
+    
+    background-color: $Gray;
     overflow: hidden;
-    border: 1px solid $Coal;
-    border-radius: vh(8px);
-    background-color: $Milk;
 
-    &-ios {
-        width: vh(180px);
+    &-ios img {
+        width: vh(24px);
+        height: vh(30px);
     }
-    &-android {
-        width: vh(195px);
+    &-android img {
+        width: vh(27px);
+        height: vh(30px);
     }
-}
-
-.appStoreImage {
-    width: 100%;
-    height: 100%;
-}
-.playMarketImage  {
-    width: 100%;
-    height: 100%;
-}
-
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .storeLinks li:not(:first-child) {
-        margin-left: vw(14px);
-    }
-    .storeLink {
-        height: vw(58px);
-        border-radius: vw(8px);
-        &-ios {
-            width: vw(180px);
-        }
-        &-android {
-            width: vw(195px);
-        }
+    &:hover {
+        background-color: #d3d3d3;
     }
 }
 
 @media (max-width: 700px) {
     .storeLinks li:not(:first-child) {
-        margin-left: vw(10px, 390px);
-    }
-    .storeLink {
-        height: vw(36px, 390px);
-        border-radius: vw(5px, 390px);
-        &-ios {
-            width: vw(110px, 390px);
-        }
-        &-android {
-            width: vw(120px, 390px);
-        }
+        margin-left: 12px;
     }   
+    .storeLink {
+        height: 38px;
+        padding: 2px 16px 0px;
+    
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    
+        font-size: 12px;
+        font-weight: 700;
+        color: $Coal;
+        
+        background-color: $Gray;
+        overflow: hidden;
+    
+        &-ios img {
+            width: 14px;
+            height: 17px;
+            margin-top: -2px;
+        }
+        &-android img {
+            width: 14px;
+            height: 16px;
+        }
+    }
 }

@@ -1,9 +1,10 @@
 @import "../../../styles/lib.scss";
 
-.eye path{
-    stroke: $Oragon;
-}
-.eye-dark path{
-    stroke: $RosemeryDark;
-    stroke-width: 0.5px;
+.eye-light .eye {
+    &__pupil {
+        fill: $Coal;
+    }
+    &__ball {
+        fill: $Yellow;
+    }
 }

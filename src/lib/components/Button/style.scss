@@ -1,35 +1,54 @@
 @import "../../../styles/lib.scss";
 
-.primaryButton {
-    padding: vh(22px) vh(40px);
-    border: 1px solid $Oragon;
-    border-radius: 0;
-    
-    font-size: vh(22px);
-    text-transform: uppercase;
-    color: $Oragon;
-    
-    background-color: $RosemeryDark;
+.button {
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 0px;
+
+    font-weight: 700;
+    color: $Black;
+
+    &-normal {
+        padding: vh(17px) vh(35px);
+        font-size: vh(22px);
+    }
+
+    &-small {
+        padding: vh(12px) vh(24px);
+        font-size: vh(18px);
+    }
+
+    &-primary {
+        border-color: $Yellow;
+        background-color: $Yellow;
+
+        &:hover {
+            border-color: #f4d22b;
+            background-color: #f4d22b;
+        }
+    }
+
+    &-secondary {
+        border-color: $Gray;
+        background-color: $Gray;
+
+        &:hover {
+            border-color: #d5d5d5;
+            background-color: #d5d5d5;
+        }
+    }
 
     &:hover {
-        background-color: $Oragon;
-        color: $RosemeryDark;
         cursor: pointer;
     }
     &:active {
-        background-color: $Milk;
-        border-color: $Milk;
-        color: $RosemeryDark;
-    }
-    &:focus-visible {
-        outline: 1px solid $Milk;
-        outline-offset: 5px;
+        color: $Coal;
     }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .primaryButton {
-        padding: vw(22px) vw(40px);
-        font-size: vw(22px);
-    }    
+@media (max-width: 700px) {
+    .button {
+        padding: 17px 24px;
+        font-size: 16px;
+    }
 }

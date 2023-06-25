@@ -1,10 +1,13 @@
 import React from "react";
-import { OpenAnimation } from "../OpenAnimation";
 
-export const Layout = ({ children }) => {
+import { Header } from "./Header";
+import { Aside } from "./Aside"
+
+export const Layout = ({ children, openContacts, visibleSection }) => {
     return (
         <main>
-            <OpenAnimation></OpenAnimation>
+            <Header openContacts={openContacts} visibleSection={visibleSection} />
+            <Aside />
             {children}
         </main>
     )

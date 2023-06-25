@@ -7,16 +7,22 @@ import playMarketImage from "../../../images/playmarket.png";
 const StoreLink = ({ isIOS = true, href }) => {
     if (isIOS) {
         return (
-            <li><a className="storeLink storeLink-ios" href={href} target="_blank" rel="noreferrer">
-                <img alt="Логотип AppStore" className="appStoreImage" src={appStoreImage} />
-            </a></li>
+            <li>
+                <a className="storeLink storeLink-ios" href={href} target="_blank" rel="noreferrer">
+                    <img alt="Логотип AppStore" className="appStoreImage" src={appStoreImage} />
+                    App Store
+                </a>
+            </li>
         )
     }
 
     return (
-        <li><a className="storeLink storeLink-android" href={href} target="_blank" rel="noreferrer">
-            <img alt="Логотип playMarket" className="playMarketImage" src={playMarketImage} />
-        </a></li>
+        <li>
+            <a className="storeLink storeLink-android" href={href} target="_blank" rel="noreferrer">
+                <img alt="Логотип playMarket" className="playMarketImage" src={playMarketImage} />
+                Play Market
+            </a>
+        </li>
     )
 }
 

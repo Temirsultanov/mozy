@@ -1,0 +1,31 @@
+@import "../../../styles/lib.scss";
+
+.controllers {
+    display: flex;
+    gap: vh(14px);
+
+    & button {
+        width: vh(60px);
+        height: vh(60px);
+        border: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $Yellow;
+        cursor: pointer;
+
+        & svg {
+            width: vh(28px);
+            height: vh(28px);
+        }
+        &:last-child svg {
+            transform: rotate(180deg);
+        }
+
+        &:hover {
+            background-color: #f4d22b;
+        }
+    }
+}

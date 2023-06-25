@@ -1,17 +1,15 @@
-const SHEETDB_API_URL = "https://sheetdb.io/api/v1/auj516dixp1eo";
+import axios from "axios";
 
-export const fields = {
-  name: "data[name]",
-  email: "data[email]",
-  phone: "data[phone]",
-  description: "data[description]",
-};
+const API_URL = "https://api.mozy.dev";
 
-export const sendRequest = (formData) => {
-  const phoneWithSpace = formData.get(fields.phone);
-  formData.set(fields.phone, phoneWithSpace);
-  fetch(SHEETDB_API_URL, {
-    method: "POST",
-    body: formData,
-  });
+export const sendRequest = (
+  name = "",
+  phone = "",
+  email = "",
+  description = ""
+) => {
+  axios
+    .post(API_URL, { name, phone, email, description })
+    .then((r) => console.log(r))
+    .catch((e) => console.log(e));
 };

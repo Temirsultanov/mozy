@@ -1,3 +1,9 @@
+$Light-Gray: #F5F5F5;
+$Gray: #DFDFDE;
+$Yellow: #FFE252;
+$White: #FFFFFF;
+$Black: #28282A;
+
 $Rosemery: #3D6D79;
 $RosemeryDark: #254F59;
 $Oragon: #FDAA5A;
@@ -9,12 +15,12 @@ $Milk: #ffffff;
 $Sky: #5E83E4;
 $Lilac: #9E5ED1;
 $Orange: #E38A4A;
-$Coal: #191A1F;
+$Coal: #28282A;
 
-@function vw($px, $vw: 1920px){
+@function vw($px, $vw: 1920px) {
     @return calc($px * 100 * 1vw / $vw);
 }
 
-@function vh($px, $vh: 1080px){
+@function vh($px, $vh: 958px) {
     @return calc($px * 100 * 1vh / $vh);
 }

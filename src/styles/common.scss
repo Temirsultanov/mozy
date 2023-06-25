@@ -4,9 +4,11 @@
 
 body {
     font-family: "Uni", Arial, Helvetica, sans-serif;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    background-color: $RosemeryDark;
+
+    color: $Coal;
+    background-color: $Light-Gray;
+
+    line-height: 1.4;
 
     position: relative;
 }
@@ -25,44 +27,8 @@ p {
 }
 
 ::selection {
-    color: $RosemeryDark;
-    background-color: $Oragon
-}
-
-.bottom {
-    transform: translateY(100%);
-    transition: transform 0s;
-}
-
-.top {
-    transform: translateY(-100%);
-    transition: transform 0s;
-}
-
-.prev {
-    transition: transform 1s cubic-bezier(0.4, 0, 0, 1);
-}
-
-.cur {
-    transition: transform 1s cubic-bezier(0.4, 0, 0, 1);
-}
-
-@media (max-width: 700px) {
-    .bottom {
-        transform: none;
-    }
-
-    .top {
-        transform: none;
-    }
-
-    .prev {
-        transition: 0s;
-    }
-
-    .cur {
-        transition: 0s;
-    }
+    color: $Yellow;
+    background-color: $Coal
 }
 
 .hidden {

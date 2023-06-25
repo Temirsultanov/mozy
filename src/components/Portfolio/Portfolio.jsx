@@ -2,12 +2,17 @@ import React, { useState, useMemo, forwardRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image";
 
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css";
+import "swiper/css/free-mode";
+import { FreeMode } from "swiper";
+
 import "./style.scss";
 
-import { projects } from "../../lib/constants";
-import { Eye } from "../../lib/components/Eye";
-import { Controllers } from "./Controllers";
+import { PROJECTS } from "../../lib/constants";
 import { Project } from "./Project";
+import { Controllers } from "../../lib/components/Controllers";
+import { Eye } from "../../lib/components/Eye";
 
 export const Portfolio = forwardRef(({ className }, ref) => {
     const { allFile } = useStaticQuery(graphql`
@@ -29,56 +34,68 @@ export const Portfolio = forwardRef(({ className }, ref) => {
 		}
 	`);
 
-    const images = projects.map(project => {
+    const images = PROJECTS.map(project => {
         const edge = allFile.edges.find(edge => edge.node.name === project.imgSrc);
         return edge ? edge.node.childImageSharp.gatsbyImageData : null;
     });
 
     const [curProjIdx, setCurProjIdx] = useState(0);
     const curProj = useMemo(() => {
-        return projects[curProjIdx];
+        return PROJECTS[curProjIdx];
     }, [curProjIdx]);
 
     function decrement() {
         setCurProjIdx(() => {
-            if (curProjIdx === 0) return projects.length - 1
+            if (curProjIdx === 0) return PROJECTS.length - 1
             else return curProjIdx - 1;
         });
     }
     function increment() {
         setCurProjIdx(() => {
-            if (curProjIdx === projects.length - 1) return 0
+            if (curProjIdx === PROJECTS.length - 1) return 0
             else return curProjIdx + 1;
         });
     }
 
     return (
-        <section ref={ref} id="projects" className={className + " portfolio"}>
+        <section ref={ref} id="portfolio" data-name="portfolio" className={className + " portfolio"}>
             <div className="portfolio__info">
-                <h4 className="portfolio__smallTitle">Our Works</h4>
-                <h2 className="portfolio__title">Наши работы</h2>
-                <ul className="portfolio__desktop">
-                    <Project number={curProjIdx + 1} project={curProj} image={images[curProjIdx]}></Project>
+                <h2 className="portfolio__title">Портфолио</h2>
+                <Eye className="portfolio__eye" />
+                <ul className="portfolio__projects">
+                    <Project project={curProj} image={images[curProjIdx]} />
                 </ul>
-                <ul className="portfolio__mobile">
-                    {projects.map((project, index) => (
-                        <Project key={project.name} number={index + 1} project={project} image={images[index]}></Project>
-                    ))}
-                </ul>
-                <div className="portfolio__counter">
-                    <span className="portfolio__currentNumber">0{curProjIdx + 1}</span>
-                    <span className="portfolio__countNumber">04</span>
+                <Controllers className="portfolio__controllers" decrement={decrement} increment={increment} />
+                <div className="portfolio__list projectList">
+                    <h3 className="projectList__title">Наши работы</h3>
+                    <Swiper
+                        slidesPerView={"auto"}
+                        spaceBetween={40}
+                        freeMode={true}
+                        modules={[FreeMode]}
+                    >
+                        <SwiperSlide className={"projectList__item " + (curProjIdx === 0 ? "projectList__item-active" : "")} onClick={() => setCurProjIdx(0)}>
+                            <span>01</span>
+                            <span>{PROJECTS[0].name}</span>
+                        </SwiperSlide>
+                        <SwiperSlide className={"projectList__item " + (curProjIdx === 1 ? "projectList__item-active" : "")} onClick={() => setCurProjIdx(1)}>
+                            <span>02</span>
+                            <span>{PROJECTS[1].name}</span>
+                        </SwiperSlide>
+                        <SwiperSlide className={"projectList__item " + (curProjIdx === 2 ? "projectList__item-active" : "")} onClick={() => setCurProjIdx(2)}>
+                            <span>03</span>
+                            <span>{PROJECTS[2].name}</span>
+                        </SwiperSlide>
+                        <SwiperSlide className={"projectList__item " + (curProjIdx === 3 ? "projectList__item-active" : "")} onClick={() => setCurProjIdx(3)}>
+                            <span>04</span>
+                            <span>{PROJECTS[3].name}</span>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
-                <div className="portfolio__line"></div>
             </div>
-            <div className="portfolio__photoSection">
-                <div className="portfolio__photoWrapper">
-                    <GatsbyImage image={images[curProjIdx]} className="portfolio__photo" alt={"Фотография проекта: " + curProj.name} />
-                </div>
-                <p className="portfolio__type">{curProj.field}</p>
+            <div className="portfolio__photoWrapper">
+                <GatsbyImage image={images[curProjIdx]} className="portfolio__photo" alt={"Фотография проекта: " + curProj.name} />
             </div>
-            <Eye className="portfolio__eye" dark={true} />
-            <Controllers className="portfolio__controllers" decrement={decrement} increment={increment} />
         </section>
     )
 })

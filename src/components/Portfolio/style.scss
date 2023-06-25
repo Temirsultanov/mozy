@@ -3,265 +3,161 @@
 .portfolio {
     width: 100%;
     height: 100vh;
+    padding-top: vh(0px);
 
     display: flex;
-    background-color: $Oragon;
     position: relative;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-
-    ::selection {
-        background-color: $RosemeryDark;
-        color: $Oragon;
-    }
+    background-color: $Light-Gray;
 
     &__info {
-        width: 50%;
-        padding-top: vh(25px);
-        padding-left: vh(30px);
-        color: $RosemeryDark;
-        background-color: $Oragon;
-    }
+        min-width: vw(1005px);
+        padding-top: vh(130px);
+        padding-right: vh(40px);
+        padding-bottom: vh(40px);
+        padding-left: vh(130px);
 
-    &__smallTitle {
-        font-size: vh(14px);
-        font-weight: 700;
-        text-transform: uppercase;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        position: relative;
     }
 
     &__title {
-        font-weight: 700;
-        font-size: vh(120px);
-        text-transform: uppercase;
-        position: absolute;
-        -webkit-text-stroke: vh(2px) $RosemeryDark;
-        color: $Oragon;
-
-        transform-origin: 0 0;
-        transform: rotate(90deg) translateY(-75%);
+        font-size: vh(48px);
+        font-weight: 400;
     }
 
-    &__mobile {
-        display: none;
-    }
-
-    &__line {
-        width: vw(540px);
-        height: vh(130px);
-        top: vh(120px);
-        right: 46%;
-        position: absolute;
-        transform-origin: 100% 0;
-        transform: rotate(-17deg);
-        background-color: $Gandalf;
-    }
-
-    &__counter {
-        display: flex;
-        align-items: baseline;
-        position: absolute;
-        bottom: 0;
-        left: vh(20px);
-        font-weight: 700;
-    }
-
-    &__currentNumber {
-        display: block;
-        font-size: vh(118px);
-        width: vh(150px);
-    }
-
-    &__countNumber {
-        margin-left: vh(30px);
-        font-size: vh(52px);
-        color: $Gandalf;
-    }
-
-    &__photoSection {
-        width: 50%;
-        transform: translate3d(0px, 0px, 0px);
-        position: relative;
-        z-index: 1;
+    &__projects {
+        margin-top: vh(70px);
     }
 
     &__photoWrapper {
-        width: 100%;
-        height: calc(100% - vh(120px));
-        position: relative;
-        z-index: 1;
-        background-color: $RosemeryDark;
+        display: flex;
+        align-items: center;
     }
-
     &__photo {
         width: 100%;
         height: 100%;
     }
-
-    &__type {
-        margin-left: vh(140px);
-        position: absolute;
-        bottom: vh(80px);
-
-        font-size: vh(26px);
-        color: $Milk;
-        text-transform: uppercase;
-    }
-
-    &__eye {
-        position: absolute;
-        z-index: 0;
-
-        right: vh(35px);
-        bottom: vh(35px);
-
-        width: vh(235px);
-        height: vh(130px);
-    }
-
     &__controllers {
         position: absolute;
-        z-index: 5;
-        left: calc(50%);
-        bottom: vh(80px);
-        transform: translate3d(-50%, 0, 200px);
+        right: vh(40px);
+        bottom: vh(40px);
+    }
+    &__list {
+        margin-top: auto;
+    }
+    &__eye {
+        display: none;
     }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .portfolio {
-        &__info {
-            padding-top: vw(25px);
-            padding-left: vw(30px);
-        }
+.projectList {
+    position: relative;
+    width: vw(600px);
 
-        &__smallTitle {
-            font-size: vw(14px);
-        }
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
 
-        &__title {
-            font-size: vw(120px);
-            -webkit-text-stroke: vw(2px) $RosemeryDark;
-        }
+        display: none;
 
-        &__line {
-            width: vw(540px);
-            height: vw(130px);
-            top: vw(120px);
-        }
+        pointer-events: none;
+        background: linear-gradient(90deg,#00000000 20%, #f5f5f5ae);
+    }
+    
+    &__title {
+        font-size: vh(18px);
+        font-weight: 400;
+        opacity: 0.6;
+    }
+    &__item {
+        width: auto;
+        padding: 0;
 
-        &__counter {
-            left: vw(20px);
-        }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-        &__currentNumber {
-            font-size: vw(118px);
-            width: vw(150px);
-        }
+        cursor: pointer;
+        opacity: 0.6;
 
-        &__countNumber {
-            margin-left: vw(30px);
-            font-size: vw(52px);
-        }
-
-        &__photoWrapper {
-            height: calc(100% - vw(120px));
-        }
-
-        &__type {
-            margin-left: vw(140px);
-            bottom: vw(80px);
-            font-size: vw(26px);
-        }
-
-        &__eye {
-            right: vw(35px);
-            bottom: vw(35px);
-            width: vw(235px);
-            height: vw(130px);
-        }
-
-        &__controllers {
-            bottom: vw(80px);
+        &-active {
+            opacity: 1;
         }
     }
-
+    & span {
+        display: block;
+        font-size: vh(18px);
+        line-height: 1.6;
+    }
 }
 
 @media (max-width: 700px) {
     .portfolio {
         height: auto;
-        position: relative;
-        display: flex;
         flex-direction: column;
-        background-color: $RosemeryDark;
+        padding-bottom: 110px;
 
         &__info {
-            width: 100%;
-            padding-top: 0;
-            padding-left: 0;
-        }
-
-        &__smallTitle {
-            display: none;
-        }
-
-        &__title {
+            min-width: auto;
             position: static;
-            font-size: vw(24px, 390px);
-            margin-top: vw(30px, 390px);
-            padding-left: vw(16px, 390px);
-            color: $RosemeryDark;
-            -webkit-text-stroke: 0px;
-            transform: none;
+            padding-top: 0;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 0;
         }
-
-        &__desktop {
-            display: none;
+        &__title {
+            font-size: 24px;
         }
-
-        &__mobile {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        &__projects {
+            margin-top: 0px;
         }
-
-        &__line {
-            display: none;
-        }
-
-        &__counter {
-            display: none;
-        }
-
-        &__photoSection {
-            display: none;
-            width: 100%;
-        }
-
-        &__photoWrapper {
-            height: auto;
-        }
-
-        &__type {
-            display: none;
-        }
-
-        &__eye {
-            right: vw(16px, 390px);
-            top: vw(30px, 390px);
-            width: vw(54px, 390px);
-            height: vw(31px, 390px);
-
-            path {
-                stroke-width: 1px;
-            }
-        }
-
         & .portfolio__controllers {
             display: none;
+        }
+        &__eye {
+            width: 36px;
+            height: 20px;
+            
+            position: absolute;
+            top: 6px;
+            right: 16px;
+            display: block;
+        }
+        &__photoWrapper {
+            margin-top: 24px;
+            height: auto;
+        }
+        &__list {
+            position: absolute;
+            bottom: 40px;
+        }
+    }
+
+    .projectList {
+        width: auto;
+        max-width: calc(100% - 32px);
+
+        &::before {
+            display: none;
+        }
+        &__title {
+            display: none;
+        }
+        & li:last-child {
+            padding-right: 16px;
+        }
+        & span {
+            font-size: 16px;
         }
     }
 }

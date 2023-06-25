@@ -5,13 +5,13 @@
     width: 100%;
     height: 100%;
 
-    padding: vh(30px) vh(20px);
-    border: 1px solid $Oragon;
+    padding: vh(20px);
+    border: none;
     border-radius: 0px;
 
     font-size: vh(22px);
-    color: $Milk;
-    background-color: $RosemeryDark;
+    color: $White;
+    background-color: #3E3E3F;
 
     appearance: none;
 
@@ -22,13 +22,11 @@
     &__label {
         padding: vh(5px);
         position: absolute;
-        top: vh(25px);
+        top: vh(15px);
         left: vh(15px);
         z-index: 1;
 
         font-size: vh(22px);
-        text-transform: uppercase;
-        background-color: $RosemeryDark;
 
         transform-origin: 0 0;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
@@ -41,12 +39,12 @@
     &:focus,
     &__filled {
         outline: none;
-        border-color: $Milk;
+        border-color: $White;
 
         &+.input__label,
         &+.textarea__label {
-            color: $Milk;
-            transform: translateY(vh(-40px)) scale(0.8);
+            color: $White;
+            transform: translateY(vh(-30px)) scale(0.8);
         }
     }
 
@@ -54,7 +52,7 @@
 
         &+.input__label,
         &+.textarea__label {
-            color: $Oragon;
+            color: $Yellow;
         }
     }
 }

@@ -1,0 +1,57 @@
+@import "../../../styles/lib.scss";
+
+.aside {
+    width: vh(90px);
+    height: 100%;
+    padding-top: vh(190px);
+    padding-bottom: vh(26px);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $White;
+
+    &__title {
+        font-size: vh(22px);
+        font-weight: 500;
+        white-space: nowrap;
+        transform: rotate(-90deg) translateX(-50%);
+    }
+
+    &__socialLinks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: vh(16px);
+
+        & a {
+            width: vh(54px);
+            height: vh(54px);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            &:hover path {
+                fill: $Coal;
+            }
+        }
+
+        & svg {
+            width: vh(32px);
+            height: vh(32px);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .aside {
+        display: none;
+    }
+}

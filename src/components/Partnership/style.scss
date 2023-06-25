@@ -1,0 +1,142 @@
+@import "../../styles/lib.scss";
+
+.partnership {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    background-color: $Light-Gray;
+
+    &__process, &__team {
+        padding-top: vh(130px);
+    }
+
+    &__process {
+        min-width: vw(1005px);
+        padding-left: vh(130px);
+        padding-right: vh(40px);
+        padding-bottom: vh(40px);
+
+        display: flex;
+        flex-direction: column;
+
+        & ol {
+            max-width: vw(500px);
+            margin-top: vh(36px);
+            padding-left: vh(25px);
+            display: flex;
+            flex-direction: column;
+            gap: vh(40px);
+            font-size: vh(24px);
+            list-style: decimal;
+        }
+        & a {
+            text-decoration: underline;
+        }
+    }
+
+    &__buttonAndEye {
+        margin-top: auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    &__team {
+        flex: 1;
+        width: calc(100% - vw(1005px));
+
+        height: 100%;
+        padding-left: vh(40px);
+        padding-right: vh(40px);
+        padding-bottom: vh(40px);
+
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+
+        position: relative;
+
+        color: $White;
+        background-color: $Coal;
+    }
+
+    &__controllers {
+        margin-top: auto;
+    }
+
+    &__title {
+        font-size: vh(48px);
+        font-weight: 400;
+    }
+
+    &__employees {
+        width: 100%;
+        margin-top: vh(40px);
+    }
+}
+
+.employees {
+    & h3 {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 700px) {
+    .partnership {
+        height: auto;
+        flex-direction: column;
+
+        &__process {
+            width: 100%;
+            padding-top: 40px;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 60px;
+
+            position: relative;
+
+            & ol {
+                max-width: none;
+                margin-top: 40px;
+                padding-left: 20px;
+                gap: 40px;
+                font-size: 16px;
+            }
+        }
+        &__title {
+            font-size: 24px;
+        }
+        &__buttonAndEye {
+            position: absolute;
+            top: 46px;
+            right: 16px;
+
+            & .button {
+                display: none;
+            }
+            & .eye {
+                width: 36px;
+                height: 20px;
+            }
+        }
+        &__team  {
+            padding-top: 30px;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 30px;
+            width: 100%;
+            height: auto;
+        }
+        &__controllers {
+            display: none;
+        }
+    }
+    .employees {
+        &__item {
+            width: 195px;
+        }
+        & h3 {
+            max-width: none;
+        }
+    }
+}

@@ -1,8 +1,7 @@
 @import "../../../styles/lib.scss";
 
 .footer {
-    height: vh(160px);
-    padding: 0 vh(68px);
+    padding: vh(30px) vh(40px);
 
     display: flex;
     justify-content: space-between;
@@ -10,20 +9,7 @@
 
     position: relative;
 
-    font-size: vh(20px);
-    color: $Oragon;
-    background-color: $RosemeryDark;
-
-    &__logoWrapper {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    &__logo {
-        width: vh(122px);
-        height: vh(41px);
-    }
+    font-size: vh(16px);
 
     &__policy {
         padding: vh(10px);
@@ -32,11 +18,15 @@
 
         &:hover {
             color: $Milk;
+            opacity: 1;
         }
 
         &:focus-visible {
             outline: 1px solid $Milk;
         }
+    }
+    &__copyright, &__policy {
+        opacity: 0.8;
     }
 }
 
@@ -45,11 +35,6 @@
         height: vw(160px);
         padding: 0 vw(68px);
         font-size: vw(20px);
-
-        &__logo {
-            width: vw(122px);
-            height: vw(41px);
-        }
 
         &__policy {
             padding: vw(10px);
@@ -65,17 +50,6 @@
         flex-direction: column;
         align-items: flex-start;
         font-size: vw(16px, 390px);
-
-        &__logo {
-            width: vw(122px, 390px);
-            height: vw(41px, 390px);
-        }
-
-        &__logoWrapper {
-            position: static;
-            transform: none;
-            order: -1;
-        }
 
         &__copyright {
             margin-top: vw(20px, 390px);

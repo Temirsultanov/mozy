@@ -3,377 +3,203 @@
 .promoBlock {
     width: 100%;
     height: 100vh;
+    padding-top: vh(90px);
+    border-bottom: 1px solid $Coal;
+    
     display: flex;
 
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-
-    &__header {
-        display: flex;
-        align-items: center;
-    }
-
     &__info {
-        width: 50%;
-        padding-top: vh(50px);
-        padding-left: vh(68px);
-        background-color: $RosemeryDark;
+        min-width: vw(1005px);
+        height: 100%;
+        padding-top: vh(40px);
+        padding-bottom: vh(40px);
+        padding-left: vh(130px);
 
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
-    }
+        position: relative;
 
-    &__logo {
-        width: vh(190px);
-        height: vh(64px);
-    }
-
-    & .promoBlock__button {
-        &-header {
-            margin-left: vh(40px);
-        }
-
-        &-portfolio {
-            position: absolute;
-            transform: translateY(-50%);
-            left: vh(540px);
-        }
-
-        &-brief {
-            display: none;
-        }
-    }
-
-    &__eyeAndCompetencies {
-        margin-top: vh(120px);
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-self: flex-start;
+
+        &>div {
+            display: flex;
+        }
+    }
+
+    &__dots {
+        margin-left: vh(4px);
     }
 
     &__eye {
-        width: vh(58px);
-        height: vh(33px);
-        animation: 10s promoBlock__eye infinite linear;
-
-        & .pupil {
-            animation: 10s promoBlock__pupil infinite linear;
-        }
+        width: vh(68px);
+        height: vh(38px);
+        position: absolute;
+        top: vh(40px);
+        right: vh(40px);
     }
 
-    &__competencies {
-        margin-left: vh(25px);
+    &__subtitle {
+        margin-top: vh(140px);
+        margin-left: vh(4px);
 
         font-size: vh(16px);
         font-weight: 700;
         text-transform: uppercase;
-        color: $Oragon;
-    }
-
-    &__borderLeft {
-        margin-left: vh(29px);
-        padding-bottom: vh(100px);
-        border-left: vh(2px) solid $Oragon;
-        position: relative;
-    }
-
-    &__dots {
-        margin-top: vh(40px);
-        margin-left: vh(55px);
+        letter-spacing: 0.26em;
+        opacity: 0.8;
     }
 
     &__title {
-        margin-top: vh(55px);
-        margin-left: vh(50px);
+        margin-top: vh(30px);
 
-        font-size: vh(74px);
-        font-weight: 700;
+        font-size: vh(100px);
+        font-weight: 400;
         line-height: 1.2;
-        text-transform: uppercase;
+    }
 
-        color: $Oragon;
+    &__description {
+        width: vh(500px);
+        margin-top: vh(40px);
+        margin-left: vh(3px);
+        font-size: vh(26px);
+    }
 
-        -webkit-text-fill-color: transparent;
-        background: linear-gradient(-45deg, $Oragon, $Orange, $Oragon);
-        background-size: 500px;
-        background-position: 100% 0;
-        -webkit-background-clip: text;
-        background-clip: text;
+    &__buttons {
+        margin-top: auto;
+        display: flex;
+        gap: vh(16px);
+    }
 
-        animation: 2s promoBlock__title infinite cubic-bezier(0.4, 0, 0, 1);
+    &__competencies {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
 
-        &::selection {
-            -webkit-text-fill-color: $RosemeryDark;
+        & li {
+            border-left: 1px solid $Coal;
+        }
+
+        & li:nth-child(n+3) {
+            border-top: 1px solid $Coal;
+        }
+    }
+}
+
+.competence {
+    padding: vh(40px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__icon {
+        width: vh(120px);
+        height: vh(120px);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: $Coal;
+
+        & svg {
+            width: 100%;
+            height: 100%;
         }
     }
 
     &__description {
-        margin-top: vh(35px);
-        margin-left: vh(55px);
-
         font-size: vh(26px);
-        color: $Oragon;
-    }
-
-    &__links {
-        position: absolute;
-        bottom: vh(45px);
-    }
-
-    &__animation {
-        width: 50%;
-        background-color: $Cloud;
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
-    }
-}
-
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .promoBlock {
-        &__info {
-            padding-top: vw(50px);
-            padding-left: vw(68px);
-        }
-
-        &__logo {
-            width: vw(190px);
-            height: vw(64px);
-        }
-
-        & .promoBlock__button {
-            &-header {
-                margin-left: vw(40px);
-            }
-
-            &-portfolio {
-                left: vw(540px);
-            }
-        }
-
-        &__eyeAndCompetencies {
-            margin-top: vw(120px);
-        }
-
-        &__eye {
-            width: vw(58px);
-            height: vw(33px);
-        }
-
-        &__competencies {
-            margin-left: vw(25px);
-            font-size: vw(16px);
-        }
-
-        &__borderLeft {
-            margin-left: vw(29px);
-            padding-bottom: vw(100px);
-            border-left: vw(2px) solid $Oragon;
-        }
-
-        &__dots {
-            margin-top: vw(40px);
-            margin-left: vw(55px);
-        }
-
-        &__title {
-            margin-top: vw(55px);
-            margin-left: vw(50px);
-            font-size: vw(74px);
-        }
-
-        &__description {
-            margin-top: vw(35px);
-            margin-left: vw(55px);
-            font-size: vw(26px);
-        }
-
-        &__links {
-            bottom: vw(45px);
-        }
+        opacity: 0.8;
     }
 }
 
 @media (max-width: 700px) {
     .promoBlock {
         height: auto;
-        position: static;
+        min-height: calc(100vh - 50px);
+        padding-top: 72px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 126px;
+        border-bottom: none;
 
-        &__info {
-            width: 100%;
-            padding-top: vw(15px, 390px);
-            padding-left: vw(16px, 390px);
-            padding-right: vw(16px, 390px);
-            padding-bottom: vw(100px, 390px);
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        &__logo {
-            width: vw(180px, 390px);
-            height: vw(60px, 390px);
-            margin-top: vw(45px, 390px);
-        }
-
-        &__eyeAndCompetencies {
-            margin-top: vw(50px, 390px);
-            flex-direction: column;
-            align-items: center;
-        }
+        position: relative;
+        flex-direction: column;
 
         &__eye {
-            width: vw(65px, 390px);
-            height: vw(38px, 390px);
+            display: none;
         }
 
-        &__competencies {
-            margin-top: vw(20px, 390px);
-            margin-left: 0;
-            font-size: vw(12px, 390px);
-        }
+        &__info {
+            min-width: auto;
+            height: auto;
+            
+            padding-top: 40px;
+            padding-left: 0px;
+            padding-bottom: 0px;
 
-        &__borderLeft {
-            width: 100%;
-            margin-left: 0;
-            padding-bottom: 0;
-            border: none;
-
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        &__dots {
-            margin-top: vw(20px, 390px);
-            margin-left: 0;
-        }
-
-        &__title {
-            margin-top: vw(20px, 390px);
-            font-size: vw(32px, 390px);
-            text-align: center;
-            margin-left: 0;
-        }
-
-        &__description {
-            margin-top: vw(12px, 390px);
-            font-size: vw(14px, 390px);
-            text-align: center;
-            margin-left: 0;
-        }
-
-        &__links {
             position: static;
         }
-
-        & .promoBlock__button {
-            width: 100%;
-            padding: vw(12px, 390px) 0;
-            font-size: vw(14px, 390px);
-
-            &-header {
-                display: none;
+        &__subtitle {
+            margin-top: 0;
+            font-size: 12px;
+        }
+        &__title {
+            margin-top: 12px;
+            font-size: 36px;
+        }
+        &__description {
+            width: auto;
+            margin-top: 12px;
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        &__competencies {
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(1fr, 4);
+            gap: 20px;
+            
+            & li {
+                border: none;
             }
-
-            &-portfolio {
-                margin-top: vw(16px, 390px);
-                position: static;
-                transform: translateY(0);
-            }
-
-            &-brief {
-                margin-top: vw(20px, 390px);
-                display: block;
-                color: $RosemeryDark;
-                background-color: $Oragon;
-
-                &:hover {
-                    background-color: $Milk;
-                    border-color: $Milk;
-                }
-
-                &:active {
-                    opacity: 0.8;
-                }
+            & li:nth-child(n+3) {
+                border: none;
             }
         }
-
-        &__animation {
+        &__buttons {
+            margin: 0;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 40px;
+        }
+        &__contactsButton {
+            width: 100%;
+        }
+        &__portfolioButton {
             display: none;
         }
     }
-}
 
-@keyframes promoBlock__title {
-    0% {
-        background-position: 0 0;
+    .promoBlock .promoBlock__dots {
+        display: none;
     }
 
-    100% {
-        background-position: 1000px 0;
-    }
-}
+    .competence {
+        padding: 0;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
 
-@keyframes promoBlock__eye {
-    0% {
-        transform: scaleY(1);
-    }
-
-    25% {
-        transform: scaleY(1);
-    }
-
-    27% {
-        transform: scaleY(0);
-    }
-
-    29% {
-        transform: scaleY(1);
-    }
-
-    34% {
-        transform: scaleY(1);
-    }
-
-    36% {
-        transform: scaleY(0);
-    }
-
-    38% {
-        transform: scaleY(1);
-    }
-
-    100% {
-        transform: scaleY(1);
-    }
-}
-
-@keyframes promoBlock__pupil {
-    0% {
-        transform: translateX(0) scaleX(1);
-    }
-
-    28% {
-        transform: translateX(0) scaleX(1);
-    }
-
-    29% {
-        transform: translateX(12px) scaleX(0.8);
-    }
-
-    30% {
-        transform: translateX(12px) scaleX(0.8);
-    }
-
-    32% {
-        transform: translateX(-4px) scaleX(0.8);
-    }
-
-    34% {
-        transform: translateX(0) scaleX(1);
-    }
-
-    100% {
-        transform: translateX(0) scaleX(1);
+        &__icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+        }
+        &__description {
+            font-size: 14px;
+        }
     }
 }

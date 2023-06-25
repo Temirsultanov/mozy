@@ -1,1 +1,0 @@
-export { TriangularLine } from "./TriangularLine";
