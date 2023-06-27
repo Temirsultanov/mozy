@@ -26,6 +26,27 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .project {
+        &__subtitle {
+            padding: vw(4px) vw(8px);
+            font-size: vw(18px);
+        }
+        &__title {
+            margin-top: vw(20px);
+            font-size: vw(74px);
+        }
+        &__description {
+            width: vw(450px);
+            margin-top: vw(20px);
+            font-size: vw(26px);
+        }
+        &__storeLinks {
+            margin-top: vw(60px);
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .project {
         margin-top: 20px;

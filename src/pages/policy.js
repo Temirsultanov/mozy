@@ -6,11 +6,7 @@ import { Policy } from "../components/Policy";
 import { Seo } from "../components/seo";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-      <Policy />
-    </Layout>
-  );
+  return <Policy />;
 };
 
 export default IndexPage;

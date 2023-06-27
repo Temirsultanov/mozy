@@ -93,12 +93,53 @@
         &-active {
             opacity: 1;
         }
+        &:not(:last-child) {
+            margin-right: vh(40px);
+        }
+    }
+    &__slider {
+        margin-top: vh(20px);
     }
     & span {
         display: block;
         font-size: vh(18px);
         line-height: 1.6;
     }
+}
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .portfolio {
+        &__info {
+            padding-top: vw(130px);
+            padding-right: vw(40px);
+            padding-bottom: vw(40px);
+            padding-left: vw(130px);
+        }
+        &__title {
+            font-size: vw(48px);
+        }
+        &__projects {
+            margin-top: vw(70px);
+        }
+        &__controllers {
+            right: vw(40px);
+            bottom: vw(40px);
+        }
+    } 
+    .projectList {
+        &__title {
+            font-size: vw(18px);
+        }
+        &__slider {
+            margin-top: vw(20px);
+        }
+        & span {
+            font-size: vw(18px);
+        }
+        &__item:not(:last-child) {
+            margin-right: vw(40px);
+        }
+    }   
 }
 
 @media (max-width: 700px) {
@@ -153,8 +194,11 @@
         &__title {
             display: none;
         }
-        & li:last-child {
-            padding-right: 16px;
+        &__slider {
+            margin-top: 0px;
+            &__item:not(:last-child) {
+                margin-right: 20px;
+            }
         }
         & span {
             font-size: 16px;

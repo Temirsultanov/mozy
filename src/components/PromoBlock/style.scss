@@ -114,6 +114,58 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20)  {
+    .promoBlock {
+        padding-top: vw(90px);
+
+        &__info {
+            padding-top: vw(40px);
+            padding-bottom: vw(40px);
+            padding-left: vw(130px);
+        }
+        &__dots {
+            margin-left: vw(4px);
+        }
+        &__eye {
+            width: vw(68px);
+            height: vw(38px);
+            top: vw(40px);
+            right: vw(40px);
+        }
+        &__subtitle {
+            margin-top: vw(140px);
+            margin-left: vw(4px);
+            font-size: vw(16px);
+        }
+        &__title {
+            margin-top: vw(30px);
+            font-size: vw(100px);
+        }
+        &__description {
+            width: vw(500px);
+            margin-top: vw(40px);
+            margin-left: vw(3px);
+            font-size: vw(26px);
+        }
+        &__buttons {
+            gap: vw(16px);
+        }
+    }
+    
+    .competence {
+        padding: vw(40px);
+
+        &__icon {
+            width: vw(120px);
+            height: vw(120px);
+        }
+        &__description {
+            font-size: vw(26px);
+        }
+    }
+    
+}
+
 @media (max-width: 700px) {
     .promoBlock {
         height: auto;

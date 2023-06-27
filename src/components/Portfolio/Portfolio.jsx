@@ -70,9 +70,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                     <h3 className="projectList__title">Наши работы</h3>
                     <Swiper
                         slidesPerView={"auto"}
-                        spaceBetween={40}
-                        freeMode={true}
-                        modules={[FreeMode]}
+                        className="projectList__slider"
                     >
                         <SwiperSlide className={"projectList__item " + (curProjIdx === 0 ? "projectList__item-active" : "")} onClick={() => setCurProjIdx(0)}>
                             <span>01</span>
@@ -94,7 +92,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                 </div>
             </div>
             <div className="portfolio__photoWrapper">
-                <GatsbyImage image={images[curProjIdx]} className="portfolio__photo" alt={"Фотография проекта: " + curProj.name} />
+                <GatsbyImage image={images[curProjIdx]} objectFit={"contain"} className="portfolio__photo" alt={"Фотография проекта: " + curProj.name} />
             </div>
         </section>
     )

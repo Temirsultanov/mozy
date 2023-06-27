@@ -8,6 +8,7 @@
     &__photo {
         width: 100%;
         height: vw(256px);
+        max-height: 40vh;
     }
 
     &__position {
@@ -24,6 +25,19 @@
             display: block;
         }
     }
+}
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .employee {
+        &__position {
+            margin-top: vw(30px);
+            font-size: vw(20px);
+        }
+        &__name {
+            margin-top: vw(14px);
+            font-size: vw(32px);
+        }
+    }   
 }
 
 @media (max-width: 700px) {

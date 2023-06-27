@@ -30,6 +30,29 @@
     }
 }
 
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .reason {
+        &__icon {
+            width: vw(50px);
+            height: vw(50px);
+        }
+        &__title {
+            margin-left: vw(16px);
+            font-size: vw(26px);
+            & sup {
+                margin-left: vw(7px);
+                font-size: vw(16px);
+            }
+        }
+        &__text {
+            margin-top: vw(22px);
+            font-size: vw(18px);
+        }
+    }
+    
+}
+
 @media (max-width: 700px) {
     .reason {
         max-height: 72px;

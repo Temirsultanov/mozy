@@ -29,7 +29,6 @@ const Employees = ({ className, employees, prevButton, nextButton }) => {
             breakpoints={{
                 700: {
                     slidesPerView: 3,
-                    spaceBetween: 50,
                     freeMode: false,
                 }
             }}
@@ -50,7 +49,7 @@ const Employees = ({ className, employees, prevButton, nextButton }) => {
     )
 }
 
-export const Partnership = forwardRef(({ className }, ref) => {
+export const Partnership = forwardRef(({ className, openContacts }, ref) => {
     const prevButton = useRef(null);
     const nextButton = useRef(null);
 
@@ -75,7 +74,6 @@ export const Partnership = forwardRef(({ className }, ref) => {
     const employees = EMPLOYEES.map(employee => {
         const edge = allFile.edges.find(edge => edge.node.name === employee.imageSrc);
         employee.image = edge ? edge.node.childImageSharp.gatsbyImageData : null;
-        
         return employee;
     });
 
@@ -90,8 +88,8 @@ export const Partnership = forwardRef(({ className }, ref) => {
                     <li>Бесплатно составим техническое задание, определим сроки и стоимость</li>
                 </ol>
                 <div className="partnership__buttonAndEye">
-                    <Button>Связаться с нами</Button>
-                    <Eye />
+                    <Button onClick={openContacts}>Связаться с нами</Button>
+                    <Eye className="partnership__eye"/>
                 </div>
             </div>
             <div className="partnership__team">

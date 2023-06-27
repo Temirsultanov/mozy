@@ -41,6 +41,24 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 38 / 20) {
+    .whyUs {
+        padding: vw(130px) vw(40px) vw(40px) vw(130px);
+        
+        &__title {
+            font-size: vw(48px);
+        }
+        &__reasons {
+            margin-top: vw(85px);
+            gap: vw(80px);
+        }
+        &__eye {
+            width: vw(68px);
+            height: vw(38px);
+        }
+    }   
+}
+
 @media (max-width: 700px) {
     .whyUs {
         height: auto;

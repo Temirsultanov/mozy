@@ -65,6 +65,7 @@
 }
 
 .benefits {
+    overflow: hidden;
     position: relative;
 
     &::before, &::after {
@@ -72,13 +73,13 @@
         width: 1px;
 
         position: absolute;
-        left: 50%;
+        right: calc(vw(430px) + vh(20px));
         background-color: $Yellow;
         opacity: 0.8;
     }
 
     &::before {
-        bottom: vh(470px);
+        top: vh(50px);
         height: vh(240px);
     }
 
@@ -119,7 +120,7 @@
 
         &-conversion {
             top: vh(198px);
-            right: vw(620px);
+            right: vw(615px);
 
             &::before {
                 width: vw(320px);
@@ -148,8 +149,8 @@
             }
         }
         &-lead {
-            bottom: vh(265px);
-            right: vw(620px);
+            top: vh(467px);
+            right: vw(615px);
             
             &::before {
                 width: vw(275px);
@@ -163,7 +164,7 @@
             }
         }
         &-terms {
-            bottom: vh(169px);
+            top: vh(580px);
             right: vw(195px);
 
             &::before {
@@ -193,6 +194,37 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .contactsAndFooter {
+        padding-left: vw(90px);
+    }   
+    .contacts {
+        &__content {
+            padding-top: vw(130px);
+            padding-right: vw(40px);
+            padding-left: vw(40px);
+            padding-bottom: vw(40px);
+        }
+        &__title {
+            font-size: vw(48px);
+        }
+        &__description {
+            width: vw(500px);
+            margin-top: vw(20px);
+            font-size: vw(24px);
+        }
+        &__form {
+            margin-top: vw(40px);
+        }
+        & .successSubmit {
+            margin-top: vw(150px);
+        }
+        &__benefits {
+            margin-top: vw(90px);
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .contactsAndFooter {
         height: auto;
@@ -211,10 +243,19 @@
             padding-bottom: 40px;
         }
         &__title {
-
+            font-size: 24px;
         }
         &__description {
-            
+            width: 100%;
+            margin-top: 16px;
+            font-size: 16px;
+        }
+        &__form {
+            margin-top: 20px;
+        }
+        &__benefits {
+            order: -1;
+            display: none;
         }
     }
 }

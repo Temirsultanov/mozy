@@ -18,7 +18,7 @@ const MobileMenu = ({ isOpen, closeMobileMenu, visibleSection}) => {
                     </svg>
                 </button>
                 <nav>
-                    <Menu visibleSection={visibleSection} />
+                    <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
                 </nav>
                 <ul className="mobileMenu__socialMedias">
                     <li><a href={SOCIALS.telegram.href}>{SOCIAL_ICONS.telegram}</a></li>
@@ -33,9 +33,10 @@ const MobileMenu = ({ isOpen, closeMobileMenu, visibleSection}) => {
     )
 }
 
-const Menu = ({ className, visibleSection}) => {
+const Menu = ({ className, visibleSection, closeMobileMenu }) => {
     function scrollToSection(event) {
         event.preventDefault();
+        closeMobileMenu();
         scrollTo(event.target.dataset.href);
     }
     
@@ -75,7 +76,7 @@ export const Header = ({ className, openContacts, visibleSection }) => {
             </div>
             <div>
                 <nav>
-                    <Menu className="header__menu" visibleSection={visibleSection} />
+                    <Menu className="header__menu" visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
                 </nav>
                 <button className="header__openMobileMenuButton" onClick={openMobileMenu}>Меню</button>
                 <Button className="header__briefButton" onClick={openBrief} size="small">Заполнить бриф</Button>

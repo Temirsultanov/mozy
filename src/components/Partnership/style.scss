@@ -41,6 +41,10 @@
         align-items: flex-end;
         justify-content: space-between;
     }
+    &__eye {
+        width: vh(68px);
+        height: vh(38px);
+    }
     &__team {
         flex: 1;
         width: calc(100% - vw(1005px));
@@ -78,6 +82,41 @@
 .employees {
     & h3 {
         max-width: 70%;
+    }
+}
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .partnership {
+        &__process, &__team {
+            padding-top: vw(130px);
+        }
+        &__process {
+            padding-left: vw(130px);
+            padding-right: vw(40px);
+            padding-bottom: vw(40px);
+
+            & ol {
+                margin-top: vw(36px);
+                padding-left: vw(25px);
+                gap: vw(40px);
+                font-size: vw(24px);
+            }
+        }
+        &__eye {
+            width: vw(68px);
+            height: vw(38px);
+        }
+        &__team {
+            padding-left: vw(40px);
+            padding-right: vw(40px);
+            padding-bottom: vw(40px);
+        }
+        &__title {
+            font-size: vw(48px);
+        }
+        &__employees {
+            margin-top: vw(40px);
+        }
     }
 }
 

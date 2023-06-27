@@ -29,3 +29,18 @@
         }
     }
 }
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .controllers {
+        gap: vw(14px);
+    
+        & button {
+            width: vw(60px);
+            height: vw(60px);
+            & svg {
+                width: vw(28px);
+                height: vw(28px);
+            }
+        }
+    }
+}

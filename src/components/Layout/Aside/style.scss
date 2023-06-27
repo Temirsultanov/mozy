@@ -50,6 +50,31 @@
     }
 }
 
+
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .aside {
+        width: vw(90px);
+        padding-top: vw(190px);
+        padding-bottom: vw(26px);
+
+        &__title {
+            font-size: vw(22px);
+        }
+        &__socialLinks {
+            gap: vw(16px);   
+
+            & a {
+                width: vw(54px);
+                height: vw(54px);
+            }
+            & svg {
+                width: vw(32px);
+                height: vw(32px);      
+            }
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .aside {
         display: none;

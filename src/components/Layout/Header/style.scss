@@ -114,6 +114,52 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .header {
+        height: vw(90px);
+        padding-left: vw(38px);
+        padding-right: vw(16px);
+        font-size: vw(18px);
+
+        &__logo {
+            width: vw(111px);
+            height: vw(38px);
+            margin-right: vw(55px);
+        }
+        &__links {
+            gap: vw(28px);
+        }
+        &__link {
+            padding-top: vw(15px);
+            padding-right: vw(15px);
+            padding-bottom: vw(15px);
+            padding-left: vw(28px);
+
+            &::before {
+                width: vw(14px);
+                height: vw(14px);
+            }
+        }
+    }
+
+    .menu {
+        margin-right: vw(90px);
+        gap: vw(25px);
+    
+        &__link {
+            padding-top: vw(15px);
+            padding-right: vw(15px);
+            padding-bottom: vw(15px);
+            padding-left: vw(24px);
+
+            &::before {
+                width: vw(14px);
+                height: vw(14px);
+            }
+        }
+    }
+}
+
 .mobileMenu {
     width: 100%;
     height: 100%;

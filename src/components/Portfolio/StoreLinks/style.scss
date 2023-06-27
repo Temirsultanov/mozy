@@ -36,6 +36,28 @@
     }
 }
 
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
+    .storeLinks li:not(:first-child) {
+        margin-left: vw(20px);
+    }
+
+    .storeLink {
+        height: vw(58px);
+        padding: wh(14px) vw(20px);
+        gap: vw(12px);
+        font-size: vw(18px);
+
+        &-ios img {
+            width: vw(24px);
+            height: vw(30px);
+        }
+        &-android img {
+            width: vw(27px);
+            height: vw(30px);
+        }
+    }
+}
+
 @media (max-width: 700px) {
     .storeLinks li:not(:first-child) {
         margin-left: 12px;

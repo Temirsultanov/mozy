@@ -2,14 +2,17 @@
 
 .contactsForm {
     width: 100%;
-
+    display: flex;
+    flex-direction: column;
+    
     &__inputs {
+        width: 100%;
         display: flex;
         gap: vh(20px);
     }
 
     &__input {
-        flex: 1;
+        width: 100%;
     }
 
     &__textarea {
@@ -24,6 +27,10 @@
         align-items: center;
     }
 
+    &__button {
+        padding: vh(14px) vh(48px);
+    }
+    
     &__acceptionText {
         max-width: vw(530px);
         margin-left: vh(42px);
@@ -76,111 +83,54 @@
     }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
     .contactsForm {
         &__inputs {
-            margin-top: vw(40px);
             gap: vw(20px);
         }
-
         &__textarea {
             height: vw(150px);
             margin-top: vw(20px);
         }
-
         &__buttonAndAcceptionText {
-            margin-top: vw(30px);
+            margin-top: vw(40px);
         }
-
-        &__acceptionText {
-            max-width: none;
-            margin-left: vw(42px);
-            font-size: vw(18px);
-        }
-    }
-
-    .successSubmit {
-        &__title {
-            font-size: vw(42px);
-        }
-
-        &__text {
-            margin-top: vw(30px);
-            font-size: vw(26px);
-        }
-
         &__button {
-            margin-top: vw(38px);
+            padding: vw(14px) vw(48px);
         }
-    }
+        &__acceptionText {
+            margin-left: vw(42px);
+            font-size: vw(16px);
+        }
+    }    
 }
 
 @media (max-width: 700px) {
     .contactsForm {
-        &__titleDesktop {
-            display: none;
-        }
-
         &__inputs {
             flex-direction: column;
-            margin-top: vw(20px, 390px);
-            gap: vw(16px, 390px);
+            gap: 16px;
         }
-
-        & .input,
-        & .textarea {
-            padding: vw(16px, 390px);
-            font-size: max(vw(16px, 390px), 16px);
-
-            &__label {
-                font-size: max(vw(16px, 390px), 16px);
-                top: vw(14px, 390px);
-                left: vw(14px, 390px);
-            }
-        }
-
         &__textarea {
-            height: 150px;
-            margin-top: vw(16px, 390px);
+            margin-top: 16px;
+            height: 110px;
         }
-
         &__buttonAndAcceptionText {
+            margin-top: 30px;
             flex-direction: column;
-            margin-top: vw(30px, 390px);
+            align-items: flex-start;
+            justify-content: flex-start;
         }
-
         &__button {
             width: 100%;
-            padding: vw(12px, 390px) 0px;
-            font-size: vw(14px, 390px);
-
-            &:active {
-                opacity: 0.8;
-            }
+            padding: 17px 40px;
         }
-
         &__acceptionText {
             max-width: none;
-            margin-top: vw(16px, 390px);
-            margin-left: 0;
-            font-size: vw(14px, 390px);
+            margin-top: 16px;
+            margin-left: 0px;
+            font-size: 14px;
         }
     }
-
-    .successSubmit {
-        &__title {
-            font-size: vw(24px, 390px);
-        }
-
-        &__text {
-            margin-top: vw(20px, 390px);
-            font-size: vw(16px, 390px);
-        }
-
-        &__button {
-            margin-top: vw(40px, 390px);
-            font-size: vw(14px, 390px);
-            width: 100%;
-        }
-    }
+    
 }
