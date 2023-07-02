@@ -1,8 +1,8 @@
 @import "../../../styles/lib.scss";
 
 .socialLink {
-    width: vh(120px);
-    height: vh(120px);
+    width: vh(100px);
+    height: vh(100px);
     border-radius: 50%;
 
     display: flex;
@@ -12,8 +12,8 @@
     position: relative;
 
     &__circle {
-        width: 120%;
-        height: 120%;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
 
         position: absolute;
@@ -22,14 +22,13 @@
         z-index: 0;
         scale: 0;
 
-        background-color: $Oragon;
+        background-color: $Coal;
         translate: -50% -50%;
         transition: 0.2s cubic-bezier(0.4, 0, 0, 1);
     }
     &__icon {
         width: 100%;
         height: 100%;
-        border: 1px solid $Oragon;
         border-radius: 50%;
         
         position: relative;
@@ -38,104 +37,65 @@
         justify-content: center;
         align-items: center;
 
+        & svg {
+            width: vh(80px);
+            height: vh(80px);
+        }
     }
     &:hover {
         & .socialLink__circle {
             scale: 1;
             opacity: 1;
         }
-        & .socialLink__icon {
-            border-color: $RosemeryDark;
-
-            & svg path {
-                fill: $RosemeryDark;
-            }
+        & .socialLink__icon svg path {
+            fill: $Light-Gray;
         }
     }
     &:focus-visible {
         outline: 1px solid $Milk;
         outline-offset: 5px;
     }
-    &-telegram svg{
-        width: vh(47px);
-        height: vh(45px);
-    }
-    &-whatsapp svg{
-        width: vh(46px);
-        height: vh(47px);
-    }
-    &-email svg{
-        width: vh(44px);
-        height: vh(37px);
-    }
-    &-phone svg{
-        width: vh(45px);
-        height: vh(45px);
-    }
 }
 
 .socialLinks {
     display: flex;
-    gap: vh(95px);
+    gap: vh(90px);
 }
 
 @media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
     .socialLink {
-        width: vw(120px);
-        height: vw(120px);
+        width: vw(100px);
+        height: vw(100px);
 
-        &-telegram svg{
-            width: vw(47px);
-            height: vw(45px);
-        }
-        &-whatsapp svg{
-            width: vw(46px);
-            height: vw(47px);
-        }
-        &-email svg{
-            width: vw(44px);
-            height: vw(37px);
-        }
-        &-phone svg{
-            width: vw(45px);
-            height: vw(45px);
+        &__icon svg {
+            width: vw(80px);
+            height: vw(80px);
         }
     }
 
     .socialLinks {
-        gap: vw(95px);
+        gap: vw(90px);
     }
 }
 
 @media (max-width: 700px) {
     .socialLink {
-        width: vw(70px, 390px);
-        height: vw(70px, 390px);
+        width: 70px;
+        height: 70px;
 
         &__icon {
             border-width: 1px;
-        }
-        &-telegram svg{
-            width: vw(27px, 390px);
-            height: vw(26px, 390px);
-        }
-        &-whatsapp svg{
-            width: vw(27px, 390px);
-            height: vw(27px, 390px);
-        }
-        &-email svg{
-            width: vw(26px, 390px);
-            height: vw(21px, 390px);
-        }
-        &-phone svg{
-            width: vw(28px, 390px);
-            height: vw(24px, 390px);
+
+            & svg {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
 
     .socialLinks {
-        gap: 0;
+        gap: 15px;
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
     }
 }

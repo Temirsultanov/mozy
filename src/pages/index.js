@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "../styles/common.scss";
 
@@ -27,7 +26,7 @@ const observerOptions = {
 };
 
 const IndexPage = () => {
-  const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
+  const [contactsPopupClosed, setContactsPopupClosed] = useState(false);
 
   const promoBlockRef = useRef(null);
   const portfolioRef = useRef(null);
@@ -65,9 +64,8 @@ const IndexPage = () => {
   }, []);
 
   const openContacts = () => {
-    scrollTo("#contacts");
-    // closeScrollToBody();
-    // setContactsPopupClosed(false);
+    closeScrollToBody();
+    setContactsPopupClosed(false);
   };
 
   const closeContacts = () => {

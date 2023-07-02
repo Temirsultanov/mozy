@@ -26,11 +26,11 @@
         position: relative;
 
         padding-top: vh(102px);
-        padding-bottom: vh(45px);
+        padding-bottom: vh(40px);
         padding-left: vw(100px);
         padding-right: vw(100px);
 
-        color: $Oragon;
+        color: $Coal;
     }
 
     & .closeButton {
@@ -55,12 +55,18 @@
         }
     }
 
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__title {
-        margin-top: vh(105px);
+        margin-top: vh(60px);
         position: relative;
-        font-size: vh(42px);
+
+        font-size: vh(48px);
         font-weight: 400;
-        text-transform: uppercase;
         transition: opacity 0.3s 0.3s cubic-bezier(0.4, 0, 0, 1);
 
         &-hide {
@@ -68,10 +74,16 @@
         }
     }
 
-    &__form {
+    &__description {
+        margin-top: vh(20px);
+        font-size: vh(26px);
+        transition: opacity 0.3s 0.3s cubic-bezier(0.4, 0, 0, 1);
+    }
+
+    & .contactsPopup__form {
         width: vw(850px);
-        margin-top: vh(30px);
-        margin-bottom: vh(60px);
+        margin-top: vh(40px);
+        margin-bottom: vh(50px);
 
         & .contactsForm__title {
             width: 100%;
@@ -82,10 +94,10 @@
         & .contactsForm__button {
             position: relative;
         }
-    }
 
-    &__successSubmit {
-        margin-top: 100px;
+        & .contactsForm__link:hover {
+            color: $Coal;
+        }
     }
 
     &__form,
@@ -94,7 +106,7 @@
     }
 
     &__socialLinks {
-        margin-top: vh(45px);
+        margin-top: vh(40px);
     }
 
     & .socialLink {
@@ -113,7 +125,7 @@
         position: fixed;
         top: 0;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1);
-        background-color: $RosemeryDark;
+        background-color: $Light-Gray;
     }
 
     &__left {
@@ -167,10 +179,15 @@
             transition: opacity 0.3s 0.2s cubic-bezier(0.4, 0, 0, 1);
             opacity: 0;
         }
+
+        &__description {
+            opacity: 0;
+            transition: opacity 0.3s 0.2s cubic-bezier(0.4, 0, 0, 1);
+        }
     }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+@media (min-width: 700px) and (max-aspect-ratio: 37 / 20) {
     .contactsPopup {
         &__inner {
             padding-top: vw(102px);
@@ -192,7 +209,12 @@
             font-size: vw(42px);
         }
 
-        &__form {
+        &__description {
+            margin-top: vw(20px);
+            font-size: vw(26px);
+        }
+
+        & .contactsPopup__form {
             margin-top: vw(30px);
             margin-bottom: vw(60px);
         }
@@ -210,53 +232,33 @@
         }
 
         &__inner {
-            padding-top: vw(70px, 390px);
-            padding-bottom: 150px;
+            padding-top: 70px;
+            padding-bottom: 100px;
         }
 
         &__title {
-            max-width: vw(300px, 390px);
-            margin-top: vw(24px, 390px);
-            font-size: vw(24px, 390px);
-            font-weight: 700;
+            max-width: 300px;
+            margin-top: 24px;
+            font-size: 24px;
             text-align: center;
         }
 
-        &__form {
-            margin-top: vw(16px, 390px);
-            margin-bottom: vw(30px, 390px);
+        &__description {
+            text-align: center;
+        }
+
+        & .contactsPopup__form {
+            margin-top: 16px;
+            margin-bottom: 30px;
             width: 100%;
 
             .contactsForm__inputs {
-                margin-top: vw(24px, 390px);
+                margin-top: 24px;
             }
-
-            .contactsForm__button {
-                background-color: $Oragon;
-                color: $RosemeryDark;
-
-                &:hover {
-                    background-color: $Milk;
-                    border-color: $Milk;
-                }
-
-                &:active {
-                    opacity: 0.8;
-                    background-color: $Milk;
-                }
-            }
-
-            .contactsForm__link:hover {
-                color: $Milk;
-            }
-        }
-
-        &__successSubmit {
-            margin-bottom: vw(60px, 390px);
         }
 
         & .closeButton {
-            top: vw(24px, 390px);
+            top: 24px;
         }
     }
 }

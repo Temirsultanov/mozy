@@ -46,7 +46,7 @@
     }
 }
 
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
+@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
     .closeButton {
         width: vw(72px);
         height: vw(72px);
@@ -60,12 +60,12 @@
 
 @media (max-width: 700px) {
     .closeButton {
-        width: vw(46px, 390px);
-        height: vw(46px, 390px);
+        width: 46px;
+        height: 46px;
 
         svg {
-            width: vw(13px, 390px);
-            height: vw(13px, 390px);
+            width: 13px;
+            height: 13px;
         }
     }
 }
