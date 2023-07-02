@@ -18,7 +18,7 @@ export const Form = ({ setSubmitted, className, id }) => {
             email: elements.email.value,
             description: elements.description.value,
         }
-        // sendRequest(data.name, data.phone, data.email, data.description);
+        sendRequest(data.name, data.phone, data.email, data.description);
 
         setReset(true);
         setSubmitted(true);
@@ -50,8 +50,8 @@ export const SuccessSubmit = ({ isOpen, className, close }) => {
                     <CloseIcon className="successSubmit__closeIcon"/>
                 </button>
                 <CheckIcon className="successSubmit__checkIcon" />
-                <h3 className="successSubmit__title">Ваша заявка успешно отправлена</h3>
-                <p className="successSubmit__description">В ближайшее время с вами свяжется наш менеджер</p>
+                <h3 className="successSubmit__title">Ваша заявка успешно&nbsp;отправлена</h3>
+                <p className="successSubmit__description">В ближайшее время с вами свяжется наш&nbsp;менеджер</p>
             </div>
         </div>
     )

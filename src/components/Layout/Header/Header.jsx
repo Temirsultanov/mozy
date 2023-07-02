@@ -7,7 +7,7 @@ import { BRIEF_LINK } from "../../../lib/constants";
 import { Button } from "../../../lib/components/Button";
 import "./style.scss";
 
-const MobileMenu = ({ isOpen, closeMobileMenu, visibleSection}) => {
+const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMenu, visibleSection}) => {
     return (
         <div onClick={closeMobileMenu} className={"mobileMenu " + (isOpen && "mobileMenu-open")}>
             <div onClick={(e) => e.stopPropagation()} className="mobileMenu__inner">
@@ -26,8 +26,8 @@ const MobileMenu = ({ isOpen, closeMobileMenu, visibleSection}) => {
                     <li><a href={SOCIALS.email.href}>{SOCIAL_ICONS.email}</a></li>
                     <li><a href={SOCIALS.phone.href}>{SOCIAL_ICONS.phone}</a></li>
                 </ul>
-                <Button>Заполнить бриф</Button>
-                <Button className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
+                <Button onClick={openBrief}>Заполнить бриф</Button>
+                <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
             </div>
         </div>
     )
@@ -62,10 +62,14 @@ export const Header = ({ className, openContacts, visibleSection }) => {
     function openBrief() {
         window.open(BRIEF_LINK, "_blank");
     }
+    function openContactsAndCloseMenu() {
+        closeMobileMenu();
+        openContacts();
+    }
 
     return (
         <>
-        <MobileMenu isOpen={mobileMenuIsOpen} closeMobileMenu={closeMobileMenu} visibleSection={visibleSection} />
+        <MobileMenu openContactsAndCloseMenu={openContactsAndCloseMenu} openBrief={openBrief} isOpen={mobileMenuIsOpen} closeMobileMenu={closeMobileMenu} visibleSection={visibleSection} />
         <header className={"header " + className}>
             <div>
                 <StaticImage placeholder="#28282A" className="header__logo" src="../../../images/logo.png" alt="Логотип Mozy"></StaticImage>
