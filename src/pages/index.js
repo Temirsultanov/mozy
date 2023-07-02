@@ -41,7 +41,9 @@ const IndexPage = () => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio >= 0.1) {
-          setVisibleSection(entry.target.dataset.name);
+          const id = entry.target.dataset.name;
+          setVisibleSection(id);
+          window.history.replaceState(null, null, "#" + id);
         }
       });
     };

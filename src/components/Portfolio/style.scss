@@ -146,7 +146,8 @@
     .portfolio {
         height: auto;
         flex-direction: column;
-        padding-bottom: 110px;
+        padding-top: 102px;
+        padding-bottom: 115px;
 
         &__info {
             min-width: auto;
@@ -170,7 +171,7 @@
             height: 20px;
             
             position: absolute;
-            top: 6px;
+            top: 108px;
             right: 16px;
             display: block;
         }

@@ -7,6 +7,10 @@ import { StaticImage } from "gatsby-plugin-image";
 
 export const ContactsAndFooter = forwardRef(({ className }, ref) => {
     const [submitted, setSubmitted] = useState(false);
+    const closeSuccessSubmit = () => {
+        console.log("Close")
+        setSubmitted(false);
+    }
 
     return (
         <section ref={ref} id="contacts" data-name="contacts" className={className + " contactsAndFooter"}>
@@ -14,8 +18,8 @@ export const ContactsAndFooter = forwardRef(({ className }, ref) => {
                 <div className="contacts__content">
                     <h2 className="contacts__title">Контакты</h2>
                     <p className="contacts__description">Свяжитесь с нами и мы обсудим ваш проект, бесплатно составим техническое задание и сориентируем по срокам и стоимости</p>
-                    <Form id="1" isHide={submitted} setSubmitted={setSubmitted} className="contacts__form" />
-                    <SuccessSubmit isOpen={submitted} className="contacts__successSubmit" />
+                    <Form id="1" setSubmitted={setSubmitted} className="contacts__form" />
+                    <SuccessSubmit close={closeSuccessSubmit} isOpen={submitted} className="contacts__successSubmit" />
                 </div>
                 <div className="contacts__benefits benefits">
                     <p className="benefits__text benefits__text-conversion">Повышаем конверсию</p>

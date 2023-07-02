@@ -44,20 +44,6 @@
         margin-top: vh(40px);
     }
 
-    & .successSubmit {
-        margin-top: vh(150px);
-        align-items: flex-start;
-
-        &__title,
-        &__text {
-            text-align: left;
-        }
-
-        &__button {
-            display: none;
-        }
-    }
-
     &__benefits {
         flex: 1;
         margin-top: vh(90px);
@@ -216,9 +202,6 @@
         &__form {
             margin-top: vw(40px);
         }
-        & .successSubmit {
-            margin-top: vw(150px);
-        }
         &__benefits {
             margin-top: vw(90px);
         }
@@ -228,6 +211,8 @@
 @media (max-width: 700px) {
     .contactsAndFooter {
         height: auto;
+        margin-top: -72px;
+        padding-top: 102px;
         padding-left: 16px;
         padding-right: 16px;
     }
@@ -237,7 +222,7 @@
 
         &__content {
             width: 100%;
-            padding-top: 30px;
+            padding-top: 0px;
             padding-left: 0;
             padding-right: 0;
             padding-bottom: 40px;

@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/common.scss";
 
-import { Layout } from "../components/Layout";
 import { Policy } from "../components/Policy";
 import { Seo } from "../components/seo";
 

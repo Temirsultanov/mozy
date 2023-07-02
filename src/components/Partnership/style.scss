@@ -123,7 +123,10 @@
 @media (max-width: 700px) {
     .partnership {
         height: auto;
+        padding-top: 72px;
+        margin-top: -72px;
         flex-direction: column;
+        background-color: $Coal;
 
         &__process {
             width: 100%;
@@ -132,6 +135,7 @@
             padding-right: 16px;
             padding-bottom: 60px;
 
+            background-color: $White;
             position: relative;
 
             & ol {
@@ -147,7 +151,7 @@
         }
         &__buttonAndEye {
             position: absolute;
-            top: 46px;
+            top: 48px;
             right: 16px;
 
             & .button {
@@ -162,7 +166,7 @@
             padding-top: 30px;
             padding-left: 16px;
             padding-right: 16px;
-            padding-bottom: 30px;
+            padding-bottom: 0px;
             width: 100%;
             height: auto;
         }

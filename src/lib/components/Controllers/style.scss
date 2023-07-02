@@ -28,6 +28,12 @@
             background-color: #f4d22b;
         }
     }
+
+    & .controllers__disabledButton {
+        background-color: #f4d22b;
+        opacity: 0.7;
+        cursor: default;
+    }
 }
 
 @media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {

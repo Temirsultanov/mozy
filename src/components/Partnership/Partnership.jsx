@@ -23,7 +23,9 @@ const Employees = ({ className, employees, prevButton, nextButton }) => {
             navigation={{
                 prevEl: prevButton,
                 nextEl: nextButton,
+                disabledClass: "controllers__disabledButton"
             }}
+            disabled
             freeMode={true}
             spaceBetween={20}
             breakpoints={{

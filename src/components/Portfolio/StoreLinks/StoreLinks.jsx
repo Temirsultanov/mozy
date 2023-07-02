@@ -27,6 +27,8 @@ const StoreLink = ({ isIOS = true, href }) => {
 }
 
 export const StoreLinks = ({ className, appStoreLink, playMarketLink }) => {
+    if (!appStoreLink && !playMarketLink) return null;
+    
     return (
         <ul className={className + " storeLinks"}>
             {appStoreLink ? <StoreLink href={appStoreLink} /> : null}

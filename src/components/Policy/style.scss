@@ -2,7 +2,7 @@
 
 .policy {
     width: 100%;
-    padding-top: vh(90px);
+    padding-top: 90px;
     background-color: $Light-Gray;
 
     &__inner {
@@ -117,6 +117,7 @@
 
 @media (max-width: 700px) {
     .policy {
+
 
         &__inner {            
             width: 500px;

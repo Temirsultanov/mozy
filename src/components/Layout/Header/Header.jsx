@@ -68,7 +68,7 @@ export const Header = ({ className, openContacts, visibleSection }) => {
         <MobileMenu isOpen={mobileMenuIsOpen} closeMobileMenu={closeMobileMenu} visibleSection={visibleSection} />
         <header className={"header " + className}>
             <div>
-                <StaticImage className="header__logo" src="../../../images/logo.png" alt="Логотип Mozy"></StaticImage>
+                <StaticImage placeholder="#28282A" className="header__logo" src="../../../images/logo.png" alt="Логотип Mozy"></StaticImage>
                 <ul className="header__links">
                     <li><a href={SOCIALS.email.href} className="header__link">{SOCIALS.email.title}</a></li>
                     <li><button onClick={openContacts} className="header__link">Связаться с нами</button></li>
