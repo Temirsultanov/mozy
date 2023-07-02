@@ -3,7 +3,7 @@
 .contactsPopup {
     width: 100vw;
     overflow-x: hidden;
-    height: 100vh;
+    min-height: 100vh;
 
     display: block;
     overflow-y: auto;
