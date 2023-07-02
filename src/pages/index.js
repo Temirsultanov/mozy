@@ -26,7 +26,7 @@ const observerOptions = {
 };
 
 const IndexPage = () => {
-  const [contactsPopupClosed, setContactsPopupClosed] = useState(false);
+  const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
 
   const promoBlockRef = useRef(null);
   const portfolioRef = useRef(null);
