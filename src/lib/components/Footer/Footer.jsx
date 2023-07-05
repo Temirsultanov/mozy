@@ -1,5 +1,4 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import "./style.scss"
 
 export const Footer = () => {

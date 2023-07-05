@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react"
+import React, { forwardRef, useState } from "react"
 import "./style.scss";
 
 import { Button } from "../../lib/components/Button";
