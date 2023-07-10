@@ -5,6 +5,16 @@
     flex-wrap: wrap;
     align-items: center;
 
+    position: relative;
+
+    &__plusIcon {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 16px;
+        transform: rotate(-45deg);
+        transition: 0.15s ease;
+    }
     &__icon {
         width: vh(50px);
         height: vh(50px);
@@ -67,6 +77,10 @@
 
         transition: 0.3s linear;
         
+
+        &__plusIcon {
+            display: flex;
+        }
         &__icon {
             width: 32px;
             height: 32px;
@@ -91,6 +105,10 @@
         &-active {
             max-height: 200px;
             transition: 0.2s linear;
+
+            & .reason__plusIcon {
+                transform: rotate(0);
+            }
         }
     }
 }

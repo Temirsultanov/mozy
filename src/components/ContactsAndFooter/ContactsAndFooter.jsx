@@ -26,7 +26,7 @@ export const ContactsAndFooter = forwardRef(({ className }, ref) => {
                     <p className="benefits__text benefits__text-analysis">Глубокий анализ</p>
                     <p className="benefits__text benefits__text-lead">Выводим в топы</p>
                     <p className="benefits__text benefits__text-terms">Соблюдаем сроки</p>
-                    <StaticImage placeholder="#28282A" className="benefits__logo" src="../../images/logo.png" alt="Логотип Mozy" />
+                    <StaticImage placeholder="#28282A" class="benefits__logo" src="../../images/logo.png" alt="Логотип Mozy" />
                 </div>
             </div>
             <Footer></Footer>

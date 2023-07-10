@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import InputMask from "react-input-mask";
+
 import "./style.scss";
 
 export const Input = ({ reset, setReset, className = "", placeholder, name, type, required, id }) => {
@@ -13,18 +15,23 @@ export const Input = ({ reset, setReset, className = "", placeholder, name, type
         setReset(false);
     }
 
-    return (
-        <input 
-            onInput={onInput} 
-            placeholder={placeholder}
-            value={value} 
-            required={required} 
-            type={type} 
-            id={id} 
-            name={name} 
-            className={"input " + className} 
-        />
-    )
+    const properties = {
+        onInput: onInput,
+        placeholder: placeholder,
+        value: value,
+        required: required,
+        type: type,
+        id: id,
+        name: name,
+        className: "input " + className
+    }
+
+    if (type === "tel") {
+        return <InputMask  {...properties}  mask="+7 (999) 999 99 99"/>
+    } else {
+        return <input {...properties} />        
+    }
+    
 }
 
 export const Textarea = ({ reset, className = "", placeholder, name, required, id }) => {
