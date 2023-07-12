@@ -34,7 +34,7 @@ const PoVoenke = ({className }) => {
             </div>
             <div className="poVoenke__row poVoenke__row-2">
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_card.png" alt="Скриншот мобильного приложения поВоенке: проект Звезда Морей, Мытищи" />
-                <StaticImage className="poVoenke__image" src="../../../images/povoenke_allow.png" alt="Скриншот мобильного приложения поВоенке: Одобрение ипотеки" />
+                <StaticImage className="poVoenke__image" src="../../../images/povoenke_allowing.png" alt="Скриншот мобильного приложения поВоенке: Одобрение ипотеки" />
             </div>
             <div className="poVoenke__row poVoenke__row-3">
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_calc.png" alt="Скриншот мобильного приложения поВоенке: Калькуляция ипотеки" />
