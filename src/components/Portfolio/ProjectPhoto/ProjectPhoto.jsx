@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./style.scss";
 import { StaticImage } from "gatsby-plugin-image";
+import "./style.scss";
 
 export const ProjectPhoto = ({ project }) => {
     return (

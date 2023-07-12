@@ -74,8 +74,8 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                     <Project project={curProj} image={images[curProjIdx]} />
                 </ul>
                 <Swiper
-                    onSwiper={(s) => photoSwiper.current = s}
-                    onSlideChange={(s) => setCurProjIdx(s.activeIndex) }
+                    onSwiper={(swiper) => photoSwiper.current = swiper}
+                    onSlideChange={(swiper) => setCurProjIdx(swiper.activeIndex) }
                     slidesPerView={1}
                     className="portfolio__mobilePhoto"
                 >
@@ -88,7 +88,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                 <div className="portfolio__list projectList">
                     <h3 className="projectList__title">Наши работы</h3>
                     <Swiper
-                        onSwiper={(s) => projectSwiper.current = s}
+                        onSwiper={(swiper) => projectSwiper.current = swiper}
                         slidesPerView={"auto"}
                         className="projectList__slider"
                     >
