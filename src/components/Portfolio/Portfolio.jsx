@@ -1,20 +1,23 @@
-import React, { useState, useMemo, forwardRef } from "react"
+import React, { useState, useMemo, forwardRef, useEffect, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css";
 import "swiper/css/free-mode";
-import { FreeMode } from "swiper";
 
 import "./style.scss";
 
 import { PROJECTS } from "../../lib/constants";
 import { Project } from "./Project";
+import { ProjectPhoto } from "./ProjectPhoto";
 import { Controllers } from "../../lib/components/Controllers";
 import { Eye } from "../../lib/components/Eye";
+import { StaticImage } from "gatsby-plugin-image";
 
 export const Portfolio = forwardRef(({ className }, ref) => {
+    const photoSwiper = useRef(null);
+    const projectSwiper = useRef(null);
+
     const { allFile } = useStaticQuery(graphql`
 		{
             allFile {
@@ -44,6 +47,11 @@ export const Portfolio = forwardRef(({ className }, ref) => {
         return PROJECTS[curProjIdx];
     }, [curProjIdx]);
 
+    useEffect(() => {
+        photoSwiper.current.slideTo(curProjIdx);
+        projectSwiper.current.slideTo(curProjIdx);
+    }, [curProjIdx])
+
     function decrement() {
         setCurProjIdx(() => {
             if (curProjIdx === 0) return PROJECTS.length - 1
@@ -65,10 +73,22 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                 <ul className="portfolio__projects">
                     <Project project={curProj} image={images[curProjIdx]} />
                 </ul>
+                <Swiper
+                    onSwiper={(s) => photoSwiper.current = s}
+                    onSlideChange={(s) => setCurProjIdx(s.activeIndex) }
+                    slidesPerView={1}
+                    className="portfolio__mobilePhoto"
+                >
+                    <SwiperSlide><StaticImage src="../../images/portfolio_1.png" alt="Take a Place: мобильное приложение для поиска, бронирования и оплаты мест в коворкингах" /></SwiperSlide>
+                    <SwiperSlide><StaticImage src="../../images/portfolio_2.png" alt="ПоВоенке: сервис для ипотеки" /></SwiperSlide>
+                    <SwiperSlide><StaticImage src="../../images/portfolio_3.png" alt="RDW Computers: веб-приложение для заказа конфигураций компьютерного и серверного оборудования" /></SwiperSlide>
+                    <SwiperSlide><StaticImage src="../../images/portfolio_4.png" alt="Farm.io: децентрализованное веб-приложение для проведения киберспортивных матчей" /></SwiperSlide>
+                </Swiper>
                 <Controllers className="portfolio__controllers" decrement={decrement} increment={increment} />
                 <div className="portfolio__list projectList">
                     <h3 className="projectList__title">Наши работы</h3>
                     <Swiper
+                        onSwiper={(s) => projectSwiper.current = s}
                         slidesPerView={"auto"}
                         className="projectList__slider"
                     >
@@ -92,7 +112,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
                 </div>
             </div>
             <div className="portfolio__photoWrapper">
-                <GatsbyImage image={images[curProjIdx]} objectFit={"contain"} className="portfolio__photo" alt={"Фотография проекта: " + curProj.name} />
+                <ProjectPhoto project={curProjIdx} />
             </div>
         </section>
     )

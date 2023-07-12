@@ -1,0 +1,1 @@
+export { ProjectPhoto } from "./ProjectPhoto";
