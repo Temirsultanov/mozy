@@ -351,7 +351,7 @@
     position: absolute;
     display: flex;
 
-    &__image {
+    & .rdwComputers__image {
         position: absolute;
         border: 8px solid rgba(64, 144, 164, 0.27);
         border-radius: 30px;
@@ -445,13 +445,13 @@
 
     position: relative;
 
-    &__background {
+    & .farmIO__background {
         width: vw(475px);
         right: vw(400px);
         bottom: vw(110px);
         position: absolute;
     }
-    &__computer {
+    & .farmIO__computer {
         width: vw(830px);
         
         position: absolute;
