@@ -11,7 +11,7 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
     return (
         <div onClick={closeMobileMenu} className={"mobileMenu " + (isOpen && "mobileMenu-open")}>
             <div onClick={(e) => e.stopPropagation()} className="mobileMenu__inner">
-                <button onClick={closeMobileMenu} className="mobileMenu__closeButton">
+                <button onClick={closeMobileMenu} className="mobileMenu__closeButton" aria-label="Закрыть">
                     <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 -0.705413 0.708797 0.705413 1 16.9233)" stroke="white" strokeWidth="1.28384"/>
                         <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 0.705413 -0.708797 0.705413 1 1.07666)" stroke="white" strokeWidth="1.28384"/>
@@ -21,10 +21,10 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
                     <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
                 </nav>
                 <ul className="mobileMenu__socialMedias">
-                    <li><a href={SOCIALS.telegram.href}>{SOCIAL_ICONS.telegram}</a></li>
-                    <li><a href={SOCIALS.whatsapp.href}>{SOCIAL_ICONS.whatsapp}</a></li>
-                    <li><a href={SOCIALS.email.href}>{SOCIAL_ICONS.email}</a></li>
-                    <li><a href={SOCIALS.phone.href}>{SOCIAL_ICONS.phone}</a></li>
+                    <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{SOCIAL_ICONS.telegram}</a></li>
+                    <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{SOCIAL_ICONS.whatsapp}</a></li>
+                    <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{SOCIAL_ICONS.email}</a></li>
+                    <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{SOCIAL_ICONS.phone}</a></li>
                 </ul>
                 <Button onClick={openBrief}>Заполнить бриф</Button>
                 <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
