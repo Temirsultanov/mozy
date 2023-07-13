@@ -446,9 +446,9 @@
 
     & .farmIO__background {
         width: vh(475px);
+        position: absolute;
         right: vh(400px);
         bottom: vh(110px);
-        position: absolute;
     }
     & .farmIO__computer {
         width: vh(830px);
