@@ -454,9 +454,9 @@
         width: vh(830px);
         
         position: absolute;
-        z-index: 1;
         bottom: vh(50px);
         right: vh(-38px);
+        z-index: 1;
     }
     &__line {
         width: max-content;
