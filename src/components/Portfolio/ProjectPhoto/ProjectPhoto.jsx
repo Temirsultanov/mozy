@@ -17,7 +17,7 @@ function pxToVw(px) {
     return vw + "vw"
 }
 
-const isBrowser = typeof window !== undefined;
+const isBrowser = typeof window !== "undefined";
 
 function pxToViewportUnit(px) {
     return window.innerWidth / window.innerHeight > (37 / 20) ? pxToVh(px) : pxToVw(px);
