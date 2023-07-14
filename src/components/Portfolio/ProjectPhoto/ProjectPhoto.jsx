@@ -1,6 +1,22 @@
 import React, { useState } from "react";
+import { animated, useSpring } from "@react-spring/web";
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss";
+
+function pxToViewportUnit(px) {
+    const DESKTOP_HEIGHT = 958;
+    const DESKTOP_WITDH = 1920;
+    
+    if (window.innerWidth / window.innerHeight > (37 / 20)) {
+        const unRoundedVh = 100 * px / DESKTOP_HEIGHT;
+        const vh = Math.floor(unRoundedVh * 100) / 100;
+        return vh + "vh";
+    } else {
+        const unRoundedVw = 100 * px / DESKTOP_WITDH;
+        const vw = Math.floor(unRoundedVw * 100) / 100;
+        return vw + "vw"
+    }
+}
 
 export const ProjectPhoto = ({ project }) => {
     return (
@@ -25,22 +41,51 @@ const TakeAPlace = ({ className }) => {
 }
 
 const PoVoenke = ({className }) => {
+    const springConfig = {
+        mass: 8,
+        tension: 170,
+        friction: 17,
+    }
+
+    const rowValues = {
+        1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
+        2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
+        3: [pxToViewportUnit(120), pxToViewportUnit(-570)],
+    }
+
+    const [firstRowSprings, firstRowApi] = useSpring(() => ({ from: { y: rowValues[1][0] }}))
+    const [secondRowSprings, secondRowApi] = useSpring(() => ({ from: { y: rowValues[2][0] }}))
+    const [thirdRowSprings, thirdRowApi] = useSpring(() => ({ from: { y: rowValues[3][0] }}))
+
+
+    function onHover() {
+        firstRowApi.start({ from: { y: rowValues[1][0] },  to: { y: rowValues[1][1] },  config: springConfig })
+        secondRowApi.start({ from: { y: rowValues[2][0] }, to: { y: rowValues[2][1] }, config: springConfig })
+        thirdRowApi.start({ from: { y: rowValues[3][0] }, to: { y: rowValues[3][1] }, config: springConfig })
+    }
+
+    function onLeave() {
+        firstRowApi.start({ from: { y: rowValues[1][1] }, to: { y: rowValues[1][0] }, config: springConfig })
+        secondRowApi.start({ from: { y: rowValues[2][1] }, to: { y: rowValues[2][0] }, config: springConfig })
+        thirdRowApi.start({ from: { y: rowValues[3][1] }, to: { y: rowValues[3][0] }, config: springConfig })
+    }
+
     return (
-        <div className={"poVoenke " + className}>
+        <div className={"poVoenke " + className} onMouseEnter={onHover} onMouseLeave={onLeave}>
             <div className="poVoenke__circle"></div>
-            <div className="poVoenke__row poVoenke__row-1">
+            <animated.div className="poVoenke__row poVoenke__row-1" style={{...firstRowSprings}}>
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_list.png" alt="Скриншот мобильного приложения поВоенке: Хиты продаж" />
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_list.png" alt="Скриншот мобильного приложения поВоенке: Хиты продаж" />
-            </div>
-            <div className="poVoenke__row poVoenke__row-2">
+            </animated.div>
+            <animated.div className="poVoenke__row poVoenke__row-2" style={{...secondRowSprings}}>
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_card.png" alt="Скриншот мобильного приложения поВоенке: проект Звезда Морей, Мытищи" />
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_allowing.png" alt="Скриншот мобильного приложения поВоенке: Одобрение ипотеки" />
-            </div>
-            <div className="poVoenke__row poVoenke__row-3">
+            </animated.div>
+            <animated.div className="poVoenke__row poVoenke__row-3" style={{...thirdRowSprings}}>
                 <StaticImage className="poVoenke__image" src="../../../images/povoenke_calc.png" alt="Скриншот мобильного приложения поВоенке: Калькуляция ипотеки" />
                 <StaticImage className="poVoenke__image poVoenke__image-standart" src="../../../images/povoenke_standart.png" alt="Скриншот мобильного приложения поВоенке: Тариф 'Стандарт'" />
                 <StaticImage className="poVoenke__image poVoenke__image-raif" src="../../../images/povoenke_raif.png" alt="Скриншот мобильного приложения поВоенке: Предложение от Райфазенбанка" />
-            </div>
+            </animated.div>
         </div>
     )
 }
