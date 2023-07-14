@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss";
@@ -47,10 +47,10 @@ const PoVoenke = ({className }) => {
         friction: 17,
     }
 
-    const rowValues = {
-        1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
-        2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
-        3: [pxToViewportUnit(120), pxToViewportUnit(-570)],
+    let rowValues = {
+        1: [-750, -50],
+        2: [160, -380],
+        3: [120, -570],
     }
 
     const [firstRowSprings, firstRowApi] = useSpring(() => ({ from: { y: rowValues[1][0] }}))
@@ -69,6 +69,14 @@ const PoVoenke = ({className }) => {
         secondRowApi.start({ from: { y: rowValues[2][1] }, to: { y: rowValues[2][0] }, config: springConfig })
         thirdRowApi.start({ from: { y: rowValues[3][1] }, to: { y: rowValues[3][0] }, config: springConfig })
     }
+
+    useEffect(() => {
+        rowValues = {
+            1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
+            2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
+            3: [pxToViewportUnit(120), pxToViewportUnit(-570)],
+        }
+    }, [])
 
     return (
         <div className={"poVoenke " + className} onMouseEnter={onHover} onMouseLeave={onLeave}>
