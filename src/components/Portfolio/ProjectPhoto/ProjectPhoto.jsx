@@ -17,6 +17,8 @@ function pxToVw(px) {
     return vw + "vw"
 }
 
+const isBrowser = typeof window !== undefined;
+
 function pxToViewportUnit(px) {
     return window.innerWidth / window.innerHeight > (37 / 20) ? pxToVh(px) : pxToVw(px);
 }
@@ -56,7 +58,7 @@ const PoVoenke = ({className }) => {
         3: [pxToVh(120), pxToVh(-570)],
     }
 
-    if (typeof window !== undefined) {
+    if (isBrowser) {
         rowValues = {
             1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
             2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
