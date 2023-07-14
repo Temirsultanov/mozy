@@ -3,19 +3,22 @@ import { animated, useSpring } from "@react-spring/web";
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss";
 
-function pxToViewportUnit(px) {
+function pxToVh(px) {
     const DESKTOP_HEIGHT = 958;
+    const unRoundedVh = 100 * px / DESKTOP_HEIGHT;
+    const vh = Math.floor(unRoundedVh * 100) / 100;
+    return vh + "vh";
+}
+
+function pxToVw(px) {
     const DESKTOP_WITDH = 1920;
-    
-    if (window.innerWidth / window.innerHeight > (37 / 20)) {
-        const unRoundedVh = 100 * px / DESKTOP_HEIGHT;
-        const vh = Math.floor(unRoundedVh * 100) / 100;
-        return vh + "vh";
-    } else {
-        const unRoundedVw = 100 * px / DESKTOP_WITDH;
-        const vw = Math.floor(unRoundedVw * 100) / 100;
-        return vw + "vw"
-    }
+    const unRoundedVw = 100 * px / DESKTOP_WITDH;
+    const vw = Math.floor(unRoundedVw * 100) / 100;
+    return vw + "vw"
+}
+
+function pxToViewportUnit(px) {
+    return window.innerWidth / window.innerHeight > (37 / 20) ? pxToVh(px) : pxToVw(px);
 }
 
 export const ProjectPhoto = ({ project }) => {
@@ -48,9 +51,17 @@ const PoVoenke = ({className }) => {
     }
 
     let rowValues = {
-        1: [-750, -50],
-        2: [160, -380],
-        3: [120, -570],
+        1: [pxToVh(-750), pxToVh(-50)],
+        2: [pxToVh(160), pxToVh(-380)],
+        3: [pxToVh(120), pxToVh(-570)],
+    }
+
+    if (typeof window !== undefined) {
+        rowValues = {
+            1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
+            2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
+            3: [pxToViewportUnit(120), pxToViewportUnit(-570)],
+        }
     }
 
     const [firstRowSprings, firstRowApi] = useSpring(() => ({ from: { y: rowValues[1][0] }}))
@@ -69,14 +80,6 @@ const PoVoenke = ({className }) => {
         secondRowApi.start({ from: { y: rowValues[2][1] }, to: { y: rowValues[2][0] }, config: springConfig })
         thirdRowApi.start({ from: { y: rowValues[3][1] }, to: { y: rowValues[3][0] }, config: springConfig })
     }
-
-    useEffect(() => {
-        rowValues = {
-            1: [pxToViewportUnit(-750), pxToViewportUnit(-50)],
-            2: [pxToViewportUnit(160), pxToViewportUnit(-380)],
-            3: [pxToViewportUnit(120), pxToViewportUnit(-570)],
-        }
-    }, [])
 
     return (
         <div className={"poVoenke " + className} onMouseEnter={onHover} onMouseLeave={onLeave}>
