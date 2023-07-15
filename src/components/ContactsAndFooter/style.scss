@@ -83,19 +83,18 @@
         right: vw(430px);
 
         overflow: visible;
+    }
 
-        &::after {
-            content: "";
-            width: vw(345px);
-            height: 1px;
-            position: absolute;
-            top: 50%;
-            right: vw(-40px);
+    &__line {
+        width: vw(340px);
+        height: 1px;
 
-            transform: translateX(100%);
-            background-color: $Yellow;
-            opacity: 0.8;
-        }
+        position: absolute;
+        top: vh(373px);
+        right: vw(46px);
+
+        background-color: $Yellow;
+        opacity: 0.8;
     }
 
     &__text {
@@ -204,6 +203,15 @@
         }
         &__benefits {
             margin-top: vw(90px);
+        }
+    }
+    .benefits {
+        & .benefits__logo {
+            width: vh(210px);
+            height: vh(70px); 
+        }
+        &__line {
+            top: vh(365px);
         }
     }
 }

@@ -26,6 +26,7 @@ export const ContactsAndFooter = forwardRef(({ className }, ref) => {
                     <p className="benefits__text benefits__text-analysis">Глубокий анализ</p>
                     <p className="benefits__text benefits__text-lead">Выводим в топы</p>
                     <p className="benefits__text benefits__text-terms">Соблюдаем сроки</p>
+                    <div className="benefits__line"></div>
                     <Logo className="benefits__logo" />
                 </div>
             </div>
