@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import { StaticImage } from "gatsby-plugin-image";
 import "./style.scss";

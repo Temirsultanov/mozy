@@ -3,7 +3,7 @@ import "./style.scss"
 
 import { Form, SuccessSubmit } from "../../lib/components/Form";
 import { Footer } from "../../lib/components/Footer";
-import { StaticImage } from "gatsby-plugin-image";
+import { Logo } from "../../lib/components/Logo";
 
 export const ContactsAndFooter = forwardRef(({ className }, ref) => {
     const [submitted, setSubmitted] = useState(false);
@@ -26,7 +26,7 @@ export const ContactsAndFooter = forwardRef(({ className }, ref) => {
                     <p className="benefits__text benefits__text-analysis">Глубокий анализ</p>
                     <p className="benefits__text benefits__text-lead">Выводим в топы</p>
                     <p className="benefits__text benefits__text-terms">Соблюдаем сроки</p>
-                    <StaticImage placeholder="#28282A" class="benefits__logo" src="../../images/logo.png" alt="Логотип Mozy" />
+                    <Logo className="benefits__logo" />
                 </div>
             </div>
             <Footer></Footer>

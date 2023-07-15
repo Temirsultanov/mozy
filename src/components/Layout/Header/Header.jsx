@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import scrollTo from "gatsby-plugin-smoothscroll";
-import { StaticImage } from "gatsby-plugin-image";
 
 import { SOCIALS, SOCIAL_ICONS } from "../../../lib/constants"
 import { BRIEF_LINK } from "../../../lib/constants";
+
+import { Logo } from "../../../lib/components/Logo";
 import { Button } from "../../../lib/components/Button";
 import "./style.scss";
 
@@ -72,7 +73,7 @@ export const Header = ({ className, openContacts, visibleSection }) => {
         <MobileMenu openContactsAndCloseMenu={openContactsAndCloseMenu} openBrief={openBrief} isOpen={mobileMenuIsOpen} closeMobileMenu={closeMobileMenu} visibleSection={visibleSection} />
         <header className={"header " + className}>
             <div>
-                <StaticImage placeholder="#28282A" className="header__logo" src="../../../images/logo.png" alt="Логотип Mozy"></StaticImage>
+                <Logo className="header__logo" />
                 <ul className="header__links">
                     <li><a href={SOCIALS.email.href} className="header__link">{SOCIALS.email.title}</a></li>
                     <li><button onClick={openContacts} className="header__link">Связаться с нами</button></li>
