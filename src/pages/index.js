@@ -42,7 +42,7 @@ const IndexPage = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      root: null,
+      root: document.body,
       threshold: 0.5,
       rootMargin: "0px",
     });
