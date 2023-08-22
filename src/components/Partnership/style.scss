@@ -21,10 +21,13 @@
         & ol {
             max-width: vw(500px);
             margin-top: vw(36px);
+            margin-bottom: vw(100px);
             padding-left: vw(25px);
+            
             display: flex;
             flex-direction: column;
             gap: vw(40px);
+            
             font-size: vw(24px);
             list-style: decimal;
         }
@@ -47,23 +50,19 @@
         flex: 1;
         width: calc(100% - vw(1005px));
 
-        height: 100%;
         padding-left: vw(40px);
         padding-right: vw(40px);
         padding-bottom: vw(40px);
 
         display: flex;
         flex-direction: column;
-        align-self: flex-start;
-
-        position: relative;
 
         color: $White;
         background-color: $Coal;
     }
 
     &__controllers {
-        margin-top: vw(120px);
+        margin-top: auto;
     }
 
     &__title {
@@ -74,12 +73,13 @@
     &__employees {
         width: 100%;
         margin-top: vw(40px);
+        margin-bottom: vw(120px);
     }
 }
 
 .employees {
     display: none;
-    
+
     &__item {
         width: vw(256px);
     }
