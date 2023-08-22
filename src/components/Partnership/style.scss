@@ -78,6 +78,9 @@
 }
 
 .employees {
+    &__item {
+        width: 0;
+    }
     & h3 {
         max-width: 70%;
     }
