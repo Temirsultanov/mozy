@@ -19,12 +19,6 @@ function openScrollToBody() {
   document.body.classList.remove("hidden");
 }
 
-const observerOptions = {
-  root: null,
-  threshold: 0.5,
-  rootMargin: "-30px",
-};
-
 const IndexPage = () => {
   const [contactsPopupClosed, setContactsPopupClosed] = useState(true);
 
@@ -47,10 +41,11 @@ const IndexPage = () => {
       });
     };
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
+    const observer = new IntersectionObserver(observerCallback, {
+      root: null,
+      threshold: 0.5,
+      rootMargin: "-30px",
+    });
 
     observer.observe(promoBlockRef.current);
     observer.observe(portfolioRef.current);
