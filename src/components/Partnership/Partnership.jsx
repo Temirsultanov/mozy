@@ -17,6 +17,7 @@ import "swiper/css/navigation";
 
 const Employees = ({ className, employees, prevButton, nextButton }) => {
     const [init, setInit] = useState(false);
+    
     return (
         <Swiper 
             onSwiper={() => setInit(true)}
