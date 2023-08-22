@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export const Controllers = ({ className, decrement, increment, prevButtonRef, nextButtonRef }) => {
+export const Controllers = ({ className, decrement = null, increment = null, prevButtonRef, nextButtonRef }) => {
     return (
         <div className={"controllers " + className}>
             <button ref={prevButtonRef} onClick={ decrement }>

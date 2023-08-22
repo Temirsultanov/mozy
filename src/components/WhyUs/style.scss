@@ -2,8 +2,7 @@
 
 .whyUs {
     width: 100%;
-    height: 100vh;
-    padding: vh(130px) vh(40px) vh(40px) vh(130px);
+    padding: vw(130px) vw(40px) vw(40px) vh(130px);
 
     display: flex;
     flex-direction: column;
@@ -12,51 +11,33 @@
     background-color: $Coal;
 
     &__title {
-        font-size: vh(48px);
+        font-size: vw(48px);
         font-weight: 400;
     }
 
     &__reasons {
-        margin-top: vh(85px);
+        margin-top: vw(85px);
 
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: vh(80px);
+        gap: vw(80px);
 
         & .reason {
             flex: 30%;
         }
     }
     &__footer {
-        margin-top: auto;
+        margin-top: vw(120px);
 
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
     }
     &__eye {
-        width: vh(68px);
-        height: vh(38px);
+        width: vw(68px);
+        height: vw(38px);
     }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 38 / 20) {
-    .whyUs {
-        padding: vw(130px) vw(40px) vw(40px) vw(130px);
-        
-        &__title {
-            font-size: vw(48px);
-        }
-        &__reasons {
-            margin-top: vw(85px);
-            gap: vw(80px);
-        }
-        &__eye {
-            width: vw(68px);
-            height: vw(38px);
-        }
-    }   
 }
 
 @media (max-width: 700px) {

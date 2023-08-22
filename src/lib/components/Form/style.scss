@@ -8,7 +8,7 @@
     &__inputs {
         width: 100%;
         display: flex;
-        gap: vh(20px);
+        gap: vw(20px);
     }
 
     &__input {
@@ -17,24 +17,24 @@
 
     &__textarea {
         width: 100%;
-        height: vh(150px);
-        margin-top: vh(20px);
+        height: vw(150px);
+        margin-top: vw(20px);
     }
 
     &__buttonAndAcceptionText {
-        margin-top: vh(40px);
+        margin-top: vw(40px);
         display: flex;
         align-items: center;
     }
 
     &__button {
-        padding: vh(14px) vh(48px);
+        padding: vw(14px) vw(48px);
     }
     
     &__acceptionText {
         max-width: vw(530px);
-        margin-left: vh(42px);
-        font-size: vh(16px);
+        margin-left: vw(42px);
+        font-size: vw(16px);
         color: #BEBFBF;
     }
 
@@ -42,11 +42,11 @@
         text-decoration: underline;
 
         &:hover {
-            color: $Milk;
+            color: $White;
         }
 
         &:focus-visible {
-            outline: 1px solid $Milk;
+            outline: 1px solid $White;
             outline-offset: 5px;
         }
     }
@@ -72,7 +72,7 @@
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0, 1);
 
     &__inner {
-        padding: vh(20px) vh(20px) vh(80px);
+        padding: vw(20px) vw(20px) vw(80px);
 
         display: flex;
         flex-direction: column;
@@ -83,7 +83,7 @@
     }
     
     &__closeButton {
-        padding: vh(10px);
+        padding: vw(10px);
         border: none;
 
         display: flex;
@@ -96,81 +96,32 @@
     }
 
     &__closeIcon {
-        width: vh(16px);
-        height: vh(16px);
+        width: vw(16px);
+        height: vw(16px);
     }
 
     &__checkIcon {
-        width: vh(78px);
-        height: vh(78px);
-        margin-top: vh(30px);
+        width: vw(78px);
+        height: vw(78px);
+        margin-top: vw(30px);
     }
 
     &__title {
-        margin-top: vh(20px);
-        padding: 0 vh(30px);
-        font-size: vh(48px);
+        margin-top: vw(20px);
+        padding: 0 vw(30px);
+        font-size: vw(48px);
         font-weight: 400;
         text-align: center;
     }
 
     &__description {
-        margin-top: vh(20px);
-        font-size: vh(26px);
+        margin-top: vw(20px);
+        font-size: vw(26px);
     }
 
     &-open {
         opacity: 1;
         pointer-events: all;
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .contactsForm {
-        &__inputs {
-            gap: vw(20px);
-        }
-        &__textarea {
-            height: vw(150px);
-            margin-top: vw(20px);
-        }
-        &__buttonAndAcceptionText {
-            margin-top: vw(40px);
-        }
-        &__button {
-            padding: vw(14px) vw(48px);
-        }
-        &__acceptionText {
-            margin-left: vw(42px);
-            font-size: vw(16px);
-        }
-    }    
-
-    .successSubmit {
-        &__inner {
-            padding: vw(20px) vw(20px) vw(80px);
-        }
-        &__closeButton {
-            padding: vw(10px);
-        }
-        &__closeIcon {
-            width: vw(16px);
-            height: vw(16px);
-        }
-        &__checkIcon {
-            width: vw(78px);
-            height: vw(78px);
-            margin-top: vw(30px);
-        }
-        &__title {
-            margin-top: vw(20px);
-            padding: 0 vw(30px);
-            font-size: vw(48px);
-        }
-        &__description {
-            margin-top: vw(20px);
-            font-size: vw(26px);
-        }
     }
 }
 

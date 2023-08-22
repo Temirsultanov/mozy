@@ -7,37 +7,23 @@
 
     &__photo {
         width: 100%;
-        height: vw(256px);
-        max-height: 40vh;
+        height: auto;
     }
 
-    &__position {
-        margin-top: vh(30px);
-        font-size: vh(20px);
+    &__role {
+        margin-top: vw(30px);
+        font-size: vw(20px);
     }
 
     &__name {
-        margin-top: vh(14px);
-        font-size: vh(32px);
+        margin-top: vw(14px);
+        font-size: vw(32px);
         font-weight: 400;
 
         & span {
             display: block;
         }
     }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .employee {
-        &__position {
-            margin-top: vw(30px);
-            font-size: vw(20px);
-        }
-        &__name {
-            margin-top: vw(14px);
-            font-size: vw(32px);
-        }
-    }   
 }
 
 @media (max-width: 700px) {
@@ -48,7 +34,7 @@
             height: 195px;
         }
 
-        &__position {
+        &__role {
             margin-top: 20px;
             font-size: 14px;
         }

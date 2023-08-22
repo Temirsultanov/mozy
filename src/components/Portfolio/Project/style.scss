@@ -1,54 +1,35 @@
 @import "../../../styles/lib.scss";
 
 .project {
+    height: vw(400px);
     display: flex;
     flex-direction: column;  
     align-items: flex-start;
 
     &__subtitle {
-        padding: vh(4px) vh(8px);
+        padding: vw(4px) vw(8px);
 
-        font-size: vh(18px);
+        font-size: vw(18px);
         background-color: $Yellow;
     }
     &__title {
-        margin-top: vh(20px);
-        font-size: vh(74px);
+        margin-top: vw(20px);
+        font-size: vw(74px);
         font-weight: 400;
     }
     &__description {
-        width: vh(450px);
-        margin-top: vh(20px);
-        font-size: vh(26px);
+        width: vw(450px);
+        margin-top: vw(20px);
+        font-size: vw(26px);
     }
     &__storeLinks {
-        margin-top: vh(60px);
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .project {
-        &__subtitle {
-            padding: vw(4px) vw(8px);
-            font-size: vw(18px);
-        }
-        &__title {
-            margin-top: vw(20px);
-            font-size: vw(74px);
-        }
-        &__description {
-            width: vw(450px);
-            margin-top: vw(20px);
-            font-size: vw(26px);
-        }
-        &__storeLinks {
-            margin-top: vw(60px);
-        }
+        margin-top: vw(60px);
     }
 }
 
 @media (max-width: 700px) {
     .project {
+        height: 180px;
         margin-top: 20px;
 
         &__subtitle {

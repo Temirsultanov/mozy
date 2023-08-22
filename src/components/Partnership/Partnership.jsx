@@ -40,7 +40,7 @@ const Employees = ({ className, employees, prevButton, nextButton }) => {
                 <SwiperSlide className="employees__item" key={employee.id}>
                     <Employee 
                         photo={employee.image} 
-                        position={employee.position} 
+                        role={employee.role} 
                         name={employee.name} 
                         surname={employee.surname}
                     />
@@ -97,7 +97,7 @@ export const Partnership = forwardRef(({ className, openContacts }, ref) => {
             <div className="partnership__team">
                 <h2 className="partnership__title">С вами будут работать</h2>
                 <Employees className="partnership__employees" employees={employees} prevButton={prevButton.current} nextButton={nextButton.current}/>
-                <Controllers decrement={() => {}} increment={() => {}} className="partnership__controllers" prevButtonRef={prevButton} nextButtonRef={nextButton} />
+                <Controllers className="partnership__controllers" prevButtonRef={prevButton} nextButtonRef={nextButton} />
             </div>
         </section>
     )

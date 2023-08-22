@@ -2,7 +2,6 @@
 
 .contactsAndFooter {
     width: 100%;
-    height: 100vh;
     padding-left: vh(90px);
 
     display: flex;
@@ -19,10 +18,10 @@
     &__content {
         width: vw(915px);
         
-        padding-top: vh(130px);
-        padding-right: vh(40px);
+        padding-top: vw(130px);
+        padding-right: vw(40px);
         padding-left: vh(40px);
-        padding-bottom: vh(40px);
+        padding-bottom: vw(160px);
 
         display: flex;
         flex-direction: column;
@@ -30,23 +29,23 @@
     }
 
     &__title {
-        font-size: vh(48px);
+        font-size: vw(48px);
         font-weight: 400;
     }
 
     &__description {
-        width: vh(500px);
-        margin-top: vh(20px);
-        font-size: vh(24px);
+        width: vw(500px);
+        margin-top: vw(20px);
+        font-size: vw(24px);
     }
 
     &__form {
-        margin-top: vh(40px);
+        margin-top: vw(40px);
     }
 
     &__benefits {
         flex: 1;
-        margin-top: vh(90px);
+        margin-top: vw(90px);
     }
 }
 
@@ -65,21 +64,21 @@
     }
 
     &::before {
-        top: vh(50px);
-        height: vh(240px);
+        top: vw(50px);
+        height: vw(240px);
     }
 
     &::after {
-        top: vh(455px);
-        height: vh(260px);
+        top: vw(455px);
+        height: vw(260px);
     }
 
     & .benefits__logo {
-        width: vh(238px);
-        height: vh(80px);
+        width: vw(210px);
+        height: vw(70px);
 
         position: absolute;
-        top: vh(333px);
+        top: vw(333px);
         right: vw(430px);
 
         overflow: visible;
@@ -90,7 +89,7 @@
         height: 1px;
 
         position: absolute;
-        top: vh(373px);
+        top: vw(365px);
         right: vw(46px);
 
         background-color: $Yellow;
@@ -104,7 +103,7 @@
         opacity: 0.5;
 
         &-conversion {
-            top: vh(198px);
+            top: vw(198px);
             right: vw(615px);
 
             &::before {
@@ -113,13 +112,13 @@
                 right: vw(-47px);
             }
             &::after {
-                height: vh(217px);
+                height: vw(217px);
                 right: vw(-12px);
                 bottom: vw(-47px);
             }
         }
         &-analysis {
-            top: vh(260px);
+            top: vw(260px);
             right: vw(124px);
 
             &::before {
@@ -134,7 +133,7 @@
             }
         }
         &-lead {
-            top: vh(467px);
+            top: vw(467px);
             right: vw(615px);
             
             &::before {
@@ -149,7 +148,7 @@
             }
         }
         &-terms {
-            top: vh(580px);
+            top: vw(580px);
             right: vw(195px);
 
             &::before {
@@ -175,43 +174,6 @@
         }
         &::after {
             width: 2px;
-        }
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .contactsAndFooter {
-        padding-left: vw(90px);
-    }   
-    .contacts {
-        &__content {
-            padding-top: vw(130px);
-            padding-right: vw(40px);
-            padding-left: vw(40px);
-            padding-bottom: vw(40px);
-        }
-        &__title {
-            font-size: vw(48px);
-        }
-        &__description {
-            width: vw(500px);
-            margin-top: vw(20px);
-            font-size: vw(24px);
-        }
-        &__form {
-            margin-top: vw(40px);
-        }
-        &__benefits {
-            margin-top: vw(90px);
-        }
-    }
-    .benefits {
-        & .benefits__logo {
-            width: vh(210px);
-            height: vh(70px); 
-        }
-        &__line {
-            top: vh(365px);
         }
     }
 }

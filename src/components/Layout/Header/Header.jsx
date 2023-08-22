@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import scrollTo from "gatsby-plugin-smoothscroll";
 
-import { SOCIALS, SOCIAL_ICONS } from "../../../lib/constants"
+import { SOCIALS } from "../../../lib/constants"
+import { socialIcons } from "../../../lib/components/SocialLinks/SocialIcons/"
 import { BRIEF_LINK } from "../../../lib/constants";
 
 import { Logo } from "../../../lib/components/Logo";
@@ -22,10 +23,10 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
                     <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
                 </nav>
                 <ul className="mobileMenu__socialMedias">
-                    <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{SOCIAL_ICONS.telegram}</a></li>
-                    <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{SOCIAL_ICONS.whatsapp}</a></li>
-                    <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{SOCIAL_ICONS.email}</a></li>
-                    <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{SOCIAL_ICONS.phone}</a></li>
+                    <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{socialIcons.telegram}</a></li>
+                    <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{socialIcons.whatsapp}</a></li>
+                    <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{socialIcons.email}</a></li>
+                    <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{socialIcons.phone}</a></li>
                 </ul>
                 <Button onClick={openBrief}>Заполнить бриф</Button>
                 <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
@@ -35,18 +36,22 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
 }
 
 const Menu = ({ className, visibleSection, closeMobileMenu }) => {
-    function scrollToSection(event) {
+    function onKeyDown(e) {
+        if (e.key === "Enter") scrollToSection(e);
+    }
+    
+    const scrollToSection = useCallback((event) => {
         event.preventDefault();
         closeMobileMenu();
         scrollTo(event.target.dataset.href);
-    }
+    }, [closeMobileMenu])
     
     return (
         <ul className={"menu "+ className}>
-            <li><a onKeyDown={(e) => e.key === "Enter" ? scrollToSection(e) : ""} className={"menu__link " + (visibleSection === "portfolio" ? "menu__link-active" : "")} data-href="#portfolio" href="/#portfolio" onClick={scrollToSection}>Портфолио</a></li>
-            <li><a onKeyDown={(e) => e.key === "Enter" ? scrollToSection(e) : ""} className={"menu__link " + (visibleSection === "why-us" ? "menu__link-active" : "")} data-href="#why-us" href="/#why-us" onClick={scrollToSection}>Почему мы</a></li>
-            <li><a onKeyDown={(e) => e.key === "Enter" ? scrollToSection(e) : ""} className={"menu__link " + (visibleSection === "partnership" ? "menu__link-active" : "")} data-href="#partnership" href="/#partnership" onClick={scrollToSection}>Сотрудничество</a></li>
-            <li><a onKeyDown={(e) => e.key === "Enter" ? scrollToSection(e) : ""} className={"menu__link " + (visibleSection === "contacts" ? "menu__link-active" : "")} data-href="#contacts" href="/#contacts" onClick={scrollToSection}>Контакты</a></li>
+            <li><a onKeyDown={onKeyDown} className={"menu__link " + (visibleSection === "portfolio" ? "menu__link-active" : "")} data-href="#portfolio" href="/#portfolio" onClick={scrollToSection}>Портфолио</a></li>
+            <li><a onKeyDown={onKeyDown} className={"menu__link " + (visibleSection === "why-us" ? "menu__link-active" : "")} data-href="#why-us" href="/#why-us" onClick={scrollToSection}>Почему мы</a></li>
+            <li><a onKeyDown={onKeyDown} className={"menu__link " + (visibleSection === "partnership" ? "menu__link-active" : "")} data-href="#partnership" href="/#partnership" onClick={scrollToSection}>Сотрудничество</a></li>
+            <li><a onKeyDown={onKeyDown} className={"menu__link " + (visibleSection === "contacts" ? "menu__link-active" : "")} data-href="#contacts" href="/#contacts" onClick={scrollToSection}>Контакты</a></li>
         </ul>
     )
 }
@@ -54,19 +59,22 @@ const Menu = ({ className, visibleSection, closeMobileMenu }) => {
 export const Header = ({ className, openContacts, visibleSection }) => {
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
-    function openMobileMenu() {
+    const openMobileMenu = useCallback(() => {
         setMobileMenuIsOpen(true);
-    }
-    function closeMobileMenu() {
+    }, [])
+
+    const closeMobileMenu = useCallback(() => {
         setMobileMenuIsOpen(false);
-    }
-    function openBrief() {
+    }, [])
+
+    const openBrief = useCallback(() => {
         window.open(BRIEF_LINK, "_blank");
-    }
-    function openContactsAndCloseMenu() {
+    }, [])
+    
+    const openContactsAndCloseMenu = useCallback(() => {
         closeMobileMenu();
         openContacts();
-    }
+    }, [openContacts, closeMobileMenu])
 
     return (
         <>

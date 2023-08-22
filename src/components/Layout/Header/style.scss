@@ -2,9 +2,9 @@
 
 .header {
     width: 100%;
-    height: vh(90px);
-    padding-left: vh(38px);
-    padding-right: vh(16px);
+    height: vw(90px);
+    padding-left: vw(38px);
+    padding-right: vw(16px);
 
     position: fixed;
     top: 0;
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
 
-    font-size: vh(18px);
+    font-size: vw(18px);
     color: $White;
     background-color: $Coal;
 
@@ -25,22 +25,22 @@
     }
 
     &__logo {
-        width: vh(111px);
-        height: vh(38px);
-        margin-right: vh(55px);
+        width: vw(111px);
+        height: vw(38px);
+        margin-right: vw(55px);
     }
 
     &__links {
         display: flex;
         align-items: center;
-        gap: vh(28px);
+        gap: vw(28px);
     }
 
     &__link {
-        padding-top: vh(15px);
-        padding-right: vh(15px);
-        padding-bottom: vh(15px);
-        padding-left: vh(28px);
+        padding-top: vw(15px);
+        padding-right: vw(15px);
+        padding-bottom: vw(15px);
+        padding-left: vw(28px);
         border: none;
 
         display: flex;
@@ -53,8 +53,8 @@
 
         &::before {
             content: "";
-            width: vh(14px);
-            height: vh(14px);
+            width: vw(14px);
+            height: vw(14px);
             margin-top: 1px;
             
             position: absolute;
@@ -77,15 +77,15 @@
 }
 
 .menu {
-    margin-right: vh(90px);
+    margin-right: vw(90px);
     display: flex;
-    gap: vh(25px);
+    gap: vw(25px);
 
     &__link {
-        padding-top: vh(15px);
-        padding-right: vh(15px);
-        padding-bottom: vh(15px);
-        padding-left: vh(24px);
+        padding-top: vw(15px);
+        padding-right: vw(15px);
+        padding-bottom: vw(15px);
+        padding-left: vw(24px);
         
         display: flex;
         align-items: center;
@@ -100,8 +100,8 @@
         }
         &::before {
             content: "";
-            width: vh(14px);
-            height: vh(14px);
+            width: vw(14px);
+            height: vw(14px);
             border: 1px solid $Yellow;
             border-radius: 50%;
 
@@ -110,52 +110,6 @@
         }
         &-active::before {
             background-color: $Yellow;
-        }
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .header {
-        height: vw(90px);
-        padding-left: vw(38px);
-        padding-right: vw(16px);
-        font-size: vw(18px);
-
-        &__logo {
-            width: vw(111px);
-            height: vw(38px);
-            margin-right: vw(55px);
-        }
-        &__links {
-            gap: vw(28px);
-        }
-        &__link {
-            padding-top: vw(15px);
-            padding-right: vw(15px);
-            padding-bottom: vw(15px);
-            padding-left: vw(28px);
-
-            &::before {
-                width: vw(14px);
-                height: vw(14px);
-            }
-        }
-    }
-
-    .menu {
-        margin-right: vw(90px);
-        gap: vw(25px);
-    
-        &__link {
-            padding-top: vw(15px);
-            padding-right: vw(15px);
-            padding-bottom: vw(15px);
-            padding-left: vw(24px);
-
-            &::before {
-                width: vw(14px);
-                height: vw(14px);
-            }
         }
     }
 }
@@ -240,8 +194,8 @@
             }
         }
         & svg {
-            width: 22px;
-            height: 22px;
+            width: 100%;
+            height: 100%;
         }
     }
     &__contactButton {

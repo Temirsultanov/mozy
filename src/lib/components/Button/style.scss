@@ -6,16 +6,16 @@
     border-radius: 0px;
 
     font-weight: 700;
-    color: $Black;
+    color: $Coal;
 
     &-normal {
-        padding: vh(17px) vh(35px);
-        font-size: vh(22px);
+        padding: vw(17px) vw(35px);
+        font-size: vw(22px);
     }
 
     &-small {
-        padding: vh(12px) vh(24px);
-        font-size: vh(18px);
+        padding: vw(12px) vw(24px);
+        font-size: vw(18px);
     }
 
     &-primary {
@@ -43,20 +43,6 @@
     }
     &:active {
         color: $Coal;
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20)  {
-    .button {
-        &-normal {
-            padding: vw(17px) vw(35px);
-            font-size: vw(22px);
-        }
-    
-        &-small {
-            padding: vw(12px) vw(24px);
-            font-size: vw(18px);
-        }
     }
 }
 

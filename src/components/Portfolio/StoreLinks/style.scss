@@ -4,19 +4,19 @@
     display: flex;
 
     & li:not(:first-child) {
-        margin-left: vh(20px);
+        margin-left: vw(20px);
     }
 }
 
 .storeLink {
-    height: vh(58px);
-    padding: vh(14px) vh(20px);
+    height: vw(58px);
+    padding: vw(14px) vw(20px);
 
     display: flex;
     align-items: center;
-    gap: vh(12px);
+    gap: vw(12px);
 
-    font-size: vh(18px);
+    font-size: vw(18px);
     font-weight: 700;
     color: $Coal;
     
@@ -24,37 +24,15 @@
     overflow: hidden;
 
     &-ios img {
-        width: vh(24px);
-        height: vh(30px);
+        width: vw(24px);
+        height: vw(30px);
     }
     &-android img {
-        width: vh(27px);
-        height: vh(30px);
+        width: vw(27px);
+        height: vw(30px);
     }
     &:hover {
         background-color: #d3d3d3;
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .storeLinks li:not(:first-child) {
-        margin-left: vw(20px);
-    }
-
-    .storeLink {
-        height: vw(58px);
-        padding: wh(14px) vw(20px);
-        gap: vw(12px);
-        font-size: vw(18px);
-
-        &-ios img {
-            width: vw(24px);
-            height: vw(30px);
-        }
-        &-android img {
-            width: vw(27px);
-            height: vw(30px);
-        }
     }
 }
 

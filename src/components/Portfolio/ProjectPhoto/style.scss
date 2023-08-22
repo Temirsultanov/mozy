@@ -3,7 +3,7 @@
 .takeaplace {
     width: 100%;
     height: 100%;
-    padding-top: vh(90px);
+    padding-top: vw(90px);
 
     display: flex;
     justify-content: center;
@@ -13,25 +13,25 @@
     overflow: hidden;
 
     &__1, &__2, &__3 {
-        border-radius: vh(22px);
+        border-radius: vw(22px);
         box-shadow: -10px 0px 21px 0px rgba(0, 0, 0, 0.06);
         transition: transform 0.8s cubic-bezier(0.4, 0, 0, 1), box-shadow 0.8s cubic-bezier(0.4, 0, 0, 1);
         position: relative;
         z-index: 1;
     }
     &__1 {
-        width: vh(235px);
-        margin-top: vh(30px);
-        margin-right: vh(-54px);
+        width: vw(235px);
+        margin-top: vw(30px);
+        margin-right: vw(-54px);
         transform: rotate(-9deg);
     }
     &__2 {
-        width: vh(235px);
+        width: vw(235px);
     }
     &__3 {
-        width: vh(230px);
-        margin-top: vh(15px);
-        margin-left: vh(-50px);
+        width: vw(230px);
+        margin-top: vw(15px);
+        margin-left: vw(-50px);
         transform: rotate(9deg);
     }
     &__circle {
@@ -42,20 +42,20 @@
 
         &::before, &::after {
             content: "";
-            width: vh(800px);
-            height: vh(800px);
+            width: vw(800px);
+            height: vw(800px);
             border-radius: 50%;
             position: absolute;
             background-color: #E5DFFF22;
 
         }
         &::before {
-            top: vh(-120px);
-            right: vh(-360px);    
+            top: vw(-120px);
+            right: vw(-360px);    
         }
         &::after {
-            bottom: vh(-360px);
-            left: vh(0px);
+            bottom: vw(-360px);
+            left: vw(0px);
         }
     }
     &::before, &::after {
@@ -65,32 +65,32 @@
         background-color: #5735DF;
     }
     &::before {
-        width: vh(11px);
-        height: vh(11px);
+        width: vw(11px);
+        height: vw(11px);
 
-        top: vh(-240px);
-        left: vh(-60px);
+        top: vw(-240px);
+        left: vw(-60px);
     }
     &::after {
-        width: vh(29px);
-        height: vh(29px);
-        top: vh(-120px);
-        right: vh(-60px);
+        width: vw(29px);
+        height: vw(29px);
+        top: vw(-120px);
+        right: vw(-60px);
     }
 }
 
 .takeaplace:hover .takeaplace {
     &__1, &__2, &__3 {
-        box-shadow: vh(-12px) 0px vh(24px) 0px rgba(0, 0, 0, 0.12);
+        box-shadow: vw(-12px) 0px vw(24px) 0px rgba(0, 0, 0, 0.12);
     }
     &__1 {
-        transform: scale(1.15) rotate(-9deg) translate(vh(-40px), vh(-10px));
+        transform: scale(1.15) rotate(-9deg) translate(vh(-20px), vw(-10px));
     }
     &__2 {
         transform: scale(1.30);
     }
     &__3 {
-        transform: scale(1.15) rotate(9deg) translate(vh(40px), vh(-10px));
+        transform: scale(1.15) rotate(9deg) translate(vw(40px), vw(-10px));
     }
 }
 
@@ -111,12 +111,12 @@
 
         &::before {
             content: "";
-            width: vh(1100px);
-            height: vh(1100px);
+            width: vw(1100px);
+            height: vw(1100px);
             border-radius: 50%;
             position: absolute;
-            top: vh(-280px);
-            right: vh(-400px);    
+            top: vw(-280px);
+            right: vw(-400px);    
             background: conic-gradient(#f4f4f4, #ececec, #f0f0f0, #f4f4f4);
         }
     }
@@ -125,24 +125,24 @@
 
         display: flex;
         flex-direction: column;
-        gap: vh(30px);
+        gap: vw(30px);
 
         &-1 {
-            transform: translateY(vh(-700px));
+            transform: translateY(vw(-700px));
         }
         &-2 {
             margin-left: vw(46px);
-            transform: translateY(vh(160px));
+            transform: translateY(vw(160px));
         }
         &-3 {
             margin-left: vw(46px);
             margin-right: vw(36px);
-            transform: translateY(vh(105px));
+            transform: translateY(vw(105px));
         }
     }
     & .poVoenke__image {
         flex-shrink: 0;
-        border-radius: vh(12px);
+        border-radius: vw(12px);
         box-shadow: 0px 0.2px 2.7px 0px rgba(0, 0, 0, 0.02), 
                     0px 2.5px 7.4px 0px rgba(0, 0, 0, 0.03), 
                     0px 10px 18px 0px rgba(0, 0, 0, 0.04), 
@@ -151,13 +151,13 @@
         &-standart {
             width: vw(150px);
             position: absolute;
-            top: vh(225px);
+            top: vw(225px);
             right: vw(-40px);
         }
         &-raif {
             width: vw(305px);
             position: absolute;
-            top: vh(660px);
+            top: vw(660px);
             right: vw(-40px);
         }
     }
@@ -179,24 +179,24 @@
         transition: all 0.8s cubic-bezier(0.4, 0, 0, 1);
 
         &-main {
-            width: vh(1160px);
-            bottom: vh(-90px);
-            right: vh(-575px);
+            width: vw(1160px);
+            bottom: vw(-90px);
+            right: vw(-575px);
         }
         &-marketing {
-            width: vh(1105px);
-            bottom: vh(-265px);
-            right: vh(-285px);
+            width: vw(1105px);
+            bottom: vw(-265px);
+            right: vw(-285px);
         }
         &-select {
-            width: vh(1105px);
-            bottom: vh(40px);
-            right: vh(-345px);
+            width: vw(1105px);
+            bottom: vw(40px);
+            right: vw(-345px);
         }
     }
     
     &__logo {
-        margin-top: vh(130px);
+        margin-top: vw(130px);
         width: vw(870px);
         height: vw(240px);
 
@@ -214,13 +214,13 @@
         border-color: rgba(240, 240, 240, 0.01);
         
         &-main {
-            transform: rotate(-7deg) translateY(vh(-40px));
+            transform: rotate(-7deg) translateY(vw(-40px));
         }
         &-marketing {
-            transform: translateY(vh(40px)) rotate(-7deg);
+            transform: translateY(vw(40px)) rotate(-7deg);
         }
         &-select {
-            transform: translateY(vh(50px)) rotate(-7deg);
+            transform: translateY(vw(50px)) rotate(-7deg);
             border-color: rgb(228, 228, 228);
         }
     }
@@ -263,33 +263,33 @@
     position: relative;
 
     & .farmIO__background {
-        width: vh(475px);
+        width: vw(475px);
         position: absolute;
-        right: vh(400px);
-        bottom: vh(110px);
+        right: vw(400px);
+        bottom: vw(110px);
     }
     & .farmIO__computer {
-        width: vh(830px);
+        width: vw(830px);
         
         position: absolute;
-        bottom: vh(50px);
-        right: vh(-38px);
+        bottom: vw(50px);
+        right: vw(-38px);
         z-index: 1;
     }
     &__line {
         width: max-content;
-        padding: vh(20px) vh(30px);
+        padding: vw(20px) vw(30px);
 
         position: absolute;
-        bottom: vh(50px);
-        right: vh(770px);
+        bottom: vw(50px);
+        right: vw(770px);
 
         transform-origin: 100% 0;
         transform: rotate(-45deg) translateX(90%);
         background: linear-gradient(270deg, #4CD66D 0%, #8E6AF4 50%, #4CD66D 100%);
     }
     &__text {
-        font-size: vh(32px);
+        font-size: vw(32px);
         font-weight: 700;
     }   
 }
@@ -317,154 +317,5 @@
     }
     100% {
         transform: rotate(-45deg) translateX(90%);
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .takeaplace {
-        padding-top: vw(90px);
-
-        &__1, &__2, &__3 {
-            border-radius: vw(22px);
-        }
-        &__1 {
-            width: vw(235px);
-            margin-top: vw(30px);
-            margin-right: vw(-54px);
-        }
-        &__2 {
-            width: vw(235px);
-        }
-        &__3 {
-            width: vw(230px);
-            margin-top: vw(15px);
-            margin-left: vw(-50px);
-        }
-        &__circle {
-            &::before, &::after {
-                width: vw(800px);
-                height: vw(800px);
-            }
-            &::before {
-                top: vw(-120px);
-                right: vw(-360px);    
-            }
-            &::after {
-                bottom: vw(-360px);
-                left: vw(0px);
-            }
-        }
-        &::before {
-            width: vw(11px);
-            height: vw(11px);
-            top: vw(-240px);
-            left: vw(-60px);
-        }
-        &::after {
-            width: vw(29px);
-            height: vw(29px);
-            top: vw(-120px);
-            right: vw(-60px);
-        }
-        &:hover .takeaplace {
-            &__1, &__2, &__3 {
-                box-shadow: vw(-12px) 0px vw(24px) 0px rgba(0, 0, 0, 0.12);
-            }
-            &__1 {
-                transform: scale(1.15) rotate(-9deg) translate(vw(-40px), vw(-10px));
-            }
-            &__3 {
-                transform: scale(1.15) rotate(9deg) translate(vw(40px), vw(-10px));
-            }
-        }
-    }
-    .poVoenke {
-        &__circle {
-            &::before {
-                width: vw(1100px);
-                height: vw(1100px);
-                top: vw(-280px);
-                right: vw(-400px);    
-            }
-        }
-        &__row {
-            gap: vw(30px);
-
-            &-1 {
-                transform: translateY(vw(-700px));
-            }
-            &-2 {
-                transform: translateY(vw(160px));
-            }
-            &-3 {
-                transform: translateY(vw(105px));
-            }
-        }
-        & .poVoenke__image {
-            border-radius: vw(12px);
-            &-standart {
-                top: vw(210px);
-            }
-            &-raif {
-                top: vw(630px);
-            }
-        }
-    }
-    .rdwComputers {
-        & .rdwComputers__image {
-            &-main {
-                width: vw(1160px);
-                bottom: vw(-90px);
-                right: vw(-575px);
-            }
-            &-marketing {
-                width: vw(1105px);
-                bottom: vw(-265px);
-                right: vw(-285px);
-            }
-            &-select {
-                width: vw(1105px);
-                bottom: vw(40px);
-                right: vw(-345px);
-            }
-        }
-        &__logo {
-            margin-top: vw(130px);
-            width: vw(870px);
-            height: vw(240px);
-        }
-        &:hover .rdwComputers {
-            &__image {
-                &-main {
-                    transform: rotate(-7deg) translateY(vw(-40px));
-                }
-                &-marketing {
-                    transform: translateY(vw(40px)) rotate(-7deg);
-                }
-                &-select {
-                    transform: translateY(vw(50px)) rotate(-7deg);
-                }
-            }
-        }
-    }
-    .farmIO {
-        & .farmIO__background {
-            width: vw(475px);
-            right: vw(400px);
-            bottom: vw(110px);
-        }
-        & .farmIO__computer {
-            width: vw(830px);
-            bottom: vw(50px);
-            right: vw(-38px);
-        }
-        &__line {
-            padding: vw(15px) vw(30px);
-            bottom: vw(50px);
-            right: vw(770px);
-        }
-        &__text {
-            font-size: vw(32px);
-        }   
     }
 }

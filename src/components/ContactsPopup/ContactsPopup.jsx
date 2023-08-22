@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useCallback } from "react";
 import "./style.scss";
 
 import { CloseButton } from "./CloseButton";
@@ -12,12 +12,12 @@ const CLOSE_TIME = 1000;
 export const ContactsPopup = forwardRef(({ isClose, close }, ref) => {
     const [submitted, setSubmitted] = useState(false);
 
-    function onCloseButtonClick() {
+    const onCloseButtonClick = useCallback(() => {
         setTimeout(() => {
             setSubmitted(false);
         }, CLOSE_TIME);
         close();
-    }
+    }, [close])
 
     function onTouchStart(event) {
         event.stopPropagation();

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react"
+import React, { forwardRef, useCallback } from "react"
 import scrollTo from "gatsby-plugin-smoothscroll";
 import "./style.scss"
 
@@ -58,9 +58,10 @@ const Competencies = ({ className }) => {
 }
 
 export const PromoBlock = forwardRef(({ openContacts }, ref) => {
-    function openPortfolio() {
+    
+    const openPortfolio = useCallback(() => {
         scrollTo("#portfolio");
-    }
+    }, [])
 
     return (
         <section ref={ref} data-name="home" className="promoBlock">

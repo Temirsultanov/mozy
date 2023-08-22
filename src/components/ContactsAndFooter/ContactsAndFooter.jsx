@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react"
+import React, { useState, forwardRef, useCallback } from "react"
 import "./style.scss"
 
 import { Form, SuccessSubmit } from "../../lib/components/Form";
@@ -7,10 +7,10 @@ import { Logo } from "../../lib/components/Logo";
 
 export const ContactsAndFooter = forwardRef(({ className }, ref) => {
     const [submitted, setSubmitted] = useState(false);
-    const closeSuccessSubmit = () => {
-        console.log("Close")
+
+    const closeSuccessSubmit = useCallback(() => {
         setSubmitted(false);
-    }
+    }, [])
 
     return (
         <section ref={ref} id="contacts" data-name="contacts" className={className + " contactsAndFooter"}>

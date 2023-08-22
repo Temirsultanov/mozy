@@ -1,4 +1,4 @@
-import React, { useState, useMemo, forwardRef, useEffect, useRef } from "react"
+import React, { useState, useMemo, forwardRef, useEffect, useRef, useCallback } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -52,18 +52,19 @@ export const Portfolio = forwardRef(({ className }, ref) => {
         projectSwiper.current.slideTo(curProjIdx);
     }, [curProjIdx])
 
-    function decrement() {
-        setCurProjIdx(() => {
-            if (curProjIdx === 0) return PROJECTS.length - 1
-            else return curProjIdx - 1;
+    const decrement = useCallback(() => {
+        setCurProjIdx((prev) => {
+            if (prev === 0) return PROJECTS.length - 1
+            else return prev - 1;
         });
-    }
-    function increment() {
-        setCurProjIdx(() => {
-            if (curProjIdx === PROJECTS.length - 1) return 0
-            else return curProjIdx + 1;
+    }, [])
+
+    const increment = useCallback(() => {
+        setCurProjIdx((prev) => {
+            if (prev === PROJECTS.length - 1) return 0
+            else return prev + 1;
         });
-    }
+    }, [])
 
     return (
         <section ref={ref} id="portfolio" data-name="portfolio" className={className + " portfolio"}>

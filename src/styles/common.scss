@@ -3,14 +3,13 @@
 @import "./lib.scss";
 
 body {
+    position: relative;
+
     font-family: "Uni", Arial, Helvetica, sans-serif;
+    line-height: 1.4;
 
     color: $Coal;
     background-color: $Light-Gray;
-
-    line-height: 1.4;
-
-    position: relative;
 }
 
 button {

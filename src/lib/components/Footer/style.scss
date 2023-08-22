@@ -1,18 +1,18 @@
 @import "../../../styles/lib.scss";
 
 .footer {
-    padding: vh(30px) vh(40px);
+    padding: vw(30px) vw(40px);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    font-size: vh(16px);
+    font-size: vw(16px);
     line-height: 1;
 
     &__policy {
-        margin-right: vh(-10px);
-        padding: vh(10px);
+        margin-right: vw(-10px);
+        padding: vw(10px);
         text-decoration: underline;
 
         &:hover {
@@ -26,17 +26,6 @@
     }
     &__copyright, &__policy {
         opacity: 0.8;
-    }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .footer {
-        padding: vw(30px) vw(40px);
-
-        &__policy {
-            margin-right: vw(-10px);
-            padding: vw(10px);
-        }
     }
 }
 

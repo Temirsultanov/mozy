@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 
 import "../styles/common.scss";
 
@@ -63,15 +63,15 @@ const IndexPage = () => {
     };
   }, []);
 
-  const openContacts = () => {
+  const openContacts = useCallback(() => {
     closeScrollToBody();
     setContactsPopupClosed(false);
-  };
+  }, []);
 
-  const closeContacts = () => {
+  const closeContacts = useCallback(() => {
     setContactsPopupClosed(true);
     openScrollToBody();
-  };
+  }, [])
 
   return (
     <Layout openContacts={openContacts} visibleSection={visibleSection}>

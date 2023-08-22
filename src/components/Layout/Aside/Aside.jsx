@@ -1,6 +1,7 @@
 import React from "react";
 
-import { SOCIALS, SOCIAL_ICONS } from "../../../lib/constants";
+import { SOCIALS } from "../../../lib/constants";
+import { socialIcons } from "../../../lib/components/SocialLinks/SocialIcons";
 import "./style.scss";
 
 export const Aside = () => {
@@ -12,7 +13,7 @@ export const Aside = () => {
                     Object.keys(SOCIALS).map((key) => (
                         <li key={key}>
                             <a href={SOCIALS[key].href}>
-                                {SOCIAL_ICONS[key]}
+                                {socialIcons[key]}
                             </a>
                         </li>
                     ))

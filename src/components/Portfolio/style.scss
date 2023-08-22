@@ -2,8 +2,7 @@
 
 .portfolio {
     width: 100%;
-    height: 100vh;
-    padding-top: vh(0px);
+    padding-top: vw(0px);
 
     display: flex;
     position: relative;
@@ -13,9 +12,9 @@
 
     &__info {
         min-width: vw(1005px);
-        padding-top: vh(130px);
-        padding-right: vh(40px);
-        padding-bottom: vh(40px);
+        padding-top: vw(130px);
+        padding-right: vw(40px);
+        padding-bottom: vw(40px);
         padding-left: vh(130px);
 
         display: flex;
@@ -26,12 +25,12 @@
     }
 
     &__title {
-        font-size: vh(48px);
+        font-size: vw(48px);
         font-weight: 400;
     }
 
     &__projects {
-        margin-top: vh(70px);
+        margin-top: vw(70px);
     }
 
     &__photoWrapper {
@@ -42,11 +41,11 @@
     }
     &__controllers {
         position: absolute;
-        right: vh(40px);
-        bottom: vh(40px);
+        right: vw(40px);
+        bottom: vw(40px);
     }
     &__list {
-        margin-top: auto;
+        margin-top: vw(100px);
     }
     &__eye {
         display: none;
@@ -77,7 +76,7 @@
     }
     
     &__title {
-        font-size: vh(18px);
+        font-size: vw(18px);
         font-weight: 400;
         opacity: 0.6;
     }
@@ -96,52 +95,17 @@
             opacity: 1;
         }
         &:not(:last-child) {
-            margin-right: vh(40px);
+            margin-right: vw(40px);
         }
     }
     &__slider {
-        margin-top: vh(20px);
+        margin-top: vw(20px);
     }
     & span {
         display: block;
-        font-size: vh(18px);
+        font-size: vw(18px);
         line-height: 1.6;
     }
-}
-
-@media (min-width: 701px) and (max-aspect-ratio: 37 / 20) {
-    .portfolio {
-        &__info {
-            padding-top: vw(130px);
-            padding-right: vw(40px);
-            padding-bottom: vw(40px);
-            padding-left: vw(130px);
-        }
-        &__title {
-            font-size: vw(48px);
-        }
-        &__projects {
-            margin-top: vw(70px);
-        }
-        &__controllers {
-            right: vw(40px);
-            bottom: vw(40px);
-        }
-    } 
-    .projectList {
-        &__title {
-            font-size: vw(18px);
-        }
-        &__slider {
-            margin-top: vw(20px);
-        }
-        & span {
-            font-size: vw(18px);
-        }
-        &__item:not(:last-child) {
-            margin-right: vw(40px);
-        }
-    }   
 }
 
 @media (max-width: 700px) {

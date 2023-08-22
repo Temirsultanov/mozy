@@ -1,8 +1,8 @@
 @import "../../../styles/lib.scss";
 
 .socialLink {
-    width: vh(100px);
-    height: vh(100px);
+    width: vw(100px);
+    height: vw(100px);
     border-radius: 50%;
 
     display: flex;
@@ -38,8 +38,8 @@
         align-items: center;
 
         & svg {
-            width: vh(80px);
-            height: vh(80px);
+            width: vw(80px);
+            height: vw(80px);
         }
     }
     &:hover {
@@ -52,30 +52,14 @@
         }
     }
     &:focus-visible {
-        outline: 1px solid $Milk;
+        outline: 1px solid $White;
         outline-offset: 5px;
     }
 }
 
 .socialLinks {
     display: flex;
-    gap: vh(90px);
-}
-
-@media (min-width: 700px) and (max-aspect-ratio: 18 / 10) {
-    .socialLink {
-        width: vw(100px);
-        height: vw(100px);
-
-        &__icon svg {
-            width: vw(80px);
-            height: vw(80px);
-        }
-    }
-
-    .socialLinks {
-        gap: vw(90px);
-    }
+    gap: vw(90px);
 }
 
 @media (max-width: 700px) {
