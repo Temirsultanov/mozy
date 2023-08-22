@@ -78,7 +78,7 @@
 }
 
 .employees {
-    display: none;
+    opacity: 0;
 
     &__item {
         width: vw(256px);
@@ -87,7 +87,7 @@
         max-width: 70%;
     }
     &-init {
-        display: flex;
+        opacity: 1;
     }
 }
 
