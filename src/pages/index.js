@@ -44,7 +44,7 @@ const IndexPage = () => {
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
       threshold: 0.5,
-      rootMargin: "-30px",
+      rootMargin: "0px",
     });
 
     observer.observe(promoBlockRef.current);

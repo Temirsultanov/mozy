@@ -22,12 +22,12 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
                 <nav>
                     <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
                 </nav>
-                <ul className="mobileMenu__socialMedias">
+                {/* <ul className="mobileMenu__socialMedias">
                     <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{socialIcons.telegram}</a></li>
                     <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{socialIcons.whatsapp}</a></li>
                     <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{socialIcons.email}</a></li>
                     <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{socialIcons.phone}</a></li>
-                </ul>
+                </ul> */}
                 <Button onClick={openBrief}>Заполнить бриф</Button>
                 <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
             </div>
