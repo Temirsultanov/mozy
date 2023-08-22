@@ -78,11 +78,16 @@
 }
 
 .employees {
+    display: none;
+    
     &__item {
         width: vw(256px);
     }
     & h3 {
         max-width: 70%;
+    }
+    &-init {
+        display: flex;
     }
 }
 

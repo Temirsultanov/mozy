@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import "./style.scss";
 
@@ -16,9 +16,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 const Employees = ({ className, employees, prevButton, nextButton }) => {
+    const [init, setInit] = useState(false);
     return (
         <Swiper 
-            className={"employees " + className}
+            onSwiper={() => setInit(true)}
+            className={"employees " + (init ? " employees-init " : "") + className}
             slidesPerView={"auto"}
             navigation={{
                 prevEl: prevButton,
