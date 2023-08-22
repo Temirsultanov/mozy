@@ -33,7 +33,8 @@ const IndexPage = () => {
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio >= 0.1) {
+        console.log(entry)
+        if (entry.intersectionRatio >= 0.1 && entry.isIntersecting === true) {
           const id = entry.target.dataset.name;
           setVisibleSection(id);
           window.history.replaceState(null, null, "#" + id);
@@ -42,7 +43,6 @@ const IndexPage = () => {
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      root: null,
       threshold: 0.5,
       rootMargin: "-30px",
     });
