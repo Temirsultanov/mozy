@@ -5,7 +5,7 @@ import { Form, SuccessSubmit } from "../../lib/components/Form";
 import { Footer } from "../../lib/components/Footer";
 import { Logo } from "../../lib/components/Logo";
 
-export const ContactsAndFooter = forwardRef(({ className }, ref) => {
+export const ContactsAndFooter = forwardRef(({}, ref) => {
     const [submitted, setSubmitted] = useState(false);
 
     const closeSuccessSubmit = useCallback(() => {
@@ -13,7 +13,7 @@ export const ContactsAndFooter = forwardRef(({ className }, ref) => {
     }, [])
 
     return (
-        <section ref={ref} id="contacts" data-name="contacts" className={className + " contactsAndFooter"}>
+        <section ref={ref} id="contacts" data-name="contacts" className="contactsAndFooter">
             <div className="contacts">
                 <div className="contacts__content">
                     <h2 className="contacts__title">Контакты</h2>
