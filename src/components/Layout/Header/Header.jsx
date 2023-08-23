@@ -11,7 +11,7 @@ import "./style.scss";
 
 const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMenu, visibleSection}) => {
     return (
-        <div onClick={closeMobileMenu} className={"mobileMenu " + (isOpen && "mobileMenu-open")}>
+        <div onClick={closeMobileMenu} className={"mobileMenu " + (isOpen ? "mobileMenu-open": "")}>
             <div onClick={(e) => e.stopPropagation()} className="mobileMenu__inner">
                 <div className="mobileMenu__content">
                     <button onClick={closeMobileMenu} className="mobileMenu__closeButton" aria-label="Закрыть">
