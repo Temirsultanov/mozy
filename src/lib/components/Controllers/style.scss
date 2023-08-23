@@ -27,6 +27,11 @@
         &:hover {
             background-color: #f4d22b;
         }
+        &:focus-visible {
+            outline-offset: 5px;
+            border: 1px solid $Coal;
+            outline: 1px solid $White;
+        }
     }
 
     & .controllers__disabledButton {

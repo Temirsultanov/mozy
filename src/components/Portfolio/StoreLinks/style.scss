@@ -21,6 +21,7 @@
     color: $Coal;
     
     background-color: $Gray;
+    border: 1px solid $Gray;
     overflow: hidden;
 
     &-ios img {
@@ -33,6 +34,11 @@
     }
     &:hover {
         background-color: #d3d3d3;
+    }
+    &:focus-visible {
+        outline-offset: 5px;
+        border-color: $Coal;
+        outline: 1px solid $White;
     }
 }
 

@@ -33,7 +33,6 @@ const IndexPage = () => {
   useEffect(() => {
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
-        console.log(entry)
         if (entry.intersectionRatio >= 0.1 && entry.isIntersecting === true) {
           const id = entry.target.dataset.name;
           setVisibleSection(id);

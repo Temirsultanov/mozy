@@ -13,24 +13,26 @@ const MobileMenu = ({ isOpen, closeMobileMenu, openBrief, openContactsAndCloseMe
     return (
         <div onClick={closeMobileMenu} className={"mobileMenu " + (isOpen && "mobileMenu-open")}>
             <div onClick={(e) => e.stopPropagation()} className="mobileMenu__inner">
-                <button onClick={closeMobileMenu} className="mobileMenu__closeButton" aria-label="Закрыть">
-                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 -0.705413 0.708797 0.705413 1 16.9233)" stroke="white" strokeWidth="1.28384"/>
-                        <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 0.705413 -0.708797 0.705413 1 1.07666)" stroke="white" strokeWidth="1.28384"/>
-                    </svg>
-                </button>
-                <nav>
-                    <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
-                </nav>
-                <ul className="mobileMenu__socialMedias">
-                    <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{socialIcons.telegram}</a></li>
-                    <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{socialIcons.whatsapp}</a></li>
-                    <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{socialIcons.email}</a></li>
-                    <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{socialIcons.phone}</a></li>
-                </ul>
-                <Button onClick={openBrief}>Заполнить бриф</Button>
-                <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
-            </div>
+                <div className="mobileMenu__content">
+                    <button onClick={closeMobileMenu} className="mobileMenu__closeButton" aria-label="Закрыть">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 -0.705413 0.708797 0.705413 1 16.9233)" stroke="white" strokeWidth="1.28384"/>
+                            <line y1="-0.641918" x2="22.5732" y2="-0.641918" transform="matrix(0.708797 0.705413 -0.708797 0.705413 1 1.07666)" stroke="white" strokeWidth="1.28384"/>
+                        </svg>
+                    </button>
+                    <nav>
+                        <Menu visibleSection={visibleSection} closeMobileMenu={closeMobileMenu}/>
+                    </nav>
+                    <ul className="mobileMenu__socialMedias">
+                        <li><a aria-label={SOCIALS.telegram.title} href={SOCIALS.telegram.href}>{socialIcons.telegram}</a></li>
+                        <li><a aria-label={SOCIALS.whatsapp.title} href={SOCIALS.whatsapp.href}>{socialIcons.whatsapp}</a></li>
+                        <li><a aria-label={SOCIALS.email.title} href={SOCIALS.email.href}>{socialIcons.email}</a></li>
+                        <li><a aria-label={SOCIALS.phone.title} href={SOCIALS.phone.href}>{socialIcons.phone}</a></li>
+                    </ul>
+                    <Button onClick={openBrief}>Заполнить бриф</Button>
+                    <Button onClick={openContactsAndCloseMenu} className="mobileMenu__contactButton" category="secondary">Связаться с нами</Button>
+                </div>
+             </div>
         </div>
     )
 }

@@ -7,6 +7,7 @@
 
     font-weight: 700;
     color: $Coal;
+    outline: none;
 
     &-normal {
         padding: vw(17px) vw(35px);
@@ -43,6 +44,11 @@
     }
     &:active {
         color: $Coal;
+    }
+    &:focus-visible {
+        outline-offset: 5px;
+        border-color: $Coal;
+        outline: 1px solid $White;
     }
 }
 
