@@ -58,7 +58,7 @@ const Menu = ({ className, visibleSection, closeMobileMenu }) => {
     )
 }
 
-export const Header = ({ className, openContacts, visibleSection }) => {
+export const Header = ({ openContacts, visibleSection }) => {
     const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
 
     const openMobileMenu = useCallback(() => {
@@ -81,7 +81,7 @@ export const Header = ({ className, openContacts, visibleSection }) => {
     return (
         <>
         <MobileMenu openContactsAndCloseMenu={openContactsAndCloseMenu} openBrief={openBrief} isOpen={mobileMenuIsOpen} closeMobileMenu={closeMobileMenu} visibleSection={visibleSection} />
-        <header className={"header " + className}>
+        <header className="header">
             <div>
                 <Logo className="header__logo" />
                 <ul className="header__links">

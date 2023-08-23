@@ -54,7 +54,7 @@ const Employees = ({ className, employees, prevButton, nextButton }) => {
     )
 }
 
-export const Partnership = forwardRef(({ className, openContacts }, ref) => {
+export const Partnership = forwardRef(({ openContacts }, ref) => {
     const prevButton = useRef(null);
     const nextButton = useRef(null);
 
@@ -83,7 +83,7 @@ export const Partnership = forwardRef(({ className, openContacts }, ref) => {
     });
 
     return (
-        <section ref={ref} id="partnership" data-name="partnership" className={"partnership " + className}>
+        <section ref={ref} id="partnership" data-name="partnership" className="partnership">
             <div className="partnership__process">
                 <h2 className="partnership__title">Процесс сотрудничества</h2>
                 <ol>

@@ -57,7 +57,7 @@ const Footer = ({ openContacts }) => {
     )
 }
 
-export const WhyUs = forwardRef(({ className, openContacts }, ref) => {
+export const WhyUs = forwardRef(({ openContacts }, ref) => {
     const [activeReason, setActiveReason] = useState(null);
     const onReasonClick = (nextReason) => {
         setActiveReason((prevReason) => {
@@ -66,7 +66,7 @@ export const WhyUs = forwardRef(({ className, openContacts }, ref) => {
     }
 
     return (
-        <section ref={ref} id="why-us" data-name="why-us" className={className + " whyUs"}>
+        <section ref={ref} id="why-us" data-name="why-us" className="whyUs">
             <h2 className="whyUs__title">Почему мы</h2>
             <ul className="whyUs__reasons">
                 {reasons.map((reason) => (
