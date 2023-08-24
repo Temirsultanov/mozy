@@ -3,7 +3,7 @@ module.exports = {
     title: "Студия разработки Mozy — делаем сайты и приложения",
     siteUrl: `https://mozy.dev`,
     description: "Первый рабочий прототип через 30 дней. Бесплатно составляем техническое задание после брифа и переговоров. Разрабатываем IOS и Android приложения, сайты, Windows, MacOS и Linux приложения и UX/UI дизайн",
-    keywords: "Разработка, приложение, сайт, мобильное, iOS, Android, Web, Windows, MacOS, Linux"
+    keywords: "Разработка, приложение, сайт, мобильное, iOS, Android, Web, Windows, MacOS, Linux, React Native, JavaScript"
   },
   plugins: [
     `gatsby-plugin-image`,
