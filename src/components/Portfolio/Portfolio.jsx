@@ -14,7 +14,7 @@ import { Controllers } from "../../lib/components/Controllers";
 import { Eye } from "../../lib/components/Eye";
 import { StaticImage } from "gatsby-plugin-image";
 
-export const Portfolio = forwardRef(({ className }, ref) => {
+export const Portfolio = forwardRef(({}, ref) => {
     const photoSwiper = useRef(null);
     const projectSwiper = useRef(null);
 
@@ -67,7 +67,7 @@ export const Portfolio = forwardRef(({ className }, ref) => {
     }, [])
 
     return (
-        <section ref={ref} id="portfolio" data-name="portfolio" className={className + " portfolio"}>
+        <section ref={ref} id="portfolio" data-name="portfolio" className="portfolio">
             <div className="portfolio__info">
                 <h2 className="portfolio__title">Портфолио</h2>
                 <Eye className="portfolio__eye" />

@@ -9,9 +9,9 @@ const PlusIcon = ({ className }) => {
     )
 }
 
-export const Reason = ({ onClick, className = "", number, Icon, title, text, isActive = false }) => {
+export const Reason = ({ onClick, number, Icon, title, text, isActive = false }) => {
     return (
-        <li onClick={onClick} className={className + " reason" + (isActive ? " reason-active" : "")}>
+        <li onClick={onClick} className={"reason" + (isActive ? " reason-active" : "")}>
             <PlusIcon className="reason__plusIcon" />
             <Icon className="reason__icon"></Icon>
             <h3 className="reason__title">
